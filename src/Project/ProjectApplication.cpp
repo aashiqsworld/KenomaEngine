@@ -502,3 +502,8 @@ void ProjectApplication::LoadModel(std::string_view file)
         });
     }
 }
+
+void ProjectApplication::ProcessInput(float deltaTime)
+{
+
+}

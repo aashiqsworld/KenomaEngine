@@ -140,15 +140,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "imgui::@306ed2d68c6501e8728f"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "spdlog::@eb35cfce7893ccfeff1e"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "TracyClient::@5312c6e87bd9d431bdc8"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "imgui::@306ed2d68c6501e8728f"
 		},
 		{
 			"backtrace" : 2,

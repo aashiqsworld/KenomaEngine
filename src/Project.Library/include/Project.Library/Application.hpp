@@ -22,6 +22,7 @@ protected:
     virtual void RenderScene(float deltaTime);
     virtual void RenderUI(float deltaTime);
     virtual void Update(float deltaTime);
+    virtual void ProcessInput(float deltaTime);
 
 
 private:

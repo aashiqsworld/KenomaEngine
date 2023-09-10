@@ -74,6 +74,8 @@ protected:
     void RenderScene(float deltaTime) override;
     void RenderUI(float deltaTime) override;
     void Update(float deltaTime) override;
+    void ProcessInput(float deltaTime) override;
+
 
 private:
     Model _cubes;
@@ -83,4 +85,5 @@ private:
 
     bool MakeShader(std::string_view vertexShaderFilePath, std::string_view fragmentShaderFilePath);
     void LoadModel(std::string_view filePath);
+
 };

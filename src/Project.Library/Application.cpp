@@ -38,6 +38,7 @@ void Application::Run()
         previousTime = currentTime;
 
         glfwPollEvents();
+        ProcessInput(deltaTime);
         Update(deltaTime);
         Render(deltaTime);
     }
@@ -169,6 +170,10 @@ void Application::RenderUI([[maybe_unused]] float dt )
 
 void Application::Update([[maybe_unused]] float dt )
 {
+
+}
+
+void Application::ProcessInput([[maybe_unused]] float dt) {
 
 }
 

@@ -17,9 +17,9 @@
 423	786	7159987596486908	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj	47f45f97772d6c20
 13	443	7159987593011247	lib/CMakeFiles/imgui.dir/__/_deps/imgui-src/imgui_demo.cpp.obj	b143b14c172aa683
 19	552	7159987594116492	lib/CMakeFiles/imgui.dir/__/_deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj	7ad2ac9129a3f98f
-2	56	0	src/Project/CMakeFiles/copy_data	72dd585739005e07
+2	52	0	src/Project/CMakeFiles/copy_data	72dd585739005e07
 411	746	7159987596066927	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj	4c4baea27fc754a8
-2	56	0	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/src/Project/CMakeFiles/copy_data	72dd585739005e07
+2	52	0	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/src/Project/CMakeFiles/copy_data	72dd585739005e07
 350	746	7159987596066927	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj	21441ab23ba48ef7
 444	1793	7159987605891152	_deps/glad-build/include/glad/glad.h	45dd8aa5626d3827
 366	747	7159987596096924	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj	dc71c38e98e8dc9a
@@ -46,6 +46,11 @@
 2602	2656	7159987615118947	_deps/spdlog-build/spdlogd.lib	9bfed28748e34503
 1793	3115	7159987619759056	src/Project.Library/CMakeFiles/Project.Library.dir/Application.cpp.obj	dc669a7f7742cfb0
 3363	3687	7159987625309706	src/Project/Project.exe	ac944cfd2fa9db06
-3	7012	7160810160705375	build.ninja	d962fc0b0847ec70
-2	52	0	src/Project/CMakeFiles/copy_data	72dd585739005e07
-2	52	0	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/src/Project/CMakeFiles/copy_data	72dd585739005e07
+3	7012	7160812446432287	build.ninja	d962fc0b0847ec70
+5	58	0	src/Project/CMakeFiles/copy_data	72dd585739005e07
+5	58	0	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/src/Project/CMakeFiles/copy_data	72dd585739005e07
+61	733	7160822217141082	src/Project/CMakeFiles/Project.dir/Main.cpp.obj	9d9bf8af13279489
+3	1419	7160822223980697	src/Project.Library/CMakeFiles/Project.Library.dir/Application.cpp.obj	dc669a7f7742cfb0
+1419	1459	7160822224392950	src/Project.Library/Project.Library.lib	40e80a5e6ae1872a
+59	1654	7160822226317839	src/Project/CMakeFiles/Project.dir/ProjectApplication.cpp.obj	9c9c29e195354a82
+1658	1881	7160822228327251	src/Project/Project.exe	ac944cfd2fa9db06

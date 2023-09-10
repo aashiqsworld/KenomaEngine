@@ -20,6 +20,8 @@ set(sourceFiles
     ProjectApplication.cpp
         Camera.h
         Camera.h
+        Camera.h
+        Camera.h
 )
 
 add_executable(Project ${sourceFiles})
