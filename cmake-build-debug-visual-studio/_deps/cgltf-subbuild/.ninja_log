@@ -1,0 +1,21 @@
+# ninja log v5
+0	30	7159987376299277	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-mkdir	1f2d97f70b08a5b8
+0	30	7159987376299277	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-mkdir	1f2d97f70b08a5b8
+30	2455	7159987400549306	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-download	5487147b61f9e269
+30	2455	7159987400549306	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-download	5487147b61f9e269
+2455	3533	0	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-update	e25361fd7566e871
+2455	3533	0	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-update	e25361fd7566e871
+3533	3566	7159987411658968	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-patch	575d2ea86726f2a4
+3533	3566	7159987411658968	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-patch	575d2ea86726f2a4
+3566	3598	7159987411969945	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-configure	3a13790f8daabddc
+3566	3598	7159987411969945	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-configure	3a13790f8daabddc
+3598	3629	7159987412289964	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-build	de0e268af59c9cd7
+3598	3629	7159987412289964	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-build	de0e268af59c9cd7
+3629	3663	7159987412619938	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-install	43c615e3f85f6050
+3629	3663	7159987412619938	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-install	43c615e3f85f6050
+3663	3692	7159987412915044	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-test	cc08bb41295e060f
+3663	3692	7159987412915044	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-test	cc08bb41295e060f
+3692	3732	7159987413325044	CMakeFiles/cgltf-populate-complete	43cebcf785ac8b3a
+3692	3732	7159987413325044	cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-done	43cebcf785ac8b3a
+3692	3732	7159987413325044	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate-complete	43cebcf785ac8b3a
+3692	3732	7159987413325044	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-done	43cebcf785ac8b3a

@@ -1,0 +1,21 @@
+# ninja log v5
+0	30	7159987307537560	glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir	7ff4fe8c06c5ebae
+0	30	7159987307537560	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir	7ff4fe8c06c5ebae
+30	5695	7159987364185818	glm-populate-prefix/src/glm-populate-stamp/glm-populate-download	afbbc6fccc0c2b68
+30	5695	7159987364185818	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-download	afbbc6fccc0c2b68
+5695	6613	0	glm-populate-prefix/src/glm-populate-stamp/glm-populate-update	9fff423665ad04f5
+5695	6613	0	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-update	9fff423665ad04f5
+6614	6640	7159987373642404	glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch	eb7ef02a2d520779
+6614	6640	7159987373642404	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch	eb7ef02a2d520779
+6641	6667	7159987373907459	glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure	548f93adebfc1642
+6641	6667	7159987373907459	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure	548f93adebfc1642
+6667	6695	7159987374197469	glm-populate-prefix/src/glm-populate-stamp/glm-populate-build	9406f7f50284cd62
+6667	6695	7159987374197469	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-build	9406f7f50284cd62
+6695	6722	7159987374467466	glm-populate-prefix/src/glm-populate-stamp/glm-populate-install	1980a4110b8d5b63
+6695	6722	7159987374467466	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-install	1980a4110b8d5b63
+6722	6750	7159987374744962	glm-populate-prefix/src/glm-populate-stamp/glm-populate-test	c9582aa449cd3514
+6722	6750	7159987374744962	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-test	c9582aa449cd3514
+6750	6787	7159987375115507	CMakeFiles/glm-populate-complete	6f36c5774b1fc47c
+6750	6787	7159987375115507	glm-populate-prefix/src/glm-populate-stamp/glm-populate-done	6f36c5774b1fc47c
+6750	6787	7159987375115507	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/CMakeFiles/glm-populate-complete	6f36c5774b1fc47c
+6750	6787	7159987375115507	C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-done	6f36c5774b1fc47c
