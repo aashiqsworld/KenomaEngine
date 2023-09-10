@@ -144,11 +144,11 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "imgui::@306ed2d68c6501e8728f"
+			"id" : "TracyClient::@5312c6e87bd9d431bdc8"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "TracyClient::@5312c6e87bd9d431bdc8"
+			"id" : "imgui::@306ed2d68c6501e8728f"
 		},
 		{
 			"backtrace" : 2,

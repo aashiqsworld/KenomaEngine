@@ -2810,6 +2810,18 @@
 			"value" : "2be7bde89331d9e8053930836630c6e3"
 		},
 		{
+			"name" : "_Python_Interpreter_REASON_FAILURE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Interpreter reason failure"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : ""
+		},
+		{
 			"name" : "_Python_NumPy_REASON_FAILURE",
 			"properties" : 
 			[
