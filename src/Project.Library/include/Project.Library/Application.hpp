@@ -23,8 +23,9 @@ protected:
     virtual void RenderScene(float deltaTime);
     virtual void RenderUI(float deltaTime);
     virtual void Update(float deltaTime);
-    virtual void ProcessKeyboardInput(float deltaTime);
+    virtual void ProcessKeyboardInput(GLFWwindow *window, float deltaTime);
     virtual void ProcessMousePosition(float deltaTime);
+
 
 private:
     GLFWwindow* _windowHandle = nullptr;

@@ -7,6 +7,7 @@ layout (location = 3) in vec4 iTangent;
 
 layout (location = 0) out vec2 oUvs;
 layout (location = 1) out flat uint oBaseColorIndex;
+//layout (location = 3) out
 
 layout (location = 0) uniform mat4 uProjection;
 layout (location = 1) uniform mat4 uView;

@@ -75,7 +75,7 @@ protected:
     void RenderScene(float deltaTime) override;
     void RenderUI(float deltaTime) override;
     void Update(float deltaTime) override;
-    void ProcessKeyboardInput(float deltaTime) override;
+    void ProcessKeyboardInput(GLFWwindow *window, float deltaTime) override;
     void ProcessMousePosition(float deltaTime) override;
 
 private:
@@ -87,6 +87,7 @@ private:
     Camera camera;
     bool firstMouse = true;
     float lastX = 100, lastY = 100;
+    bool mouseVisible = false;
 
     bool MakeShader(std::string_view vertexShaderFilePath, std::string_view fragmentShaderFilePath);
     void LoadModel(std::string_view filePath);

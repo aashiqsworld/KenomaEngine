@@ -81,7 +81,8 @@ bool ProjectApplication::Load()
         return false;
     }
 
-    LoadModel("./data/models/SM_Deccer_Cubes_Textured.gltf");
+//    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
@@ -496,10 +497,24 @@ void ProjectApplication::LoadModel(std::string_view file)
     }
 }
 
-void ProjectApplication::ProcessKeyboardInput(float deltaTime)
+void ProjectApplication::ProcessKeyboardInput(GLFWwindow *window, float deltaTime)
 {
-    if (IsKeyPressed(GLFW_KEY_ESCAPE))
+    if (IsKeyPressed(GLFW_KEY_ESCAPE) && mouseVisible)
+    {
         Close();
+    }
+    else if(IsKeyPressed(GLFW_KEY_ESCAPE) && !mouseVisible)
+    {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        mouseVisible = true;
+    }
+
+    if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+    {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        mouseVisible = false;
+    }
+
 
     float cameraSpeed = 2.5f * deltaTime;
     if(IsKeyPressed(GLFW_KEY_LEFT_SHIFT) || IsKeyPressed(GLFW_KEY_RIGHT_SHIFT))

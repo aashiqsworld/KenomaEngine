@@ -38,7 +38,7 @@ void Application::Run()
         previousTime = currentTime;
 
         glfwPollEvents();
-        ProcessKeyboardInput(deltaTime);
+        ProcessKeyboardInput(_windowHandle, deltaTime);
         ProcessMousePosition(deltaTime);
         Update(deltaTime);
         Render(deltaTime);
@@ -60,6 +60,7 @@ void Application::Close()
 bool Application::IsKeyPressed(int32_t key)
 {
     return glfwGetKey(_windowHandle, key) == GLFW_PRESS;
+
 }
 
 void Application::GetMousePosition(double *xpos, double *ypos)
@@ -180,7 +181,7 @@ void Application::Update([[maybe_unused]] float dt )
 
 }
 
-void Application::ProcessKeyboardInput([[maybe_unused]] float dt) {
+void Application::ProcessKeyboardInput(GLFWwindow *window, [[maybe_unused]] float dt) {
 
 }
 
