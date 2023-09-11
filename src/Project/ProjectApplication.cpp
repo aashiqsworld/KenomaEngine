@@ -82,7 +82,7 @@ bool ProjectApplication::Load()
     }
 
 //    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
+    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
