@@ -11,6 +11,7 @@ public:
 protected:
     void Close();
     bool IsKeyPressed(int32_t key);
+    void GetMousePosition(double *xpos, double *ypos);
     
     double GetDeltaTime();
 
@@ -22,8 +23,8 @@ protected:
     virtual void RenderScene(float deltaTime);
     virtual void RenderUI(float deltaTime);
     virtual void Update(float deltaTime);
-    virtual void ProcessInput(float deltaTime);
-
+    virtual void ProcessKeyboardInput(float deltaTime);
+    virtual void ProcessMousePosition(float deltaTime);
 
 private:
     GLFWwindow* _windowHandle = nullptr;

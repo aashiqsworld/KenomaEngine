@@ -38,7 +38,8 @@ void Application::Run()
         previousTime = currentTime;
 
         glfwPollEvents();
-        ProcessInput(deltaTime);
+        ProcessKeyboardInput(deltaTime);
+        ProcessMousePosition(deltaTime);
         Update(deltaTime);
         Render(deltaTime);
     }
@@ -59,6 +60,11 @@ void Application::Close()
 bool Application::IsKeyPressed(int32_t key)
 {
     return glfwGetKey(_windowHandle, key) == GLFW_PRESS;
+}
+
+void Application::GetMousePosition(double *xpos, double *ypos)
+{
+    glfwGetCursorPos(_windowHandle, xpos, ypos);
 }
 
 bool Application::Initialize()
@@ -96,6 +102,7 @@ bool Application::Initialize()
     glfwSetWindowPos(_windowHandle, screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
 
     glfwMakeContextCurrent(_windowHandle);
+    glfwSetInputMode(_windowHandle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
     ImGui::CreateContext();
@@ -173,7 +180,7 @@ void Application::Update([[maybe_unused]] float dt )
 
 }
 
-void Application::ProcessInput([[maybe_unused]] float dt) {
+void Application::ProcessKeyboardInput([[maybe_unused]] float dt) {
 
 }
 
@@ -183,4 +190,8 @@ void Application::AfterCreatedUiContext()
 
 void Application::BeforeDestroyUiContext()
 {
+}
+
+void Application::ProcessMousePosition(float deltaTime) {
+
 }

@@ -10,6 +10,7 @@
 #include <string_view>
 #include <vector>
 #include <memory>
+#include "Camera.h"
 
 struct Vertex
 {
@@ -74,14 +75,18 @@ protected:
     void RenderScene(float deltaTime) override;
     void RenderUI(float deltaTime) override;
     void Update(float deltaTime) override;
-    void ProcessInput(float deltaTime) override;
-
+    void ProcessKeyboardInput(float deltaTime) override;
+    void ProcessMousePosition(float deltaTime) override;
 
 private:
     Model _cubes;
     uint32_t _shaderProgram;
 
     float _elapsedTime = 0.0f;
+
+    Camera camera;
+    bool firstMouse = true;
+    float lastX = 100, lastY = 100;
 
     bool MakeShader(std::string_view vertexShaderFilePath, std::string_view fragmentShaderFilePath);
     void LoadModel(std::string_view filePath);

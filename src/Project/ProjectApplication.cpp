@@ -82,27 +82,20 @@ bool ProjectApplication::Load()
     }
 
     LoadModel("./data/models/SM_Deccer_Cubes_Textured.gltf");
+    camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
 }
 
 void ProjectApplication::Update(float deltaTime)
 {
-    if (IsKeyPressed(GLFW_KEY_ESCAPE))
-    {
-        Close();
-    }
-
     _elapsedTime += deltaTime;
 }
 
 void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
 {
-    const auto projection = glm::perspective(glm::radians(80.0f), 1920.0f / 1080.0f, 0.1f, 256.0f);
-    const auto view = glm::lookAt(
-        glm::vec3(3 * std::cos(glfwGetTime() / 4), 2, -3 * std::sin(glfwGetTime() / 4)),
-        glm::vec3(0, 0, 0),
-        glm::vec3(0, 1, 0));
+    const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
+    const auto view = camera.GetViewMatrix();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glUseProgram(_shaderProgram);
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
@@ -503,7 +496,49 @@ void ProjectApplication::LoadModel(std::string_view file)
     }
 }
 
-void ProjectApplication::ProcessInput(float deltaTime)
+void ProjectApplication::ProcessKeyboardInput(float deltaTime)
 {
+    if (IsKeyPressed(GLFW_KEY_ESCAPE))
+        Close();
 
+    float cameraSpeed = 2.5f * deltaTime;
+    if(IsKeyPressed(GLFW_KEY_LEFT_SHIFT) || IsKeyPressed(GLFW_KEY_RIGHT_SHIFT))
+        cameraSpeed *= 5;
+    if(IsKeyPressed(GLFW_KEY_W))
+        camera.ProcessKeyboard(FORWARD, cameraSpeed);
+    if(IsKeyPressed(GLFW_KEY_A))
+        camera.ProcessKeyboard(LEFT, cameraSpeed);
+    if(IsKeyPressed(GLFW_KEY_S))
+        camera.ProcessKeyboard(BACKWARD, cameraSpeed);
+    if(IsKeyPressed(GLFW_KEY_D))
+        camera.ProcessKeyboard(RIGHT, cameraSpeed);
+    if(IsKeyPressed(GLFW_KEY_E))
+        camera.ProcessKeyboard(UP, cameraSpeed);
+    if(IsKeyPressed(GLFW_KEY_Q))
+        camera.ProcessKeyboard(DOWN, cameraSpeed);
+}
+
+void ProjectApplication::ProcessMousePosition(float deltaTime)
+{
+    double xpos, ypos;
+    GetMousePosition(&xpos, &ypos);
+
+    if(firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    // calculate the mouse's offset since the last frame
+    float xOffset = xpos - lastX;
+    float yOffset = lastY - ypos; // reversed since y-coords go bottom to top
+    lastX = xpos;
+    lastY = ypos;
+
+    const float sensitivity = 0.1f;
+    xOffset *= sensitivity;
+    yOffset *= sensitivity;
+
+    camera.ProcessMouseMovement(xOffset, yOffset);
 }
