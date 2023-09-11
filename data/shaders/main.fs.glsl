@@ -45,13 +45,19 @@ struct SpotLight {
 layout (location = 0) out vec4 oPixel;
 layout (location = 0) in vec2 iUvs;
 layout (location = 1) in flat uint iBaseColorIndex;
-layout (location = 2) uniform sampler2D[16] uTextures;
+layout (location = 2) in flat uint iNormalIndex;
+layout (location = 3) uniform sampler2D[16] uTextures;
+
+in vec3 Normal;
+in vec3 FragPos;
 
 uniform DirLight dirLight;
 uniform PointLight pointLight;
 uniform SpotLight spotLight;
 
 uniform Material material;
+
+uniform vec3 viewPos;
 
 void main()
 {

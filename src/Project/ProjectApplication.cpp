@@ -102,6 +102,13 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
     glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
 
+    // set lighting data
+    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
+    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.ambient"), 0.05f, 0.05f, 0.05f);
+    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
+    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
+
+
     struct ObjectData
     {
         uint32_t transformIndex;
@@ -160,7 +167,7 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
 
         for (uint32_t offset = 0; const auto texture : textureHandles[index])
         {
-            glUniform1i(2 + offset, offset);
+            glUniform1i(3 + offset, offset);
             glActiveTexture(GL_TEXTURE0 + offset);
             glBindTexture(GL_TEXTURE_2D, texture);
             offset++;
@@ -495,6 +502,8 @@ void ProjectApplication::LoadModel(std::string_view file)
             info.NormalTexture
         });
     }
+    if(false)
+    {}
 }
 
 void ProjectApplication::ProcessKeyboardInput(GLFWwindow *window, float deltaTime)
