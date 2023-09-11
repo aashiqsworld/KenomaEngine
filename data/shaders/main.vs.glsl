@@ -37,6 +37,6 @@ void main()
     oUvs = iUv;
     oBaseColorIndex = objectData[gl_DrawID].baseColorIndex;
     Normal = mat3(transpose(inverse(transforms[objectData[gl_DrawID].transformIndex]))) * iNormal;
-    FragPos = vec3(transpose(inverse(transforms[objectData[gl_DrawID].transformIndex])) * vec4(iPosition, 1.0));
+    FragPos = vec3(transforms[objectData[gl_DrawID].transformIndex] * vec4(iPosition, 1.0));
     gl_Position = uProjection * uView * transforms[objectData[gl_DrawID].transformIndex] * vec4(iPosition, 1.0);
 }

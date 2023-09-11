@@ -59,9 +59,23 @@ uniform Material material;
 
 uniform vec3 viewPos;
 
+// method signatures
+vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir);
+vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir);
+vec3 CalcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir);
+
 void main()
 {
-    oPixel = vec4(texture(uTextures[iBaseColorIndex], iUvs).rgb, 1.0);
+    // properties
+    vec3 norm = normalize(Normal);
+    vec3 viewDir = normalize(viewPos - FragPos);
+
+    vec3 result = vec3(0.0, 0.0, 0.0);
+    result = CalcDirLight(dirLight, norm, viewDir);
+
+
+//    oPixel = vec4(texture(uTextures[iBaseColorIndex], iUvs).rgb, 1.0);
+    oPixel = vec4(result, 1.0);
 }
 
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)

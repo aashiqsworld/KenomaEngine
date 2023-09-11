@@ -81,8 +81,9 @@ bool ProjectApplication::Load()
         return false;
     }
 
-//    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+//    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+//    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
@@ -102,7 +103,14 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
     glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
 
-    // set lighting data
+    // set lighting-related data
+    glUniform3fv(glGetUniformLocation(_shaderProgram, "viewPos"), 1, &camera.Position[0]);
+
+    glUniform3f(glGetUniformLocation(_shaderProgram, "material.ambient"), 1.0f, 0.5f, 0.31f);
+    glUniform1i(glGetUniformLocation(_shaderProgram, "material.diffuse"), 0);
+    glUniform1i(glGetUniformLocation(_shaderProgram, "material.specular"), 1);
+    glUniform1f(glGetUniformLocation(_shaderProgram, "material.shininess"), 32.0f);
+
     glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
     glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.ambient"), 0.05f, 0.05f, 0.05f);
     glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
@@ -502,8 +510,6 @@ void ProjectApplication::LoadModel(std::string_view file)
             info.NormalTexture
         });
     }
-    if(false)
-    {}
 }
 
 void ProjectApplication::ProcessKeyboardInput(GLFWwindow *window, float deltaTime)
