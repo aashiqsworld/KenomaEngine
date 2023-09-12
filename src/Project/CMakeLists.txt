@@ -18,10 +18,12 @@ add_custom_target(copy_data ALL COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMA
 set(sourceFiles
     Main.cpp
     ProjectApplication.cpp
-        Camera.h
-        Camera.h
-        Camera.h
-        Camera.h
+        Camera.hpp
+        Camera.hpp
+        Camera.hpp
+        Camera.hpp
+        Shader.hpp
+        Shader.hpp
 )
 
 add_executable(Project ${sourceFiles})

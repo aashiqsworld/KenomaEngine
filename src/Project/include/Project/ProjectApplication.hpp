@@ -10,7 +10,8 @@
 #include <string_view>
 #include <vector>
 #include <memory>
-#include "Camera.h"
+#include "Camera.hpp"
+#include "Shader.hpp"
 
 struct Vertex
 {
@@ -81,6 +82,7 @@ protected:
 private:
     Model _cubes;
     uint32_t _shaderProgram;
+    Shader litshader;
 
     float _elapsedTime = 0.0f;
 

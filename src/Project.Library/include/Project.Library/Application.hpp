@@ -7,6 +7,8 @@ class Application
 {
 public:
     void Run();
+    int windowWidth = 1920;
+    int windowHeight = 1080;
 
 protected:
     void Close();

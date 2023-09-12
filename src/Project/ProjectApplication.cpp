@@ -76,13 +76,15 @@ bool ProjectApplication::Load()
         return false;
     }
 
-    if (!MakeShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl"))
-    {
-        return false;
-    }
+//    if (!MakeShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl"))
+//    {
+//        return false;
+//    }
 
-    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-//    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+    litshader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
+
+//    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
@@ -99,22 +101,22 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
     const auto view = camera.GetViewMatrix();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glUseProgram(_shaderProgram);
+    glUseProgram(litshader.ID);
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
     glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
 
     // set lighting-related data
-    glUniform3fv(glGetUniformLocation(_shaderProgram, "viewPos"), 1, &camera.Position[0]);
+    glUniform3fv(glGetUniformLocation(litshader.ID, "viewPos"), 1, &camera.Position[0]);
 
-    glUniform3f(glGetUniformLocation(_shaderProgram, "material.ambient"), 1.0f, 0.5f, 0.31f);
-    glUniform1i(glGetUniformLocation(_shaderProgram, "material.diffuse"), 0);
-    glUniform1i(glGetUniformLocation(_shaderProgram, "material.specular"), 1);
-    glUniform1f(glGetUniformLocation(_shaderProgram, "material.shininess"), 32.0f);
+    glUniform3f(glGetUniformLocation(litshader.ID, "material.ambient"), 1.0f, 0.5f, 0.31f);
+    glUniform1i(glGetUniformLocation(litshader.ID, "material.diffuse"), 0);
+    glUniform1i(glGetUniformLocation(litshader.ID, "material.specular"), 1);
+    glUniform1f(glGetUniformLocation(litshader.ID, "material.shininess"), 32.0f);
 
-    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.ambient"), 0.05f, 0.05f, 0.05f);
-    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
-    glUniform3f(glGetUniformLocation(_shaderProgram, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
+    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
+    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.ambient"), 0.05f, 0.05f, 0.05f);
+    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
+    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
 
 
     struct ObjectData
@@ -193,15 +195,15 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
 
 void ProjectApplication::RenderUI(float deltaTime)
 {
-    ImGui::Begin("Window");
+    ImGui::Begin("OpenGL Rasterizer");
     {
-        ImGui::TextUnformatted("Hello World!");
+//        ImGui::TextUnformatted("Hello World!");
         ImGui::Text("Time in seconds since startup: %f", _elapsedTime);
         ImGui::Text("The delta time between frames: %f", deltaTime);
         ImGui::End();
     }
 
-    ImGui::ShowDemoWindow();
+//    ImGui::ShowDemoWindow();
 }
 
 bool ProjectApplication::MakeShader(std::string_view vertexShaderFilePath, std::string_view fragmentShaderFilePath)
