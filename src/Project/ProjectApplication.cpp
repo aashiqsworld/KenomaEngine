@@ -23,15 +23,6 @@
 #include <queue>
 #include <set>
 
-static std::string Slurp(std::string_view path)
-{
-    std::ifstream file(path.data(), std::ios::ate);
-    std::string result(file.tellg(), '\0');
-    file.seekg(0);
-    file.read((char*)result.data(), result.size());
-    return result;
-}
-
 namespace fs = std::filesystem;
 
 static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* image)
@@ -76,15 +67,10 @@ bool ProjectApplication::Load()
         return false;
     }
 
-//    if (!MakeShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl"))
-//    {
-//        return false;
-//    }
+    litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
-    litshader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
-
-//    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+//    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
@@ -101,24 +87,38 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
     const auto view = camera.GetViewMatrix();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glUseProgram(litshader.ID);
+    litShader.use();
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
     glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
 
+    // local data
+    glm::vec3 pointLightPositions[] = {
+            glm::vec3( 0.7f,  0.2f,  2.0f),
+            glm::vec3( 2.3f, -3.3f, -4.0f),
+            glm::vec3(-4.0f,  2.0f, -12.0f),
+            glm::vec3( 0.0f,  0.0f, -3.0f)
+    };
+
     // set lighting-related data
-    glUniform3fv(glGetUniformLocation(litshader.ID, "viewPos"), 1, &camera.Position[0]);
+    litShader.setVec3("viewPos", camera.Position);
 
-    glUniform3f(glGetUniformLocation(litshader.ID, "material.ambient"), 1.0f, 0.5f, 0.31f);
-    glUniform1i(glGetUniformLocation(litshader.ID, "material.diffuse"), 0);
-    glUniform1i(glGetUniformLocation(litshader.ID, "material.specular"), 1);
-    glUniform1f(glGetUniformLocation(litshader.ID, "material.shininess"), 32.0f);
+    litShader.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+    litShader.setInt("material.diffuse", 0);
+    litShader.setInt("material.specular", 1);
+    litShader.setFloat("material.shininess", 32.0f);
 
-    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.ambient"), 0.05f, 0.05f, 0.05f);
-    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
-    glUniform3f(glGetUniformLocation(litshader.ID, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
+    litShader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+    litShader.setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+    litShader.setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+    litShader.setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
-
+    litShader.setVec3("pointLight.position", 0.7f,  3.0f,  2.0f);
+    litShader.setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
+    litShader.setVec3("pointLight.diffuse", 0.8f, 0.0f, 0.8f);
+    litShader.setVec3("pointLight.specular", 1.0f, 0.0f, 1.0f);
+    litShader.setFloat("pointLight.constant", 1.0f);
+    litShader.setFloat("pointLight.linear", 0.09f);
+    litShader.setFloat("pointLight.quadratic", 0.032f);
     struct ObjectData
     {
         uint32_t transformIndex;
@@ -204,55 +204,6 @@ void ProjectApplication::RenderUI(float deltaTime)
     }
 
 //    ImGui::ShowDemoWindow();
-}
-
-bool ProjectApplication::MakeShader(std::string_view vertexShaderFilePath, std::string_view fragmentShaderFilePath)
-{
-    int success = false;
-    char log[1024] = {};
-    const auto vertexShaderSource = Slurp(vertexShaderFilePath);
-    const char* vertexShaderSourcePtr = vertexShaderSource.c_str();
-    const auto vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSourcePtr, nullptr);
-    glCompileShader(vertexShader);
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(vertexShader, 1024, nullptr, log);
-        spdlog::error(log);
-        return false;
-    }
-
-    const auto fragmentShaderSource = Slurp(fragmentShaderFilePath);
-    const char* fragmentShaderSourcePtr = fragmentShaderSource.c_str();
-    const auto fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSourcePtr, nullptr);
-    glCompileShader(fragmentShader);
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(fragmentShader, 1024, nullptr, log);
-        spdlog::error(log);
-        return false;
-    }
-
-    _shaderProgram = glCreateProgram();
-    glAttachShader(_shaderProgram, vertexShader);
-    glAttachShader(_shaderProgram, fragmentShader);
-    glLinkProgram(_shaderProgram);
-    glGetProgramiv(_shaderProgram, GL_LINK_STATUS, &success);
-    if (!success)
-    {
-        glGetProgramInfoLog(_shaderProgram, 1024, nullptr, log);
-        spdlog::error(log);
-
-        return false;
-    }
-
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-
-    return true;
 }
 
 void ProjectApplication::LoadModel(std::string_view file)

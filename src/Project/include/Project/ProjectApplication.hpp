@@ -82,7 +82,7 @@ protected:
 private:
     Model _cubes;
     uint32_t _shaderProgram;
-    Shader litshader;
+    Shader litShader;
 
     float _elapsedTime = 0.0f;
 
