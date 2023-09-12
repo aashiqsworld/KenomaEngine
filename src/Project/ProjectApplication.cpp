@@ -119,6 +119,18 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setFloat("pointLight.constant", 1.0f);
     litShader.setFloat("pointLight.linear", 0.09f);
     litShader.setFloat("pointLight.quadratic", 0.032f);
+
+    litShader.setVec3("spotLight.position", camera.Position);
+    litShader.setVec3("spotLight.direction", camera.Front);
+    litShader.setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+    litShader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
+    litShader.setVec3("spotLight.specular", 1.0f, 1.0f, 1.0f);
+    litShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5)));
+    litShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0)));
+    litShader.setFloat("spotLight.constant", 1.0f);
+    litShader.setFloat("spotLight.linear", 0.09f);
+    litShader.setFloat("spotLight.quadratic", 0.032f);
+
     struct ObjectData
     {
         uint32_t transformIndex;

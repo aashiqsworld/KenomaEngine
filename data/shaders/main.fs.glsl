@@ -73,10 +73,8 @@ void main()
     vec3 result = vec3(0.0, 0.0, 0.0);
     result = CalcDirLight(dirLight, norm, viewDir);
     result += CalcPointLight(pointLight, norm, FragPos, viewDir);
+    result += CalcSpotLight(spotLight, norm, FragPos, viewDir);
 
-
-
-//    oPixel = vec4(texture(uTextures[iBaseColorIndex], iUvs).rgb, 1.0);
     oPixel = vec4(result, 1.0);
 }
 
