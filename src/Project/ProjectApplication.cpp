@@ -25,6 +25,14 @@
 
 namespace fs = std::filesystem;
 
+// global var declarations
+bool exitApplication = false;
+bool mouseVisible = false;
+
+// method declarations
+void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+
+
 static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* image)
 {
     std::string texturePath;
@@ -66,15 +74,17 @@ bool ProjectApplication::Load()
         spdlog::error("App: Unable to load");
         return false;
     }
+    glfwSetKeyCallback(_windowHandle, KeyboardInputCallback);
 
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
-    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-//    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+//    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
+
 }
 
 void ProjectApplication::Update(float deltaTime)
@@ -87,7 +97,7 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
     const auto view = camera.GetViewMatrix();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    litShader.use();
+    litShader.Bind();
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
     glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
 
@@ -114,8 +124,8 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
 
     litShader.setVec3("pointLight.position", 0.7f,  3.0f,  2.0f);
     litShader.setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
-    litShader.setVec3("pointLight.diffuse", 0.8f, 0.0f, 0.8f);
-    litShader.setVec3("pointLight.specular", 1.0f, 0.0f, 1.0f);
+    litShader.setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
+    litShader.setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);
     litShader.setFloat("pointLight.constant", 1.0f);
     litShader.setFloat("pointLight.linear", 0.09f);
     litShader.setFloat("pointLight.quadratic", 0.032f);
@@ -142,9 +152,9 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
         std::vector<ObjectData> objects;
         std::vector<MeshIndirectInfo> indirectCommands;
     };
-    std::vector<BatchData> objectBatches(_cubes.Commands.size());
-    std::vector<std::set<uint32_t>> textureHandles(_cubes.Commands.size());
-    for (const auto& mesh : _cubes.Meshes)
+    std::vector<BatchData> objectBatches(_model.Commands.size());
+    std::vector<std::set<uint32_t>> textureHandles(_model.Commands.size());
+    for (const auto& mesh : _model.Meshes)
     {
         const auto index = mesh.BaseColorTexture / 16;
         objectBatches[index].indirectCommands.emplace_back(MeshIndirectInfo
@@ -161,31 +171,31 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
             mesh.BaseColorTexture % 16,
             mesh.NormalTexture
         });
-        textureHandles[index].insert(_cubes.Textures[mesh.BaseColorTexture]);
+        textureHandles[index].insert(_model.Textures[mesh.BaseColorTexture]);
     }
 
     glNamedBufferData(
-        _cubes.TransformData,
-        _cubes.Transforms.size() * sizeof(glm::mat4),
-        _cubes.Transforms.data(),
-        GL_DYNAMIC_DRAW);
-    glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, _cubes.TransformData);
+            _model.TransformData,
+            _model.Transforms.size() * sizeof(glm::mat4),
+            _model.Transforms.data(),
+            GL_DYNAMIC_DRAW);
+    glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, _model.TransformData);
 
     for (uint32_t index = 0; const auto& batch : objectBatches)
     {
         glNamedBufferData(
-            _cubes.ObjectData[index],
+                _model.ObjectData[index],
             batch.objects.size() * sizeof(ObjectData),
-            batch.objects.data(),
-            GL_DYNAMIC_DRAW);
-        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, _cubes.ObjectData[index]);
+                batch.objects.data(),
+                GL_DYNAMIC_DRAW);
+        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, _model.ObjectData[index]);
 
-        glBindBuffer(GL_DRAW_INDIRECT_BUFFER, _cubes.Commands[index]);
+        glBindBuffer(GL_DRAW_INDIRECT_BUFFER, _model.Commands[index]);
         glNamedBufferData(
-            _cubes.Commands[index],
+                _model.Commands[index],
             batch.indirectCommands.size() * sizeof(MeshIndirectInfo),
-            batch.indirectCommands.data(),
-            GL_DYNAMIC_DRAW);
+                batch.indirectCommands.data(),
+                GL_DYNAMIC_DRAW);
 
         for (uint32_t offset = 0; const auto texture : textureHandles[index])
         {
@@ -194,7 +204,7 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
             glBindTexture(GL_TEXTURE_2D, texture);
             offset++;
         }
-        glBindVertexArray(_cubes.InputLayout);
+        glBindVertexArray(_model.InputLayout);
         glMultiDrawElementsIndirect(
             GL_TRIANGLES,
             GL_UNSIGNED_INT,
@@ -209,13 +219,21 @@ void ProjectApplication::RenderUI(float deltaTime)
 {
     ImGui::Begin("OpenGL Rasterizer");
     {
+        static int clicked = 0;
 //        ImGui::TextUnformatted("Hello World!");
         ImGui::Text("Time in seconds since startup: %f", _elapsedTime);
         ImGui::Text("The delta time between frames: %f", deltaTime);
+//        if (ImGui::Button("Hide Mouse Cursor"))
+//            clicked++;
+//        if (clicked & 1)
+//        {
+//            glfwSetInputMode(_windowHandle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+//            mouseVisible = false;
+//        }
         ImGui::End();
     }
 
-//    ImGui::ShowDemoWindow();
+    ImGui::ShowDemoWindow();
 }
 
 void ProjectApplication::LoadModel(std::string_view file)
@@ -229,7 +247,7 @@ void ProjectApplication::LoadModel(std::string_view file)
     fs::path path(file.data());
     const auto basePath = path.parent_path();
     std::unordered_map<std::string, size_t> textureIds;
-    _cubes.Textures.reserve(model->materials_count);
+    _model.Textures.reserve(model->materials_count);
     const uint32_t maxBatches = model->materials_count / 16 + 1;
     for (uint32_t i = 0; i < model->materials_count; ++i)
     {
@@ -259,8 +277,8 @@ void ProjectApplication::LoadModel(std::string_view file)
             glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
             glGenerateTextureMipmap(texture);
             stbi_image_free((void*)textureData);
-            _cubes.Textures.emplace_back(texture);
-            textureIds[texturePath] = _cubes.Textures.size() - 1;
+            _model.Textures.emplace_back(texture);
+            textureIds[texturePath] = _model.Textures.size() - 1;
         }
     }
 
@@ -391,17 +409,17 @@ void ProjectApplication::LoadModel(std::string_view file)
                 const auto indexCount = indices.size();
                 meshCreateInfos.emplace_back(MeshCreateInfo
                 {
-                    std::move(vertices),
-                    std::move(indices),
-                    transformIndex++,
+                        std::move(vertices),
+                        std::move(indices),
+                        transformIndex++,
                     baseColorURI == "" ? 0 :(uint32_t)textureIds[baseColorURI],
-                    0,
-                    vertexOffset,
-                    indexOffset,
-                    _cubes.VertexBuffer,
-                    _cubes.IndexBuffer
+                        0,
+                        vertexOffset,
+                        indexOffset,
+                        _model.VertexBuffer,
+                        _model.IndexBuffer
                 });
-                cgltf_node_transform_world(node, glm::value_ptr(_cubes.Transforms.emplace_back()));
+                cgltf_node_transform_world(node, glm::value_ptr(_model.Transforms.emplace_back()));
                 vertexOffset += vertexCount * sizeof(Vertex);
                 indexOffset += indexCount * sizeof(uint32_t);
             }
@@ -411,16 +429,16 @@ void ProjectApplication::LoadModel(std::string_view file)
             }
         }
     }
-    _cubes.Commands.resize(maxBatches);
-    _cubes.ObjectData.resize(maxBatches);
+    _model.Commands.resize(maxBatches);
+    _model.ObjectData.resize(maxBatches);
 
     // Allocate GL buffers
-    glCreateVertexArrays(1, &_cubes.InputLayout);
-    glCreateBuffers(1, &_cubes.VertexBuffer);
-    glCreateBuffers(1, &_cubes.IndexBuffer);
-    glCreateBuffers(1, &_cubes.TransformData);
-    glGenBuffers(_cubes.Commands.size(), _cubes.Commands.data());
-    glCreateBuffers(_cubes.ObjectData.size(), _cubes.ObjectData.data());
+    glCreateVertexArrays(1, &_model.InputLayout);
+    glCreateBuffers(1, &_model.VertexBuffer);
+    glCreateBuffers(1, &_model.IndexBuffer);
+    glCreateBuffers(1, &_model.TransformData);
+    glGenBuffers(_model.Commands.size(), _model.Commands.data());
+    glCreateBuffers(_model.ObjectData.size(), _model.ObjectData.data());
 
     size_t vertexSize = 0;
     size_t indexSize = 0;
@@ -430,31 +448,31 @@ void ProjectApplication::LoadModel(std::string_view file)
         indexSize += meshCreateInfo.Indices.size() * sizeof(uint32_t);
     }
 
-    glNamedBufferStorage(_cubes.VertexBuffer, vertexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
-    glNamedBufferStorage(_cubes.IndexBuffer, indexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
+    glNamedBufferStorage(_model.VertexBuffer, vertexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
+    glNamedBufferStorage(_model.IndexBuffer, indexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
 
-    glVertexArrayVertexBuffer(_cubes.InputLayout, 0, _cubes.VertexBuffer, 0, sizeof(Vertex));
-    glVertexArrayElementBuffer(_cubes.InputLayout, _cubes.IndexBuffer);
+    glVertexArrayVertexBuffer(_model.InputLayout, 0, _model.VertexBuffer, 0, sizeof(Vertex));
+    glVertexArrayElementBuffer(_model.InputLayout, _model.IndexBuffer);
 
-    glEnableVertexArrayAttrib(_cubes.InputLayout, 0);
-    glEnableVertexArrayAttrib(_cubes.InputLayout, 1);
-    glEnableVertexArrayAttrib(_cubes.InputLayout, 2);
-    glEnableVertexArrayAttrib(_cubes.InputLayout, 3);
+    glEnableVertexArrayAttrib(_model.InputLayout, 0);
+    glEnableVertexArrayAttrib(_model.InputLayout, 1);
+    glEnableVertexArrayAttrib(_model.InputLayout, 2);
+    glEnableVertexArrayAttrib(_model.InputLayout, 3);
 
-    glVertexArrayAttribFormat(_cubes.InputLayout, 0, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, Position));
-    glVertexArrayAttribFormat(_cubes.InputLayout, 1, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, Normal));
-    glVertexArrayAttribFormat(_cubes.InputLayout, 2, 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, Uv));
-    glVertexArrayAttribFormat(_cubes.InputLayout, 3, 4, GL_FLOAT, GL_FALSE, offsetof(Vertex, Tangent));
+    glVertexArrayAttribFormat(_model.InputLayout, 0, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, Position));
+    glVertexArrayAttribFormat(_model.InputLayout, 1, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, Normal));
+    glVertexArrayAttribFormat(_model.InputLayout, 2, 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, Uv));
+    glVertexArrayAttribFormat(_model.InputLayout, 3, 4, GL_FLOAT, GL_FALSE, offsetof(Vertex, Tangent));
 
-    glVertexArrayAttribBinding(_cubes.InputLayout, 0, 0);
-    glVertexArrayAttribBinding(_cubes.InputLayout, 1, 0);
-    glVertexArrayAttribBinding(_cubes.InputLayout, 2, 0);
-    glVertexArrayAttribBinding(_cubes.InputLayout, 3, 0);
+    glVertexArrayAttribBinding(_model.InputLayout, 0, 0);
+    glVertexArrayAttribBinding(_model.InputLayout, 1, 0);
+    glVertexArrayAttribBinding(_model.InputLayout, 2, 0);
+    glVertexArrayAttribBinding(_model.InputLayout, 3, 0);
 
     for (auto& info : meshCreateInfos)
     {
-        info.VertexBuffer = _cubes.VertexBuffer;
-        info.IndexBuffer = _cubes.IndexBuffer;
+        info.VertexBuffer = _model.VertexBuffer;
+        info.IndexBuffer = _model.IndexBuffer;
         glNamedBufferSubData(
             info.VertexBuffer,
             info.VertexOffset,
@@ -465,7 +483,7 @@ void ProjectApplication::LoadModel(std::string_view file)
             info.IndexOffset,
             info.Indices.size() * sizeof(uint32_t),
             info.Indices.data());
-        _cubes.Meshes.emplace_back(Mesh
+        _model.Meshes.emplace_back(Mesh
         {
             (uint32_t)info.Indices.size(),
             (int32_t)(info.VertexOffset / sizeof(Vertex)),
@@ -479,22 +497,16 @@ void ProjectApplication::LoadModel(std::string_view file)
 
 void ProjectApplication::ProcessKeyboardInput(GLFWwindow *window, float deltaTime)
 {
-    if (IsKeyPressed(GLFW_KEY_ESCAPE) && mouseVisible)
+
+    if(exitApplication)
     {
         Close();
     }
-    else if(IsKeyPressed(GLFW_KEY_ESCAPE) && !mouseVisible)
-    {
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-        mouseVisible = true;
-    }
 
-    if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
-    {
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-        mouseVisible = false;
-    }
+//    if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && mouseVisible)
+//    {
 
+//    }
 
     float cameraSpeed = 2.5f * deltaTime;
     if(IsKeyPressed(GLFW_KEY_LEFT_SHIFT) || IsKeyPressed(GLFW_KEY_RIGHT_SHIFT))
@@ -536,4 +548,17 @@ void ProjectApplication::ProcessMousePosition(float deltaTime)
     yOffset *= sensitivity;
 
     camera.ProcessMouseMovement(xOffset, yOffset);
+}
+
+void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
+    if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && mouseVisible)
+    {
+        exitApplication = true;
+    }
+    else if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && !mouseVisible)
+    {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        mouseVisible = true;
+    }
+
 }

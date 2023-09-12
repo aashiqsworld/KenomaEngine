@@ -24,6 +24,8 @@ set(sourceFiles
         Camera.hpp
         Shader.hpp
         Shader.hpp
+        Mesh.hpp
+        Mesh.hpp
 )
 
 add_executable(Project ${sourceFiles})

@@ -80,8 +80,8 @@ protected:
     void ProcessMousePosition(float deltaTime) override;
 
 private:
-    Model _cubes;
-    uint32_t _shaderProgram;
+    Model _model;
+    std::vector<Model> _scene;
     Shader litShader;
 
     float _elapsedTime = 0.0f;
@@ -89,9 +89,9 @@ private:
     Camera camera;
     bool firstMouse = true;
     float lastX = 100, lastY = 100;
-    bool mouseVisible = false;
 
-    bool MakeShader(std::string_view vertexShaderFilePath, std::string_view fragmentShaderFilePath);
     void LoadModel(std::string_view filePath);
+//    void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+
 
 };

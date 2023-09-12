@@ -11,6 +11,8 @@ public:
     int windowHeight = 1080;
 
 protected:
+    GLFWwindow* _windowHandle = nullptr;
+
     void Close();
     bool IsKeyPressed(int32_t key);
     void GetMousePosition(double *xpos, double *ypos);
@@ -30,7 +32,6 @@ protected:
 
 
 private:
-    GLFWwindow* _windowHandle = nullptr;
     void Render(float deltaTime);
 
 };
