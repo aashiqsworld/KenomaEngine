@@ -307,7 +307,7 @@ private:
     // OpenGL buffers
     uint32_t _vao;
     uint32_t _vbo;
-    uint32_t _ibo;
+    uint32_t _ebo;
     // These are vectors because we'll be batching our draws
     std::vector<uint32_t> _cmds;
     std::vector<uint32_t> _objectData;
@@ -605,7 +605,7 @@ Model::Model(std::string_view file)
     glCreateBuffers(1, &_vbo);
     // This is the Element Buffer Object (I call it the Index Buffer Object, same thing)
     // it holds all the indices for all the meshes
-    glCreateBuffers(1, &_ibo);
+    glCreateBuffers(1, &_ebo);
     // This is the transform data buffer, it holds the local transform for each mesh
     glCreateBuffers(1, &_transformData);
     // Create the object data buffers, they are useful when drawing because they associate all the 
@@ -627,11 +627,11 @@ Model::Model(std::string_view file)
     
     // Allocate the storage
     glNamedBufferStorage(_vbo, vertexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
-    glNamedBufferStorage(_ibo, indexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
+    glNamedBufferStorage(_ebo, indexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
 
     // Associate the vertex array object, with our vertex and index buffer
     glVertexArrayVertexBuffer(_vao, 0, _vbo, 0, sizeof(Vertex));
-    glVertexArrayElementBuffer(_vao, _ibo);
+    glVertexArrayElementBuffer(_vao, _ebo);
 
     // Tell OpenGL which vertex location index we want to use
     // it maps to the "layout (location = N) in vecN position/normal/..." in our vertex shader
@@ -664,7 +664,7 @@ Model::Model(std::string_view file)
             info.vertices.size() * sizeof(Vertex),
             info.vertices.data());
         glNamedBufferSubData(
-            _ibo,
+            _ebo,
             info.indexOffset,
             info.indices.size() * sizeof(uint32_t),
             info.indices.data());

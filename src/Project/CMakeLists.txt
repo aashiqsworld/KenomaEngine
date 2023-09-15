@@ -19,13 +19,11 @@ set(sourceFiles
     Main.cpp
     ProjectApplication.cpp
         Camera.hpp
-        Camera.hpp
-        Camera.hpp
-        Camera.hpp
-        Shader.hpp
         Shader.hpp
         Mesh.hpp
-        Mesh.hpp
+        Mesh.cpp
+        Model.hpp
+        Model.cpp
 )
 
 add_executable(Project ${sourceFiles})
