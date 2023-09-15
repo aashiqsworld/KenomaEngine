@@ -13,6 +13,7 @@
 class Model
 {
 public:
+    Model();
     Model(std::string_view path);
     ~Model();
 

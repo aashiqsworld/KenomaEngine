@@ -42,7 +42,8 @@ static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* 
 
 Model::Model(std::string_view file)
 {
-    cgltf_options options = { };
+
+    cgltf_options options = {};
     cgltf_data* model = nullptr;
     // Read GLTF, no additional options are required
     cgltf_parse_file(&options, file.data(), &model);
@@ -52,22 +53,19 @@ Model::Model(std::string_view file)
     // Get the base path (useful when loading textures)
     fs::path path(file.data());
     const auto basePath = path.parent_path();
-    //This is our texture cache, to make sure we don't load the same texture twice
+    // This is our texture cache, to make sure we don't load the same texture twice
     std::unordered_map<std::string, size_t> textureIds;
     // Reserves space for our texture vector
     _textures.reserve(model->materials_count);
     // Since we'll be batching our draws based on the textures it has, we need to calculate
     // how many batches this model needs, this is done by dividing by 16, which is the "batch size"
-    // and rounding up, because we always need at least one batch,
-
+    // and rounding up, because we always need at least one batch.
     const uint32_t maxBatches = model->materials_count / 16 + 1;
-
-    // for each material
-    for(uint32_t i = 0; i < model->materials_count; ++i)
+    for (uint32_t i = 0; i < model->materials_count; ++i) // For each material
     {
         const auto& material = model->materials[i];
         // Get the material's base color texture
-        const auto& image = material.pbr_metallic_roughness.base_color_texture.texture->image;
+        const auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
         // Find its texture path
         const auto texturePath = FindTexturePath(basePath, image);
         if (textureIds.contains(texturePath))
@@ -80,6 +78,7 @@ Model::Model(std::string_view file)
         glCreateTextures(GL_TEXTURE_2D, 1, &texture);
 
         // Sets the texture's sampler's parameters
+        // if you are not familiar with these, LearnOpenGL.com has a great tutorial
         glTextureParameteri(texture, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTextureParameteri(texture, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTextureParameteri(texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -90,11 +89,11 @@ Model::Model(std::string_view file)
         int32_t height = 0;
         int32_t channels = STBI_rgb_alpha;
         const auto* textureData = stbi_load(texturePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
-        // Calculate how many mip levels we need to generate for the texture;
-        const auto levels = (uint32_t) std::floor(std::log2(std::max(width, height)));
+        // Calculate how many mip levels we need to generate for the texture.
+        const auto levels = (uint32_t)std::floor(std::log2(std::max(width, height)));
         // Actually allocate the texture
         glTextureStorage2D(texture, levels, GL_RGBA8, width, height);
-        // Copy our texture data into the GPU
+        // Copy our texture data to the GPU
         glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
         // Generate mipmaps
         glGenerateTextureMipmap(texture);
@@ -103,8 +102,9 @@ Model::Model(std::string_view file)
         // Add the new texture handle to the texture vector
         _textures.emplace_back(texture);
         // Register this texture index in our cache
-        textureIds[texturePath] = _textures.size() - 1; // the image path is used as a key for the textureID
+        textureIds[texturePath] = _textures.size() - 1;
     }
+
 
     uint32_t transformIndex = 0;
     size_t vertexOffset = 0;
@@ -441,4 +441,12 @@ void Model::Draw(const Shader& shader) const
         // Increment the index to go to the next batch
         index++;
     }
+}
+
+Model::Model() {
+
+}
+
+Model::~Model() {
+
 }

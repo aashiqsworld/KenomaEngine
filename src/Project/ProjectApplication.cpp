@@ -79,8 +79,15 @@ bool ProjectApplication::Load()
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
 //    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+//    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
+
+//     _model = Model("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+//     _model = Model("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+//     _model = Model("./data/models/gltfCube/BoxWithSpaces.gltf");
+//     _model = Model("./data/models/Avocado/Avocado.gltf");
+//     _model = Model("./data/models/ScifiHelmet/SciFiHelmet.gltf");
+     _model = Model("./data/models/DamagedHelmet/DamagedHelmet.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
@@ -141,78 +148,7 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setFloat("spotLight.linear", 0.09f);
     litShader.setFloat("spotLight.quadratic", 0.032f);
 
-    struct ObjectData
-    {
-        uint32_t transformIndex;
-        uint32_t baseColorIndex;
-        uint32_t normalIndex;
-    };
-    struct BatchData
-    {
-        std::vector<ObjectData> objects;
-        std::vector<MeshIndirectInfo> indirectCommands;
-    };
-    std::vector<BatchData> objectBatches(_model.Commands.size());
-    std::vector<std::set<uint32_t>> textureHandles(_model.Commands.size());
-    for (const auto& mesh : _model.Meshes)
-    {
-        const auto index = mesh.BaseColorTexture / 16;
-        objectBatches[index].indirectCommands.emplace_back(MeshIndirectInfo
-        {
-            mesh.IndexCount,
-            1,
-            mesh.indexOffset,
-            mesh.VertexOffset,
-            1
-        });
-        objectBatches[index].objects.emplace_back(ObjectData
-        {
-            mesh.TransformIndex,
-            mesh.BaseColorTexture % 16,
-            mesh.NormalTexture
-        });
-        textureHandles[index].insert(_model.Textures[mesh.BaseColorTexture]);
-    }
-
-    glNamedBufferData(
-            _model.TransformData,
-            _model.Transforms.size() * sizeof(glm::mat4),
-            _model.Transforms.data(),
-            GL_DYNAMIC_DRAW);
-    glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, _model.TransformData);
-
-    for (uint32_t index = 0; const auto& batch : objectBatches)
-    {
-        glNamedBufferData(
-                _model.ObjectData[index],
-            batch.objects.size() * sizeof(ObjectData),
-                batch.objects.data(),
-                GL_DYNAMIC_DRAW);
-        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, _model.ObjectData[index]);
-
-        glBindBuffer(GL_DRAW_INDIRECT_BUFFER, _model.Commands[index]);
-        glNamedBufferData(
-                _model.Commands[index],
-            batch.indirectCommands.size() * sizeof(MeshIndirectInfo),
-                batch.indirectCommands.data(),
-                GL_DYNAMIC_DRAW);
-
-        for (uint32_t offset = 0; const auto texture : textureHandles[index])
-        {
-            glUniform1i(3 + offset, offset);
-            glActiveTexture(GL_TEXTURE0 + offset);
-            glBindTexture(GL_TEXTURE_2D, texture);
-            offset++;
-        }
-        glBindVertexArray(_model.InputLayout);
-        glMultiDrawElementsIndirect(
-            GL_TRIANGLES,
-            GL_UNSIGNED_INT,
-            nullptr,
-            batch.indirectCommands.size(),
-            sizeof(MeshIndirectInfo));
-        index++;
-    }
+    _model.Draw(litShader);
 }
 
 void ProjectApplication::RenderUI(float deltaTime)
@@ -236,264 +172,6 @@ void ProjectApplication::RenderUI(float deltaTime)
     ImGui::ShowDemoWindow();
 }
 
-void ProjectApplication::LoadModel(std::string_view file)
-{
-    // Read GLTF
-    cgltf_options options = {};
-    cgltf_data* model = nullptr;
-    cgltf_parse_file(&options, file.data(), &model);
-    cgltf_load_buffers(&options, model, file.data());
-
-    fs::path path(file.data());
-    const auto basePath = path.parent_path();
-    std::unordered_map<std::string, size_t> textureIds;
-    _model.Textures.reserve(model->materials_count);
-    const uint32_t maxBatches = model->materials_count / 16 + 1;
-    for (uint32_t i = 0; i < model->materials_count; ++i)
-    {
-        const auto& material = model->materials[i];
-        if (material.has_pbr_metallic_roughness && material.pbr_metallic_roughness.base_color_texture.texture != nullptr)
-        {
-            const auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
-            const auto texturePath = FindTexturePath(basePath, image);
-            if (textureIds.contains(texturePath))
-            {
-                continue;
-            }
-            uint32_t texture;
-            glCreateTextures(GL_TEXTURE_2D, 1, &texture);
-
-            glTextureParameteri(texture, GL_TEXTURE_WRAP_S, GL_REPEAT);
-            glTextureParameteri(texture, GL_TEXTURE_WRAP_T, GL_REPEAT);
-            glTextureParameteri(texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-            glTextureParameteri(texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-            int32_t width = 0;
-            int32_t height = 0;
-            int32_t channels = STBI_rgb_alpha;
-            const auto* textureData = stbi_load(texturePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
-            const auto levels = (uint32_t)std::floor(std::log2(std::max(width, height)));
-            glTextureStorage2D(texture, levels, GL_RGBA8, width, height);
-            glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
-            glGenerateTextureMipmap(texture);
-            stbi_image_free((void*)textureData);
-            _model.Textures.emplace_back(texture);
-            textureIds[texturePath] = _model.Textures.size() - 1;
-        }
-    }
-
-    uint32_t transformIndex = 0;
-    size_t vertexOffset = 0;
-    size_t indexOffset = 0;
-    std::vector<MeshCreateInfo> meshCreateInfos;
-    meshCreateInfos.reserve(1024);
-    for (uint32_t i = 0; i < model->scene->nodes_count; ++i)
-    {
-        std::queue<cgltf_node*> nodes;
-        nodes.push(model->scene->nodes[i]);
-        while (!nodes.empty())
-        {
-            const auto* node = nodes.front();
-            nodes.pop();
-            if (!node->mesh)
-            {
-                for (uint32_t j = 0; j < node->children_count; ++j)
-                {
-                    nodes.push(node->children[j]);
-                }
-                continue;
-            }
-            for (uint32_t j = 0; j < node->mesh->primitives_count; ++j)
-            {
-                const auto& primitive = node->mesh->primitives[j];
-                const glm::vec3* positionPtr = nullptr;
-                const glm::vec3* normalPtr = nullptr;
-                const glm::vec2* uvPtr = nullptr;
-                const glm::vec4* tangentPtr = nullptr;
-                uint64_t vertexCount = 0;
-                // Vertices
-                for (uint32_t k = 0; k < primitive.attributes_count; ++k)
-                {
-                    const auto& attribute = primitive.attributes[k];
-                    const auto* accessor = attribute.data;
-                    const auto* view = accessor->buffer_view;
-                    const auto* dataPtr = (const char*)view->buffer->data;
-                    switch (attribute.type)
-                    {
-                        case cgltf_attribute_type_position:
-                            vertexCount = accessor->count;
-                            positionPtr = (const glm::vec3*)(dataPtr + view->offset + accessor->offset);
-                            break;
-
-                        case cgltf_attribute_type_normal:
-                            normalPtr = (const glm::vec3*)(dataPtr + view->offset + accessor->offset);
-                            break;
-
-                        case cgltf_attribute_type_texcoord:
-                            uvPtr = (const glm::vec2*)(dataPtr + view->offset + accessor->offset);
-                            break;
-
-                        case cgltf_attribute_type_tangent:
-                            tangentPtr = (const glm::vec4*)(dataPtr + view->offset + accessor->offset);
-                            break;
-
-                        default: break;
-                    }
-                }
-                std::vector<Vertex> vertices;
-                vertices.resize(vertexCount);
-                {
-                    auto* ptr = vertices.data();
-                    for (uint32_t v = 0; v < vertexCount; ++v, ++ptr)
-                    {
-                        if (positionPtr)
-                        {
-                            std::memcpy(&ptr->Position, positionPtr + v, sizeof(glm::vec3));
-                        }
-                        if (normalPtr)
-                        {
-                            std::memcpy(&ptr->Normal, normalPtr + v, sizeof(glm::vec3));
-                        }
-                        if (uvPtr)
-                        {
-                            std::memcpy(&ptr->Uv, uvPtr + v, sizeof(glm::vec2));
-                        }
-                        if (tangentPtr)
-                        {
-                            std::memcpy(&ptr->Tangent, tangentPtr + v, sizeof(glm::vec4));
-                        }
-                    }
-                }
-
-                std::vector<uint32_t> indices;
-                {
-                    const auto* accessor = primitive.indices;
-                    const auto* view = accessor->buffer_view;
-                    const char* dataPtr = (const char*)view->buffer->data;
-                    indices.reserve(accessor->count);
-                    switch (accessor->component_type)
-                    {
-                        case cgltf_component_type_r_8:
-                        case cgltf_component_type_r_8u:
-                        {
-                            const auto* ptr = (const uint8_t*)(dataPtr + view->offset + accessor->offset);
-                            std::copy(ptr, ptr + accessor->count, std::back_inserter(indices));
-                        } break;
-
-                        case cgltf_component_type_r_16:
-                        case cgltf_component_type_r_16u:
-                        {
-                            const auto* ptr = (const uint16_t*)(dataPtr + view->offset + accessor->offset);
-                            std::copy(ptr, ptr + accessor->count, std::back_inserter(indices));
-                        } break;
-
-                        case cgltf_component_type_r_32f:
-                        case cgltf_component_type_r_32u:
-                        {
-                            const auto* ptr = (const uint32_t*)(dataPtr + view->offset + accessor->offset);
-                            std::copy(ptr, ptr + accessor->count, std::back_inserter(indices));
-                        } break;
-
-                        default: break;
-                    }
-                }
-                std::string baseColorURI = "";
-                if (primitive.material->pbr_metallic_roughness.base_color_texture.texture != nullptr)
-                {
-                    baseColorURI = FindTexturePath(basePath, primitive.material->pbr_metallic_roughness.base_color_texture.texture->image);
-                }
-                else
-                {
-                    baseColorURI = "";
-                }
-                const auto indexCount = indices.size();
-                meshCreateInfos.emplace_back(MeshCreateInfo
-                {
-                        std::move(vertices),
-                        std::move(indices),
-                        transformIndex++,
-                    baseColorURI == "" ? 0 :(uint32_t)textureIds[baseColorURI],
-                        0,
-                        vertexOffset,
-                        indexOffset,
-                        _model.VertexBuffer,
-                        _model.IndexBuffer
-                });
-                cgltf_node_transform_world(node, glm::value_ptr(_model.Transforms.emplace_back()));
-                vertexOffset += vertexCount * sizeof(Vertex);
-                indexOffset += indexCount * sizeof(uint32_t);
-            }
-            for (uint32_t j = 0; j < node->children_count; ++j)
-            {
-                nodes.push(node->children[j]);
-            }
-        }
-    }
-    _model.Commands.resize(maxBatches);
-    _model.ObjectData.resize(maxBatches);
-
-    // Allocate GL buffers
-    glCreateVertexArrays(1, &_model.InputLayout);
-    glCreateBuffers(1, &_model.VertexBuffer);
-    glCreateBuffers(1, &_model.IndexBuffer);
-    glCreateBuffers(1, &_model.TransformData);
-    glGenBuffers(_model.Commands.size(), _model.Commands.data());
-    glCreateBuffers(_model.ObjectData.size(), _model.ObjectData.data());
-
-    size_t vertexSize = 0;
-    size_t indexSize = 0;
-    for (const auto& meshCreateInfo : meshCreateInfos)
-    {
-        vertexSize += meshCreateInfo.Vertices.size() * sizeof(Vertex);
-        indexSize += meshCreateInfo.Indices.size() * sizeof(uint32_t);
-    }
-
-    glNamedBufferStorage(_model.VertexBuffer, vertexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
-    glNamedBufferStorage(_model.IndexBuffer, indexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
-
-    glVertexArrayVertexBuffer(_model.InputLayout, 0, _model.VertexBuffer, 0, sizeof(Vertex));
-    glVertexArrayElementBuffer(_model.InputLayout, _model.IndexBuffer);
-
-    glEnableVertexArrayAttrib(_model.InputLayout, 0);
-    glEnableVertexArrayAttrib(_model.InputLayout, 1);
-    glEnableVertexArrayAttrib(_model.InputLayout, 2);
-    glEnableVertexArrayAttrib(_model.InputLayout, 3);
-
-    glVertexArrayAttribFormat(_model.InputLayout, 0, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, Position));
-    glVertexArrayAttribFormat(_model.InputLayout, 1, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, Normal));
-    glVertexArrayAttribFormat(_model.InputLayout, 2, 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, Uv));
-    glVertexArrayAttribFormat(_model.InputLayout, 3, 4, GL_FLOAT, GL_FALSE, offsetof(Vertex, Tangent));
-
-    glVertexArrayAttribBinding(_model.InputLayout, 0, 0);
-    glVertexArrayAttribBinding(_model.InputLayout, 1, 0);
-    glVertexArrayAttribBinding(_model.InputLayout, 2, 0);
-    glVertexArrayAttribBinding(_model.InputLayout, 3, 0);
-
-    for (auto& info : meshCreateInfos)
-    {
-        info.VertexBuffer = _model.VertexBuffer;
-        info.IndexBuffer = _model.IndexBuffer;
-        glNamedBufferSubData(
-            info.VertexBuffer,
-            info.VertexOffset,
-            info.Vertices.size() * sizeof(Vertex),
-            info.Vertices.data());
-        glNamedBufferSubData(
-            info.IndexBuffer,
-            info.IndexOffset,
-            info.Indices.size() * sizeof(uint32_t),
-            info.Indices.data());
-        _model.Meshes.emplace_back(Mesh
-        {
-            (uint32_t)info.Indices.size(),
-            (int32_t)(info.VertexOffset / sizeof(Vertex)),
-            (uint32_t)(info.IndexOffset / sizeof(uint32_t)),
-            info.TransformIndex,
-            info.BaseColorTexture,
-            info.NormalTexture
-        });
-    }
-}
 
 void ProjectApplication::ProcessKeyboardInput(GLFWwindow *window, float deltaTime)
 {
@@ -549,6 +227,9 @@ void ProjectApplication::ProcessMousePosition(float deltaTime)
 
     camera.ProcessMouseMovement(xOffset, yOffset);
 }
+
+ProjectApplication::ProjectApplication() : _model() { }
+
 
 void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
     if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && mouseVisible)
