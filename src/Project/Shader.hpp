@@ -27,6 +27,7 @@ public:
         LoadShader(vertexPath, fragmentPath);
     }
 
+
     // reads and builds the shader
     bool LoadShader(const char* vertexPath, const char* fragmentPath)
     {

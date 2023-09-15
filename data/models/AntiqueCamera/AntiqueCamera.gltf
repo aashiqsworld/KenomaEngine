@@ -236,20 +236,6 @@
     ],
     "meshes" : [
         {
-            "name" : "tripod_uv",
-            "primitives" : [
-                {
-                    "attributes" : {
-                        "NORMAL" : 2,
-                        "POSITION" : 1,
-                        "TEXCOORD_0" : 3
-                    },
-                    "indices" : 0,
-                    "material" : 1
-                }
-            ]
-        },
-        {
             "name" : "camera_uv",
             "primitives" : [
                 {
@@ -260,6 +246,20 @@
                     },
                     "indices" : 4,
                     "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "tripod_uv",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2,
+                        "POSITION" : 1,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 0,
+                    "material" : 1
                 }
             ]
         }

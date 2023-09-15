@@ -148,6 +148,7 @@ void Application::Unload()
 
 void Application::Render(float dt)
 {
+    frameNumber++;
     ZoneScopedC(tracy::Color::Red2);
 
     RenderScene(dt);

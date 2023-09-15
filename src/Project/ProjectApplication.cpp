@@ -83,11 +83,11 @@ bool ProjectApplication::Load()
 //    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
 
 //     _model = Model("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-//     _model = Model("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+     _model = Model("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //     _model = Model("./data/models/gltfCube/BoxWithSpaces.gltf");
 //     _model = Model("./data/models/Avocado/Avocado.gltf");
 //     _model = Model("./data/models/ScifiHelmet/SciFiHelmet.gltf");
-     _model = Model("./data/models/DamagedHelmet/DamagedHelmet.gltf");
+//     _model = Model("./data/models/DamagedHelmet/DamagedHelmet.gltf");
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
 
     return true;
@@ -159,6 +159,14 @@ void ProjectApplication::RenderUI(float deltaTime)
 //        ImGui::TextUnformatted("Hello World!");
         ImGui::Text("Time in seconds since startup: %f", _elapsedTime);
         ImGui::Text("The delta time between frames: %f", deltaTime);
+        std::stringstream stream;
+        stream << std::fixed << std::setprecision(2) << "Camera Position: " <<
+        camera.Position.x << ", " << camera.Position.y << ", " << camera.Position.z;
+        ImGui::Text(stream.str().c_str());
+        stream.str("");
+        stream.clear();
+        stream << "Frames since startup: " << frameNumber;
+        ImGui::Text(stream.str().c_str());
 //        if (ImGui::Button("Hide Mouse Cursor"))
 //            clicked++;
 //        if (clicked & 1)
@@ -169,7 +177,7 @@ void ProjectApplication::RenderUI(float deltaTime)
         ImGui::End();
     }
 
-    ImGui::ShowDemoWindow();
+//    ImGui::ShowDemoWindow();
 }
 
 

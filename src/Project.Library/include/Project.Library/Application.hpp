@@ -12,7 +12,7 @@ public:
 
 protected:
     GLFWwindow* _windowHandle = nullptr;
-
+    uint32_t frameNumber = 0;
     void Close();
     bool IsKeyPressed(int32_t key);
     void GetMousePosition(double *xpos, double *ypos);
