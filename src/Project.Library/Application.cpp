@@ -129,7 +129,7 @@ bool Application::Load()
             spdlog::error("GL CALLBACK: type = {}, severity = error, message = {}\n", type, message);
         }
     }, nullptr);
-    glClearColor(0.05f, 0.02f, 0.07f, 1.0f);
+    glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
 
     glfwSwapInterval(1);
 

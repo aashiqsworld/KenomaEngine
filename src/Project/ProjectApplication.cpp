@@ -78,20 +78,16 @@ bool ProjectApplication::Load()
 
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
-//    LoadModel("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-//    LoadModel("./data/models/AntiqueCamera/AntiqueCamera.gltf");
-//    LoadModel("./data/models/gltfCube/BoxWithSpaces.gltf");
-
 //     _model = Model("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
      _model = Model("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //     _model = Model("./data/models/gltfCube/BoxWithSpaces.gltf");
 //     _model = Model("./data/models/Avocado/Avocado.gltf");
 //     _model = Model("./data/models/ScifiHelmet/SciFiHelmet.gltf");
 //     _model = Model("./data/models/DamagedHelmet/DamagedHelmet.gltf");
+
+
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
-
     return true;
-
 }
 
 void ProjectApplication::Update(float deltaTime)
@@ -167,13 +163,13 @@ void ProjectApplication::RenderUI(float deltaTime)
         stream.clear();
         stream << "Frames since startup: " << frameNumber;
         ImGui::Text(stream.str().c_str());
-//        if (ImGui::Button("Hide Mouse Cursor"))
-//            clicked++;
-//        if (clicked & 1)
-//        {
-//            glfwSetInputMode(_windowHandle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-//            mouseVisible = false;
-//        }
+
+        ImGui::Separator();
+
+//        ImGui::Text("Model Info:");
+//        stream << "Num Meshes: " <<
+//        ImGui::BulletText("Number of meshes: ");
+
         ImGui::End();
     }
 

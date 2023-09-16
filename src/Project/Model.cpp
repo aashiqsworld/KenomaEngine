@@ -116,7 +116,7 @@ Model::Model(std::string_view file)
     for (uint32_t i = 0; i < model->scene->nodes_count; ++i)
     {
         std::queue<cgltf_node*> nodes;
-        // Add the node to the queue (TODO: use recursion instead of a queue)
+        // Add the node to the queue TODO: use recursion instead of a queue
         nodes.push(model->scene->nodes[i]);
         while (!nodes.empty())
         {
@@ -449,4 +449,17 @@ Model::Model() {
 
 Model::~Model() {
 
+}
+
+uint32_t Model::GetNumMeshes() {
+    return _meshes.size();
+}
+
+uint32_t Model::GetNumVertices() {
+    int i = 0;
+    for(const auto mesh : _meshes)
+    {
+//        i += mesh.
+    }
+    return 0;
 }

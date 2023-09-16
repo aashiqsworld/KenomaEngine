@@ -18,6 +18,9 @@ public:
     ~Model();
 
     void Draw(const Shader& shader) const;
+    uint32_t GetNumMeshes();
+    uint32_t GetNumVertices();
+    uint32_t GetNumMaterials();
 
 private:
     // holds all the meshes that compose the model

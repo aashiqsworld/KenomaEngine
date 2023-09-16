@@ -47,6 +47,9 @@ public:
     uint32_t BaseColorTexture() const;
     uint32_t NormalTexture() const;
 
+    uint32_t NumVertices() const;
+
+
 private:
     uint32_t _indexCount = 0;
     int32_t _vertexOffset = 0;
