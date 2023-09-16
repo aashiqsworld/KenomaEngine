@@ -65,44 +65,79 @@ Model::Model(std::string_view file)
     {
         const auto& material = model->materials[i];
         // Get the material's base color texture
-        const auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
+        auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
         // Find its texture path
-        const auto texturePath = FindTexturePath(basePath, image);
-        if (textureIds.contains(texturePath))
+        auto texturePath = FindTexturePath(basePath, image);
+        if (!textureIds.contains(texturePath)) // check if the texture is already loaded
         {
             // If we already loaded the texture, go onto the next material
-            continue;
+            uint32_t texture;
+            glCreateTextures(GL_TEXTURE_2D, 1, &texture);
+
+            // Sets the texture's sampler's parameters
+            // if you are not familiar with these, LearnOpenGL.com has a great tutorial
+            glTextureParameteri(texture, GL_TEXTURE_WRAP_S, GL_REPEAT);
+            glTextureParameteri(texture, GL_TEXTURE_WRAP_T, GL_REPEAT);
+            glTextureParameteri(texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+            glTextureParameteri(texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+            // Loads the texture data with STB_Image
+            int32_t width = 0;
+            int32_t height = 0;
+            int32_t channels = STBI_rgb_alpha;
+            const auto* textureData = stbi_load(texturePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
+            // Calculate how many mip levels we need to generate for the texture.
+            const auto levels = (uint32_t)std::floor(std::log2(std::max(width, height)));
+            // Actually allocate the texture
+            glTextureStorage2D(texture, levels, GL_RGBA8, width, height);
+            // Copy our texture data to the GPU
+            glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+            // Generate mipmaps
+            glGenerateTextureMipmap(texture);
+            // Free texture memory on our end
+            stbi_image_free((void*)textureData);
+            // Add the new texture handle to the texture vector
+            _textures.emplace_back(texture);
+            // Register this texture index in our cache
+            textureIds[texturePath] = _textures.size() - 1;
         }
-        // Ask OpenGL to give us a new texture handle
-        uint32_t texture;
-        glCreateTextures(GL_TEXTURE_2D, 1, &texture);
 
-        // Sets the texture's sampler's parameters
-        // if you are not familiar with these, LearnOpenGL.com has a great tutorial
-        glTextureParameteri(texture, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTextureParameteri(texture, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTextureParameteri(texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTextureParameteri(texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        // load normal texture
+        image = material.normal_texture.texture->image;
+        // Find its texture path
+        texturePath = FindTexturePath(basePath, image);
+        if (!textureIds.contains(texturePath)) // check if the texture is already loaded
+        {
+            uint32_t texture;
+            glCreateTextures(GL_TEXTURE_2D, 1, &texture);
 
-        // Loads the texture data with STB_Image
-        int32_t width = 0;
-        int32_t height = 0;
-        int32_t channels = STBI_rgb_alpha;
-        const auto* textureData = stbi_load(texturePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
-        // Calculate how many mip levels we need to generate for the texture.
-        const auto levels = (uint32_t)std::floor(std::log2(std::max(width, height)));
-        // Actually allocate the texture
-        glTextureStorage2D(texture, levels, GL_RGBA8, width, height);
-        // Copy our texture data to the GPU
-        glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
-        // Generate mipmaps
-        glGenerateTextureMipmap(texture);
-        // Free texture memory on our end
-        stbi_image_free((void*)textureData);
-        // Add the new texture handle to the texture vector
-        _textures.emplace_back(texture);
-        // Register this texture index in our cache
-        textureIds[texturePath] = _textures.size() - 1;
+            // Sets the texture's sampler's parameters
+            // if you are not familiar with these, LearnOpenGL.com has a great tutorial
+            glTextureParameteri(texture, GL_TEXTURE_WRAP_S, GL_REPEAT);
+            glTextureParameteri(texture, GL_TEXTURE_WRAP_T, GL_REPEAT);
+            glTextureParameteri(texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+            glTextureParameteri(texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+            // Loads the texture data with STB_Image
+            int32_t width = 0;
+            int32_t height = 0;
+            int32_t channels = STBI_rgb_alpha;
+            const auto* textureData = stbi_load(texturePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
+            // Calculate how many mip levels we need to generate for the texture.
+            const auto levels = (uint32_t)std::floor(std::log2(std::max(width, height)));
+            // Actually allocate the texture
+            glTextureStorage2D(texture, levels, GL_RGBA8, width, height);
+            // Copy our texture data to the GPU
+            glTextureSubImage2D(texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+            // Generate mipmaps
+            glGenerateTextureMipmap(texture);
+            // Free texture memory on our end
+            stbi_image_free((void*)textureData);
+            // Add the new texture handle to the texture vector
+            _textures.emplace_back(texture);
+            // Register this texture index in our cache
+            textureIds[texturePath] = _textures.size() - 1;
+        }
     }
 
 
@@ -249,6 +284,7 @@ Model::Model(std::string_view file)
                 }
                 // Get the primitive's material base color texture path
                 const auto baseColorURI = FindTexturePath(basePath, primitive.material->pbr_metallic_roughness.base_color_texture.texture->image);
+                const auto normalMapURI = FindTexturePath(basePath, primitive.material->normal_texture.texture->image);
                 const auto indexCount = indices.size();
                 // Emplace a `MeshCreateInfo` (we will use this later)
                 meshCreateInfos.emplace_back(MeshCreateInfo
@@ -261,7 +297,7 @@ Model::Model(std::string_view file)
                                                              (uint32_t)textureIds[baseColorURI],
                                                              // Exercise: We don't load normal textures, can you load the normal textures (when available)
                                                              // and apply some basic normal mapping?
-                                                             0,
+                                                             (uint32_t)textureIds[normalMapURI],
                                                              vertexOffset,
                                                              indexOffset,
                                                      });
@@ -389,6 +425,7 @@ void Model::Draw(const Shader& shader) const
         // Insert the texture index for this batch in a set, this is useful
         // when binding the textures because we will need unique handles
         textureHandles[index].insert(_textures[mesh.BaseColorTexture()]);
+        textureHandles[index].insert(_textures[mesh.NormalTexture()]);
     }
 
     // Copy the transform data we just created to the GPU
