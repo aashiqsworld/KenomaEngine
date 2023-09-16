@@ -78,12 +78,12 @@ bool ProjectApplication::Load()
 
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
-//     _model = Model("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-     _model = Model("./data/models/AntiqueCamera/AntiqueCamera.gltf");
-//     _model = Model("./data/models/gltfCube/BoxWithSpaces.gltf");
-//     _model = Model("./data/models/Avocado/Avocado.gltf");
-//     _model = Model("./data/models/ScifiHelmet/SciFiHelmet.gltf");
-//     _model = Model("./data/models/DamagedHelmet/DamagedHelmet.gltf");
+//     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+    _scene.emplace_back("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+    _scene.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
+    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
+    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
+    _scene.emplace_back("./data/models/DamagedHelmet/DamagedHelmet.gltf");
 
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
@@ -144,7 +144,11 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setFloat("spotLight.linear", 0.09f);
     litShader.setFloat("spotLight.quadratic", 0.032f);
 
-    _model.Draw(litShader);
+    for(const auto& model : _scene)
+    {
+        model.Draw(litShader);
+    }
+//    _model.Draw(litShader);
 }
 
 void ProjectApplication::RenderUI(float deltaTime)
@@ -193,6 +197,8 @@ void ProjectApplication::ProcessKeyboardInput(GLFWwindow *window, float deltaTim
     float cameraSpeed = 2.5f * deltaTime;
     if(IsKeyPressed(GLFW_KEY_LEFT_SHIFT) || IsKeyPressed(GLFW_KEY_RIGHT_SHIFT))
         cameraSpeed *= 5;
+    else if(IsKeyPressed(GLFW_KEY_LEFT_CONTROL) || IsKeyPressed(GLFW_KEY_RIGHT_CONTROL))
+        cameraSpeed *= 0.1;
     if(IsKeyPressed(GLFW_KEY_W))
         camera.ProcessKeyboard(FORWARD, cameraSpeed);
     if(IsKeyPressed(GLFW_KEY_A))
