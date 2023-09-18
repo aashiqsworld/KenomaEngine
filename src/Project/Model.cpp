@@ -461,7 +461,7 @@ void Model::Draw(const Shader& shader) const
         // Set all the active textures for this batch
         for (uint32_t offset = 0; const auto texture : textureHandles[index])
         {
-            shader.setInt(3 + offset, offset);
+            shader.setInt(2 + offset, offset);
             glActiveTexture(GL_TEXTURE0 + offset);
             glBindTexture(GL_TEXTURE_2D, texture);
             offset++;

@@ -31,6 +31,7 @@ bool mouseVisible = false;
 
 // method declarations
 void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+void ResetStream(std::stringstream *stream);
 
 
 static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* image)
@@ -79,11 +80,12 @@ bool ProjectApplication::Load()
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+//    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
     _scene.emplace_back("./data/models/AntiqueCamera/AntiqueCamera.gltf");
-    _scene.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
-    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
-    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
-    _scene.emplace_back("./data/models/DamagedHelmet/DamagedHelmet.gltf");
+//    _scene.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
+//    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
+//    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
+//    _scene.emplace_back("./data/models/DamagedHelmet/DamagedHelmet.gltf");
 
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
@@ -163,21 +165,43 @@ void ProjectApplication::RenderUI(float deltaTime)
         stream << std::fixed << std::setprecision(2) << "Camera Position: " <<
         camera.Position.x << ", " << camera.Position.y << ", " << camera.Position.z;
         ImGui::Text(stream.str().c_str());
-        stream.str("");
-        stream.clear();
+        ResetStream(&stream);
         stream << "Frames since startup: " << frameNumber;
         ImGui::Text(stream.str().c_str());
 
         ImGui::Separator();
 
-//        ImGui::Text("Model Info:");
-//        stream << "Num Meshes: " <<
-//        ImGui::BulletText("Number of meshes: ");
+        ResetStream(&stream);
+        stream << "Num Models: " << _scene.size();
+        ImGui::Text("%s", stream.str().c_str());
+
+        for(auto modelIndex = 0; modelIndex < _scene.size(); modelIndex++)
+        {
+            ResetStream(&stream);
+            stream << "Model " << modelIndex << " info:";
+            ImGui::Text(stream.str().c_str());
+
+            ImGui::Indent();
+            ResetStream(&stream);
+            stream << "Num Meshes:  " << _scene[modelIndex].GetNumMeshes();
+            ImGui::Text(stream.str().c_str());
+
+            ImGui::Indent();
+            for(auto meshIndex = 0; meshIndex < _scene[modelIndex].GetNumMeshes(); meshIndex++)
+            {
+
+            }
+            ImGui::Unindent();
+
+            ImGui::Unindent();
+
+        }
+
 
         ImGui::End();
     }
 
-//    ImGui::ShowDemoWindow();
+    ImGui::ShowDemoWindow();
 }
 
 
@@ -253,3 +277,11 @@ void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action
     }
 
 }
+
+
+void ResetStream(std::stringstream *stream)
+{
+    stream->str("");
+    stream->clear();
+}
+

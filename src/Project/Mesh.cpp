@@ -44,3 +44,7 @@ uint32_t Mesh::NormalTexture() const
 Mesh::~Mesh() {
 
 }
+
+uint32_t Mesh::NumVertices() const {
+    return _indexCount;
+}

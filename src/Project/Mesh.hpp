@@ -55,9 +55,9 @@ private:
     int32_t _vertexOffset = 0;
     uint32_t _indexOffset = 0;
     // not OpenGL handles, just indices
-    uint32_t _transformIndex = 0;
-    uint32_t _baseColorTexture = 0;
-    uint32_t _normalTexture = 0;
+    uint32_t _transformIndex = NAN;
+    uint32_t _baseColorTexture = NAN;
+    uint32_t _normalTexture = NAN;
 };
 
 #endif
