@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="glm"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\lib\;CMake Files\src\;CMake Files\src\Project.Library\;CMake Files\src\Project.Library\lib\;CMake Files\src\Project\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uninstall">
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 uninstall"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glad-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glfw-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glfw-src\src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/src/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glfw-src\src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/src/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glfw-src\src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/src/glfw_config.h.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glfw-src\src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\spdlog-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/cmake/ide.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/cmake/utils.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\tracy-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-src/Config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\tracy-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-src/version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\tracy-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glm-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-src/cmake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glm-src\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-src/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glm-src\glm\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Project.Library\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Project.Library\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Project\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

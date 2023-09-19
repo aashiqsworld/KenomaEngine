@@ -1,0 +1,14 @@
+# Target labels
+ cgltf-populate
+# Source files and their labels
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate-complete.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-build.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-configure.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-download.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-install.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-mkdir.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-patch.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-test.rule
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-update.rule

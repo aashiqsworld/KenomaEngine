@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-subbuild/cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"cgltf-populate"
+		],
+		"name" : "cgltf-populate"
+	}
+}
