@@ -31,4 +31,4 @@ add_dependencies(KenomaEngine copy_data)
 
 target_include_directories(KenomaEngine PRIVATE include)
 
-target_link_libraries(KenomaEngine PRIVATE glad glfw imgui glm cgltf stb_image spdlog Kenoma.Engine)
+target_link_libraries(KenomaEngine PRIVATE assimp glad glfw imgui glm cgltf stb_image spdlog Kenoma.Engine)

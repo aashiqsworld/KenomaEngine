@@ -47,3 +47,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-build/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/cmake_install.cmake")
+endif()
+

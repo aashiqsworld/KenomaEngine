@@ -113,3 +113,18 @@ if(NOT stb_image_POPULATED)
     add_library(stb_image INTERFACE ${stb_image_SOURCE_DIR}/stb_image.h)
     target_include_directories(stb_image INTERFACE ${stb_image_SOURCE_DIR})
 endif()
+
+#----------------------------------------------------------------------
+
+FetchContent_Declare(assimp
+        GIT_REPOSITORY https://github.com/assimp/assimp.git
+        GIT_TAG master
+        GIT_SHALLOW     TRUE
+        GIT_PROGRESS    TRUE
+)
+
+message("Fetching assimp")
+
+FetchContent_MakeAvailable(assimp)
+
+#target_include_directories(assimp INTERFACE ${assimp_SOURCE_DIR}/include/assimp)

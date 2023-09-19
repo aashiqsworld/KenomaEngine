@@ -5,7 +5,7 @@
 		<Option title="Tracy"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\src\;CMake Files\src\Kenoma.Engine\;CMake Files\src\Kenoma.Engine\lib\;CMake Files\src\Kenoma\;CMake Files\lib\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\assimp-src\;CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\;CMake Files\cmake-build-debug\_deps\assimp-src\include\;CMake Files\cmake-build-debug\_deps\assimp-src\include\assimp\;CMake Files\cmake-build-debug\_deps\assimp-src\contrib\;CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\;CMake Files\cmake-build-debug\_deps\assimp-src\code\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\src\;CMake Files\src\Kenoma.Engine\;CMake Files\src\Kenoma.Engine\lib\;CMake Files\src\Kenoma\;CMake Files\lib\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-build"/>
@@ -77,6 +77,39 @@
 		</Unit>
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/assimp.pc.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/revision.h.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules/FindPkgMacros.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules/PrecompiledHeader.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules/assimp-plain-config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/config.h.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\include\assimp\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zconf.h.cmakein">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zlib.pc.cmakein">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\code\"/>
 		</Unit>
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glad-src\"/>

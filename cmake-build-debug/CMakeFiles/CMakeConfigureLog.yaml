@@ -305,3 +305,245 @@ events:
         
       exitCode: 2
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt:35 (check_include_file)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-l7eebf"
+      binary: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-l7eebf"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-l7eebf
+        
+        Run Build Command(s):C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_9ad85\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_9ad85.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_9ad85.dir\\build
+        Building C object CMakeFiles/cmTC_9ad85.dir/CheckIncludeFile.c.obj
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_9ad85.dir\\CheckIncludeFile.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-l7eebf --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1AD5.tmp
+        CheckIncludeFile.c
+        Linking C executable cmTC_9ad85.exe
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_9ad85.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_9ad85.dir\\objects1.rsp @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1C9B.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_9ad85.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_9ad85.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_9ad85.dir/manifest.res CMakeFiles\\cmTC_9ad85.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_9ad85.dir\\objects1.rsp /out:cmTC_9ad85.exe /implib:cmTC_9ad85.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-l7eebf\\cmTC_9ad85.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_9ad85.dir/intermediate.manifest CMakeFiles\\cmTC_9ad85.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_9ad85.dir/intermediate.manifest /out:CMakeFiles\\cmTC_9ad85.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_9ad85.dir/manifest.res CMakeFiles\\cmTC_9ad85.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_9ad85.dir\\objects1.rsp /out:cmTC_9ad85.exe /implib:cmTC_9ad85.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-l7eebf\\cmTC_9ad85.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_9ad85.dir/intermediate.manifest CMakeFiles\\cmTC_9ad85.dir/manifest.res
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt:36 (check_include_file)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-htm6n4"
+      binary: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-htm6n4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-htm6n4
+        
+        Run Build Command(s):C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_bee6c\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_bee6c.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_bee6c.dir\\build
+        Building C object CMakeFiles/cmTC_bee6c.dir/CheckIncludeFile.c.obj
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_bee6c.dir\\CheckIncludeFile.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-htm6n4 --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1D85.tmp
+        CheckIncludeFile.c
+        Linking C executable cmTC_bee6c.exe
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_bee6c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bee6c.dir\\objects1.rsp @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1DB5.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_bee6c.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_bee6c.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_bee6c.dir/manifest.res CMakeFiles\\cmTC_bee6c.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bee6c.dir\\objects1.rsp /out:cmTC_bee6c.exe /implib:cmTC_bee6c.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-htm6n4\\cmTC_bee6c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_bee6c.dir/intermediate.manifest CMakeFiles\\cmTC_bee6c.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_bee6c.dir/intermediate.manifest /out:CMakeFiles\\cmTC_bee6c.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_bee6c.dir/manifest.res CMakeFiles\\cmTC_bee6c.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bee6c.dir\\objects1.rsp /out:cmTC_bee6c.exe /implib:cmTC_bee6c.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-htm6n4\\cmTC_bee6c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_bee6c.dir/intermediate.manifest CMakeFiles\\cmTC_bee6c.dir/manifest.res
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt:37 (check_include_file)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pf2tja"
+      binary: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pf2tja"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pf2tja
+        
+        Run Build Command(s):C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_30f37\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_30f37.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_30f37.dir\\build
+        Building C object CMakeFiles/cmTC_30f37.dir/CheckIncludeFile.c.obj
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_30f37.dir\\CheckIncludeFile.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pf2tja --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1E8E.tmp
+        CheckIncludeFile.c
+        Linking C executable cmTC_30f37.exe
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_30f37.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_30f37.dir\\objects1.rsp @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1EBE.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_30f37.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_30f37.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_30f37.dir/manifest.res CMakeFiles\\cmTC_30f37.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_30f37.dir\\objects1.rsp /out:cmTC_30f37.exe /implib:cmTC_30f37.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pf2tja\\cmTC_30f37.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_30f37.dir/intermediate.manifest CMakeFiles\\cmTC_30f37.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_30f37.dir/intermediate.manifest /out:CMakeFiles\\cmTC_30f37.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_30f37.dir/manifest.res CMakeFiles\\cmTC_30f37.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_30f37.dir\\objects1.rsp /out:cmTC_30f37.exe /implib:cmTC_30f37.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pf2tja\\cmTC_30f37.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_30f37.dir/intermediate.manifest CMakeFiles\\cmTC_30f37.dir/manifest.res
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt:55 (check_type_size)"
+    checks:
+      - "Check size of off64_t"
+    directories:
+      source: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jc8rk"
+      binary: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jc8rk"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_OFF64_T"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jc8rk
+        
+        Run Build Command(s):C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_c6235\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_c6235.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_c6235.dir\\build
+        Building C object CMakeFiles/cmTC_c6235.dir/OFF64_T.c.obj
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_c6235.dir\\OFF64_T.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1F98.tmp
+        OFF64_T.c
+        C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk\\OFF64_T.c(29): error C2065: 'off64_t': undeclared identifier
+        C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk\\OFF64_T.c(30): error C2065: 'off64_t': undeclared identifier
+        C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk\\OFF64_T.c(31): error C2065: 'off64_t': undeclared identifier
+        C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk\\OFF64_T.c(32): error C2065: 'off64_t': undeclared identifier
+        C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk\\OFF64_T.c(33): error C2065: 'off64_t': undeclared identifier
+        NMAKE : fatal error U1077: 'C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_c6235.dir\\OFF64_T.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jc8rk --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm1F98.tmp' : return code '0x2'
+        Stop.
+        NMAKE : fatal error U1077: '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_c6235.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_c6235.dir\\build' : return code '0x2'
+        Stop.
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckFunctionExists.cmake:91 (try_compile)"
+      - "cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt:64 (check_function_exists)"
+    checks:
+      - "Looking for fseeko"
+    directories:
+      source: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6lud45"
+      binary: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6lud45"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_FSEEKO"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6lud45
+        
+        Run Build Command(s):C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_440e9\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_440e9.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_440e9.dir\\build
+        Building C object CMakeFiles/cmTC_440e9.dir/CheckFunctionExists.c.obj
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_440e9.dir\\CheckFunctionExists.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-6lud45 --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm2015.tmp
+        CheckFunctionExists.c
+        Linking C executable cmTC_440e9.exe
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_440e9.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_440e9.dir\\objects1.rsp @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm2045.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_440e9.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_440e9.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_440e9.dir/manifest.res CMakeFiles\\cmTC_440e9.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_440e9.dir\\objects1.rsp /out:cmTC_440e9.exe /implib:cmTC_440e9.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-6lud45\\cmTC_440e9.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_440e9.dir/intermediate.manifest CMakeFiles\\cmTC_440e9.dir/manifest.res
+        LINK Pass 1: command "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_440e9.dir\\objects1.rsp /out:cmTC_440e9.exe /implib:cmTC_440e9.lib /pdb:C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-6lud45\\cmTC_440e9.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_440e9.dir/intermediate.manifest CMakeFiles\\cmTC_440e9.dir/manifest.res" failed (exit code 1120) with the following output:
+        CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol fseeko referenced in function main
+        cmTC_440e9.exe : fatal error LNK1120: 1 unresolved externals
+        NMAKE : fatal error U1077: 'C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_440e9.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_440e9.dir\\objects1.rsp @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm2045.tmp' : return code '0xffffffff'
+        Stop.
+        NMAKE : fatal error U1077: '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_440e9.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_440e9.dir\\build' : return code '0x2'
+        Stop.
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt:72 (check_include_file)"
+    checks:
+      - "Looking for unistd.h"
+    directories:
+      source: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ppdge7"
+      binary: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ppdge7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "Z_HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ppdge7
+        
+        Run Build Command(s):C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_59feb\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_59feb.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_59feb.dir\\build
+        Building C object CMakeFiles/cmTC_59feb.dir/CheckIncludeFile.c.obj
+        	C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_59feb.dir\\CheckIncludeFile.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-ppdge7 --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm20C1.tmp
+        CheckIncludeFile.c
+        C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-ppdge7\\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
+        NMAKE : fatal error U1077: 'C:\\Users\\aashi\\AppData\\Local\\Programs\\CLion\\bin\\cmake\\win\\x64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_59feb.dir\\CheckIncludeFile.c.obj.d --working-dir=C:\\Users\\aashi\\Documents\\Dev\\Graphics\\KenomaEngine\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-ppdge7 --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\aashi\\AppData\\Local\\Temp\\nm20C1.tmp' : return code '0x2'
+        Stop.
+        NMAKE : fatal error U1077: '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_59feb.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_59feb.dir\\build' : return code '0x2'
+        Stop.
+        
+      exitCode: 2
+...

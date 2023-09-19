@@ -177,11 +177,14 @@ src\Kenoma\KenomaEngine.exe: src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine
 src\Kenoma\KenomaEngine.exe: src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj
 src\Kenoma\KenomaEngine.exe: src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj
 src\Kenoma\KenomaEngine.exe: src\Kenoma\CMakeFiles\KenomaEngine.dir\build.make
+src\Kenoma\KenomaEngine.exe: _deps\assimp-build\lib\assimp-vc143-mt.lib
 src\Kenoma\KenomaEngine.exe: _deps\glad-build\glad.lib
 src\Kenoma\KenomaEngine.exe: _deps\glfw-build\src\glfw3.lib
 src\Kenoma\KenomaEngine.exe: lib\imgui.lib
 src\Kenoma\KenomaEngine.exe: _deps\spdlog-build\spdlogd.lib
 src\Kenoma\KenomaEngine.exe: src\Kenoma.Engine\Kenoma.Engine.lib
+src\Kenoma\KenomaEngine.exe: _deps\assimp-build\lib\assimp-vc143-mt.lib
+src\Kenoma\KenomaEngine.exe: _deps\assimp-build\contrib\zlib\zlibstaticd.lib
 src\Kenoma\KenomaEngine.exe: _deps\glad-build\glad.lib
 src\Kenoma\KenomaEngine.exe: lib\imgui.lib
 src\Kenoma\KenomaEngine.exe: _deps\glfw-build\src\glfw3.lib
@@ -191,7 +194,7 @@ src\Kenoma\KenomaEngine.exe: src\Kenoma\CMakeFiles\KenomaEngine.dir\objects1.rsp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable KenomaEngine.exe"
 	cd C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma
 	C:\Users\aashi\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E vs_link_exe --intdir=CMakeFiles\KenomaEngine.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\KenomaEngine.dir\objects1.rsp @<<
- /out:KenomaEngine.exe /implib:KenomaEngine.lib /pdb:C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\KenomaEngine.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console  ..\..\_deps\glad-build\glad.lib ..\..\_deps\glfw-build\src\glfw3.lib ..\..\lib\imgui.lib ..\..\_deps\spdlog-build\spdlogd.lib ..\Kenoma.Engine\Kenoma.Engine.lib ..\..\_deps\glad-build\glad.lib ..\..\lib\imgui.lib ..\..\_deps\glfw-build\src\glfw3.lib ..\..\_deps\spdlog-build\spdlogd.lib ..\..\_deps\tracy-build\TracyClient.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+ /out:KenomaEngine.exe /implib:KenomaEngine.lib /pdb:C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\KenomaEngine.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console  ..\..\_deps\assimp-build\lib\assimp-vc143-mt.lib ..\..\_deps\glad-build\glad.lib ..\..\_deps\glfw-build\src\glfw3.lib ..\..\lib\imgui.lib ..\..\_deps\spdlog-build\spdlogd.lib ..\Kenoma.Engine\Kenoma.Engine.lib ..\..\_deps\assimp-build\lib\assimp-vc143-mt.lib ..\..\_deps\assimp-build\contrib\zlib\zlibstaticd.lib ..\..\_deps\glad-build\glad.lib ..\..\lib\imgui.lib ..\..\_deps\glfw-build\src\glfw3.lib ..\..\_deps\spdlog-build\spdlogd.lib ..\..\_deps\tracy-build\TracyClient.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 	cd C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug
 

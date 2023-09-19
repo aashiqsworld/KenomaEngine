@@ -13,4 +13,4 @@ find_package(OpenGL REQUIRED)
 
 target_include_directories(Kenoma.Engine PUBLIC include)
 
-target_link_libraries(Kenoma.Engine PRIVATE glfw glad glm TracyClient spdlog imgui)
+target_link_libraries(Kenoma.Engine PRIVATE glfw glad glm TracyClient spdlog imgui assimp)

@@ -5,7 +5,7 @@
 		<Option title="Project"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\src\;CMake Files\src\Kenoma.Engine\;CMake Files\src\Kenoma.Engine\lib\;CMake Files\src\Kenoma\;CMake Files\lib\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\assimp-src\;CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\;CMake Files\cmake-build-debug\_deps\assimp-src\include\;CMake Files\cmake-build-debug\_deps\assimp-src\include\assimp\;CMake Files\cmake-build-debug\_deps\assimp-src\contrib\;CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\;CMake Files\cmake-build-debug\_deps\assimp-src\code\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\src\;CMake Files\src\Kenoma.Engine\;CMake Files\src\Kenoma.Engine\lib\;CMake Files\src\Kenoma\;CMake Files\lib\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug"/>
@@ -239,6 +239,202 @@
 					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\glm-build\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="UpdateAssimpLibsDebugSymbolsAndDLLs">
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\Makefile VERBOSE=1 UpdateAssimpLibsDebugSymbolsAndDLLs"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="zlibstatic">
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib/zlibstaticd.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DASSIMP_BUILD_NO_M3D_IMPORTER"/>
+					<Add option="-DASSIMP_BUILD_NO_M3D_EXPORTER"/>
+					<Add option="-DWIN32_LEAN_AND_MEAN"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DNO_FSEEKO"/>
+					<Add option="-D_CRT_SECURE_NO_DEPRECATE"/>
+					<Add option="-D_CRT_NONSTDC_NO_DEPRECATE"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/."/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 zlibstatic"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="zlibstatic/fast">
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib/zlibstaticd.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DASSIMP_BUILD_NO_M3D_IMPORTER"/>
+					<Add option="-DASSIMP_BUILD_NO_M3D_EXPORTER"/>
+					<Add option="-DWIN32_LEAN_AND_MEAN"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DNO_FSEEKO"/>
+					<Add option="-D_CRT_SECURE_NO_DEPRECATE"/>
+					<Add option="-D_CRT_NONSTDC_NO_DEPRECATE"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/."/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 zlibstatic/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\contrib\zlib\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="assimp">
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/lib/assimp-vc143-mt.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DOPENDDL_STATIC_LIBARY"/>
+					<Add option="-DASSIMP_BUILD_NO_M3D_IMPORTER"/>
+					<Add option="-DASSIMP_BUILD_NO_M3D_EXPORTER"/>
+					<Add option="-DWIN32_LEAN_AND_MEAN"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DASSIMP_BUILD_NO_C4D_IMPORTER"/>
+					<Add option="-DMINIZ_USE_UNALIGNED_LOADS_AND_STORES=0"/>
+					<Add option="-DASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1"/>
+					<Add option="-DRAPIDJSON_HAS_STDSTRING=1"/>
+					<Add option="-DRAPIDJSON_NOMEMBERITERATORCLASS"/>
+					<Add option="-D_SCL_SECURE_NO_WARNINGS"/>
+					<Add option="-D_CRT_SECURE_NO_WARNINGS"/>
+					<Add option="-DOPENDDLPARSER_BUILD"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/."/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/pugixml/src"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/rapidjson/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/unzip"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/openddlparser/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/.."/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 assimp"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="assimp/fast">
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/lib/assimp-vc143-mt.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DOPENDDL_STATIC_LIBARY"/>
+					<Add option="-DASSIMP_BUILD_NO_M3D_IMPORTER"/>
+					<Add option="-DASSIMP_BUILD_NO_M3D_EXPORTER"/>
+					<Add option="-DWIN32_LEAN_AND_MEAN"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DASSIMP_BUILD_NO_C4D_IMPORTER"/>
+					<Add option="-DMINIZ_USE_UNALIGNED_LOADS_AND_STORES=0"/>
+					<Add option="-DASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1"/>
+					<Add option="-DRAPIDJSON_HAS_STDSTRING=1"/>
+					<Add option="-DRAPIDJSON_NOMEMBERITERATORCLASS"/>
+					<Add option="-D_SCL_SECURE_NO_WARNINGS"/>
+					<Add option="-D_CRT_SECURE_NO_WARNINGS"/>
+					<Add option="-DOPENDDLPARSER_BUILD"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/."/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/pugixml/src"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/rapidjson/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/unzip"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../contrib/openddlparser/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/.."/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 assimp/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\_deps\assimp-build\code\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="Kenoma.Engine">
 				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/Kenoma.Engine.lib" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine"/>
@@ -258,6 +454,8 @@
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src/backends"/>
 					<Add directory="/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code/../include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-src/public"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
@@ -295,6 +493,8 @@
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src/backends"/>
 					<Add directory="/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code/../include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-src/public"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
@@ -465,6 +665,8 @@
 					<Add option="-DGLM_FORCE_SILENT_WARNINGS"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code/../include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src"/>
@@ -502,6 +704,8 @@
 					<Add option="-DGLM_FORCE_SILENT_WARNINGS"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/../include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/code/../include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src"/>
@@ -530,6 +734,1833 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/contrib/zlib/zconf.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/include/assimp/config.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3DS/3DSConverter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3DS/3DSExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3DS/3DSExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3DS/3DSHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3DS/3DSLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3DS/3DSLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/3MFTypes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/3MFXmlTags.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/D3MFExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/D3MFExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/D3MFImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/D3MFImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/D3MFOpcPackage.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/D3MFOpcPackage.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/XmlSerializer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/3MF/XmlSerializer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AC/ACLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AC/ACLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AMF/AMFImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AMF/AMFImporter.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AMF/AMFImporter_Geometry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AMF/AMFImporter_Material.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AMF/AMFImporter_Node.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/AMF/AMFImporter_Postprocess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/ASE/ASELoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/ASE/ASELoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/ASE/ASEParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/ASE/ASEParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assbin/AssbinExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assbin/AssbinExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assbin/AssbinFileWriter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assbin/AssbinFileWriter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assbin/AssbinLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assbin/AssbinLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assjson/cencode.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assjson/cencode.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assjson/json_exporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assjson/mesh_splitter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assjson/mesh_splitter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assxml/AssxmlExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assxml/AssxmlExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assxml/AssxmlFileWriter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Assxml/AssxmlFileWriter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/B3D/B3DImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/B3D/B3DImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/BVH/BVHLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/BVH/BVHLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderBMesh.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderBMesh.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderCustomData.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderCustomData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderDNA.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderDNA.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderDNA.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderIntermediate.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderModifier.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderModifier.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderScene.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderScene.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderSceneGen.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderTessellator.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Blender/BlenderTessellator.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/COB/COBLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/COB/COBLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/COB/COBScene.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/CSM/CSMLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/CSM/CSMLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaHelper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Collada/ColladaParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/DXF/DXFHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/DXF/DXFLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/DXF/DXFLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXAnimation.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXBinaryTokenizer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXCommon.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXCompileConfig.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXConverter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXConverter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXDeformer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXDocument.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXDocument.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXDocumentUtil.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXDocumentUtil.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXExportNode.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXExportNode.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXExportProperty.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXExportProperty.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXImportSettings.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXMeshGeometry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXMeshGeometry.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXModel.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXNodeAttribute.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXProperties.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXProperties.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXTokenizer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXTokenizer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXUtil.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/FBX/FBXUtil.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/HMP/HMPFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/HMP/HMPLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/HMP/HMPLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/HMP/HalfLifeFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCBoolean.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCCurve.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCGeometry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCOpenings.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCProfile.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCReaderGen1_2x3.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCReaderGen2_2x3.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCReaderGen_2x3.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCUtil.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IFC/IFCUtil.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IQM/IQMImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IQM/IQMImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/IQM/iqm.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Irr/IRRLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Irr/IRRLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Irr/IRRMeshLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Irr/IRRMeshLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Irr/IRRShared.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Irr/IRRShared.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOAnimation.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOAnimation.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOBLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWO/LWOMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWS/LWSLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/LWS/LWSLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DMaterials.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DWrapper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/M3DWrapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/M3D/m3d.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD2/MD2FileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD2/MD2Loader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD2/MD2Loader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD2/MD2NormalTable.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD3/MD3FileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD3/MD3Loader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD3/MD3Loader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD5/MD5Loader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD5/MD5Loader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD5/MD5Parser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MD5/MD5Parser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDC/MDCFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDC/MDCLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDC/MDCLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDC/MDCNormalTable.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HL1FileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HL1ImportDefinitions.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HL1ImportSettings.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HL1MDLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HL1MDLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HL1MeshTrivert.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/HalfLifeMDLBaseHeader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/LogFunctions.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/UniqueNameGenerator.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/HalfLife/UniqueNameGenerator.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/MDLDefaultColorMap.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/MDLFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/MDLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/MDLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MDL/MDLMaterialLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDCpp14.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDPmdParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDPmxParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDPmxParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MMD/MMDVmdParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MS3D/MS3DLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/MS3D/MS3DLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/NDO/NDOLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/NDO/NDOLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/NFF/NFFLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/NFF/NFFLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OFF/OFFLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OFF/OFFLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileMtlImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileMtlImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjFileParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Obj/ObjTools.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreBinarySerializer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreBinarySerializer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreMaterial.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreParsingUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreStructs.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreStructs.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreXmlSerializer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ogre/OgreXmlSerializer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OpenGEX/OpenGEXExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OpenGEX/OpenGEXExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OpenGEX/OpenGEXImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OpenGEX/OpenGEXImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/OpenGEX/OpenGEXStructs.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ply/PlyExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ply/PlyExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ply/PlyLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ply/PlyLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ply/PlyParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Ply/PlyParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3BSP/Q3BSPFileData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3BSP/Q3BSPFileImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3BSP/Q3BSPFileImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3BSP/Q3BSPFileParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3BSP/Q3BSPFileParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3D/Q3DLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Q3D/Q3DLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Raw/RawLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Raw/RawLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/SIB/SIBImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/SIB/SIBImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/SMD/SMDLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/SMD/SMDLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STEPParser/STEPFileEncoding.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STEPParser/STEPFileEncoding.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STEPParser/STEPFileReader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STEPParser/STEPFileReader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STL/STLExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STL/STLExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STL/STLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/STL/STLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Step/StepExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Step/StepExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Terragen/TerragenLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Terragen/TerragenLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Unreal/UnrealLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/Unreal/UnrealLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X/XFileParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DExporter.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DGeoHelper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DGeoHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Geometry2D.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Geometry3D.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Group.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Light.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Macro.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Metadata.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Networking.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Node.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Postprocess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Rendering.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Shape.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DImporter_Texturing.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DXmlHelper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/X3D/X3DXmlHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/XGL/XGLLoader.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/XGL/XGLLoader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFAsset.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFAsset.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFAssetWriter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFAssetWriter.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFCommon.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFCommon.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF/glTFImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2Asset.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2Asset.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2AssetWriter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2AssetWriter.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2Exporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2Exporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2Importer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/AssetLib/glTF2/glTF2Importer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/CApi/AssimpCExport.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/CApi/CInterfaceIOWrapper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/CApi/CInterfaceIOWrapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/AssertHandler.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Assimp.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Base64.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/BaseImporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/BaseProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/BaseProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Bitmap.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Compression.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Compression.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/CreateAnimMesh.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/DefaultIOStream.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/DefaultIOSystem.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/DefaultLogger.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/DefaultProgressHandler.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Exceptional.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Exporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/FileLogStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/IFF.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/IOSystem.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Importer.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Importer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/ImporterRegistry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Maybe.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/PolyTools.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/PostStepRegistry.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/RemoveComments.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/SGSpatialSort.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/SceneCombiner.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/ScenePreprocessor.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/ScenePreprocessor.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/ScenePrivate.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/SkeletonMeshBuilder.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/SpatialSort.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/StackAllocator.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/StackAllocator.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/StandardShapes.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/StbCommon.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/StdOStreamLogStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Subdivision.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/TargetAnimation.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/TargetAnimation.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Version.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/VertexTriangleAdjacency.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/VertexTriangleAdjacency.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/Win32DebugLogStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/ZipArchiveIOSystem.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/material.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/scene.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/simd.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Common/simd.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Geometry/GeometryUtils.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Geometry/GeometryUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Material/MaterialSystem.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Material/MaterialSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Pbrt/PbrtExporter.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/Pbrt/PbrtExporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ArmaturePopulate.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ArmaturePopulate.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/CalcTangentsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/CalcTangentsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ComputeUVMappingProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ComputeUVMappingProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ConvertToLHProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ConvertToLHProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/DeboneProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/DeboneProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/DropFaceNormalsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/DropFaceNormalsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/EmbedTexturesProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/EmbedTexturesProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FindDegenerates.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FindDegenerates.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FindInstancesProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FindInstancesProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FindInvalidDataProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FindInvalidDataProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FixNormalsStep.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/FixNormalsStep.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/GenBoundingBoxesProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/GenBoundingBoxesProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/GenFaceNormalsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/GenFaceNormalsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/GenVertexNormalsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/GenVertexNormalsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ImproveCacheLocality.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ImproveCacheLocality.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/JoinVerticesProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/JoinVerticesProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/LimitBoneWeightsProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/LimitBoneWeightsProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/MakeVerboseFormat.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/MakeVerboseFormat.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/OptimizeGraph.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/OptimizeGraph.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/OptimizeMeshes.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/OptimizeMeshes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/PretransformVertices.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/PretransformVertices.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ProcessHelper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ProcessHelper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/RemoveRedundantMaterials.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/RemoveRedundantMaterials.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/RemoveVCProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/RemoveVCProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ScaleProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ScaleProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/SortByPTypeProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/SortByPTypeProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/SplitByBoneCountProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/SplitByBoneCountProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/SplitLargeMeshes.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/SplitLargeMeshes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/TextureTransform.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/TextureTransform.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/TriangulateProcess.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/TriangulateProcess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ValidateDataStructure.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/PostProcessing/ValidateDataStructure.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/res/assimp.rc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcAdjacencyInfo.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcArithmeticCodec.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcArithmeticCodec.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcBinaryStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcCommon.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcDVEncodeParams.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcDynamicVector.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcDynamicVectorDecoder.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcDynamicVectorDecoder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcDynamicVectorEncoder.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcDynamicVectorEncoder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcFIFO.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcIndexedFaceSet.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcIndexedFaceSet.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcSC3DMCDecoder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcSC3DMCDecoder.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcSC3DMCEncodeParams.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcSC3DMCEncoder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcSC3DMCEncoder.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTimer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTools.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTriangleFans.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTriangleFans.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTriangleListDecoder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTriangleListDecoder.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTriangleListEncoder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcTriangleListEncoder.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcVector.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/Open3DGC/o3dgcVector.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/clipper/clipper.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/clipper/clipper.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/code/DDLNode.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/code/OpenDDLCommon.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/code/OpenDDLExport.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/code/OpenDDLParser.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/code/OpenDDLStream.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/code/Value.cpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/DDLNode.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/OpenDDLCommon.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/OpenDDLExport.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/OpenDDLParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/OpenDDLParserUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/OpenDDLStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/openddlparser/include/openddlparser/Value.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/common/shapes.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/common/shapes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/common/utils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/advancing_front.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/advancing_front.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/cdt.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/cdt.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/sweep.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/sweep.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/sweep_context.cc">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/poly2tri/poly2tri/sweep/sweep_context.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/pugixml/src/pugiconfig.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/pugixml/src/pugixml.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/stb/stb_image.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/unzip/crypt.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/unzip/ioapi.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/unzip/ioapi.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/unzip/unzip.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/unzip/unzip.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zip/src/miniz.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zip/src/zip.c">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zip/src/zip.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/adler32.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/compress.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/crc32.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/crc32.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/deflate.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/deflate.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/gzclose.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/gzguts.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/gzlib.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/gzread.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/gzwrite.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/infback.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inffast.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inffast.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inffixed.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inflate.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inflate.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inftrees.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/inftrees.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/trees.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/trees.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/uncompr.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zlib.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zutil.c">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zutil.h">
+			<Option target="zlibstatic"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/AssertHandler.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Base64.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/BaseImporter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Bitmap.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/BlobIOSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ByteSwapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ColladaMetaData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Compiler/poppack1.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Compiler/pstdint.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Compiler/pushpack1.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/CreateAnimMesh.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/DefaultIOStream.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/DefaultIOSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/DefaultLogger.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Exceptional.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Exporter.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/GenericProperty.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/GltfMaterial.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Hash.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/IOStream.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/IOStreamBuffer.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/IOSystem.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Importer.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/LineSplitter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/LogAux.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/LogStream.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Logger.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/MathFunctions.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/MemoryIOWrapper.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/NullLogger.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ObjMaterial.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ParsingUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Profiler.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ProgressHandler.hpp">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/RemoveComments.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SGSpatialSort.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SceneCombiner.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SkeletonMeshBuilder.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SmallVector.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SmoothingGroups.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SmoothingGroups.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/SpatialSort.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/StandardShapes.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/StreamReader.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/StreamWriter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/StringComparison.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/StringUtils.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Subdivision.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/TinyFormatter.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Vertex.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/XMLTools.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/XmlParser.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ZipArchiveIOSystem.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/aabb.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/ai_assert.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/anim.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/camera.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/cexport.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/cfileio.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/cimport.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/color4.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/color4.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/commonMetaData.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/defs.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/fast_atof.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/importerdesc.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/light.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/material.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/material.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix3x3.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix3x3.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix4x4.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix4x4.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/mesh.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/metadata.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/pbrmaterial.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/postprocess.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/qnan.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/quaternion.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/quaternion.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/scene.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/texture.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/types.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector2.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector2.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector3.h">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector3.inl">
+			<Option target="assimp"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/version.h">
+			<Option target="assimp"/>
+		</Unit>
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include/glad/glad.h">
 			<Option target="glad"/>
 		</Unit>
@@ -988,6 +3019,39 @@
 		</Unit>
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/assimp.pc.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/revision.h.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules/FindPkgMacros.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules/PrecompiledHeader.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/cmake-modules/assimp-plain-config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/config.h.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\include\assimp\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zconf.h.cmakein">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/zlib/zlib.pc.cmakein">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\assimp-src\code\"/>
 		</Unit>
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\glad-src\"/>

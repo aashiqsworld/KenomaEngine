@@ -76,7 +76,7 @@ rebuild_cache\fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"assimp-dev\" \"libassimp5.2.5-dev\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -217,6 +217,45 @@ uninstall\fast:
 .PHONY : uninstall\fast
 
 #=============================================================================
+# Target rules for targets named UpdateAssimpLibsDebugSymbolsAndDLLs
+
+# Build rule for target.
+UpdateAssimpLibsDebugSymbolsAndDLLs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) UpdateAssimpLibsDebugSymbolsAndDLLs
+.PHONY : UpdateAssimpLibsDebugSymbolsAndDLLs
+
+# fast build rule for target.
+UpdateAssimpLibsDebugSymbolsAndDLLs\fast:
+	$(MAKE) $(MAKESILENT) -f _deps\assimp-build\CMakeFiles\UpdateAssimpLibsDebugSymbolsAndDLLs.dir\build.make /nologo -$(MAKEFLAGS) _deps\assimp-build\CMakeFiles\UpdateAssimpLibsDebugSymbolsAndDLLs.dir\build
+.PHONY : UpdateAssimpLibsDebugSymbolsAndDLLs\fast
+
+#=============================================================================
+# Target rules for targets named zlibstatic
+
+# Build rule for target.
+zlibstatic: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) zlibstatic
+.PHONY : zlibstatic
+
+# fast build rule for target.
+zlibstatic\fast:
+	$(MAKE) $(MAKESILENT) -f _deps\assimp-build\contrib\zlib\CMakeFiles\zlibstatic.dir\build.make /nologo -$(MAKEFLAGS) _deps\assimp-build\contrib\zlib\CMakeFiles\zlibstatic.dir\build
+.PHONY : zlibstatic\fast
+
+#=============================================================================
+# Target rules for targets named assimp
+
+# Build rule for target.
+assimp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) assimp
+.PHONY : assimp
+
+# fast build rule for target.
+assimp\fast:
+	$(MAKE) $(MAKESILENT) -f _deps\assimp-build\code\CMakeFiles\assimp.dir\build.make /nologo -$(MAKEFLAGS) _deps\assimp-build\code\CMakeFiles\assimp.dir\build
+.PHONY : assimp\fast
+
+#=============================================================================
 # Target rules for targets named Kenoma.Engine
 
 # Build rule for target.
@@ -318,6 +357,7 @@ help:
 	@echo ... install/local
 	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... UpdateAssimpLibsDebugSymbolsAndDLLs
 	@echo ... copy_data
 	@echo ... glad-generate-files
 	@echo ... uninstall
@@ -325,12 +365,14 @@ help:
 	@echo ... Kenoma.Engine
 	@echo ... KenomaEngine
 	@echo ... TracyClient
+	@echo ... assimp
 	@echo ... cgltf
 	@echo ... glad
 	@echo ... glfw
 	@echo ... imgui
 	@echo ... spdlog
 	@echo ... stb_image
+	@echo ... zlibstatic
 .PHONY : help
 
 
