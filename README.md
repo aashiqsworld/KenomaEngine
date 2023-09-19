@@ -1,6 +1,6 @@
 # Kenoma Engine
 
-## A game engine built with C++ and OpenGL.
+## A real-time graphics engine built with C++ and OpenGL.
 
 ![](screenshots/capture1.png)
 
