@@ -226,7 +226,7 @@ Project.Library: cmake_check_build_system
 
 # fast build rule for target.
 Project.Library\fast:
-	$(MAKE) $(MAKESILENT) -f src\Project.Library\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Project.Library\CMakeFiles\Project.Library.dir\build
+	$(MAKE) $(MAKESILENT) -f src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build
 .PHONY : Project.Library\fast
 
 #=============================================================================
@@ -291,7 +291,7 @@ copy_data: cmake_check_build_system
 
 # fast build rule for target.
 copy_data\fast:
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\copy_data.dir\build
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\copy_data.dir\build
 .PHONY : copy_data\fast
 
 #=============================================================================
@@ -304,7 +304,7 @@ Project: cmake_check_build_system
 
 # fast build rule for target.
 Project\fast:
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\Project.dir\build
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\Project.dir\build
 .PHONY : Project\fast
 
 # Help Target

@@ -7,10 +7,8 @@ set(CMAKE_DEPENDS_GENERATOR "NMake Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake"
   "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake"
   "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake"
-  "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystem.cmake.in"
   "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake"
   "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake"
   "C:/Users/aashi/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/ExternalProject.cmake"
@@ -34,7 +32,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.26.4/CMakeSystem.cmake"
   "cgltf-populate-prefix/tmp/cgltf-populate-mkdirs.cmake"
   "cgltf-populate-prefix/tmp/cgltf-populate-gitclone.cmake"
   "cgltf-populate-prefix/src/cgltf-populate-stamp/cgltf-populate-gitinfo.txt"

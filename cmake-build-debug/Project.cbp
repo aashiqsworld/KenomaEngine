@@ -5,7 +5,7 @@
 		<Option title="Project"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\lib\;CMake Files\src\;CMake Files\src\Project.Library\;CMake Files\src\Project.Library\lib\;CMake Files\src\Project\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\lib\;CMake Files\src\;CMake Files\src\Kenoma.Engine\;CMake Files\src\Kenoma.Engine\lib\;CMake Files\src\Kenoma\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug"/>
@@ -240,8 +240,8 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Project.Library">
-				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project.Library/Project.Library.lib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project.Library"/>
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/Project.Library.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="msvc8"/>
@@ -250,7 +250,7 @@
 					<Add option="-DTRACY_ENABLE"/>
 					<Add option="-DTRACY_ONLY_IPV4"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-src"/>
@@ -270,15 +270,15 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 Project.Library"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 Project.Library"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project.Library/fast">
-				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project.Library/Project.Library.lib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project.Library"/>
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/Project.Library.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="msvc8"/>
@@ -287,7 +287,7 @@
 					<Add option="-DTRACY_ENABLE"/>
 					<Add option="-DTRACY_ONLY_IPV4"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-src"/>
@@ -307,10 +307,10 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 Project.Library/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project.Library\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 Project.Library/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma.Engine\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="update_mappings">
@@ -446,25 +446,25 @@
 				</MakeCommands>
 			</Target>
 			<Target title="copy_data">
-				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 copy_data"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 copy_data"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project">
-				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project/Project.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project"/>
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/Project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add option="-DGLM_FORCE_SILENT_WARNINGS"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src"/>
@@ -474,7 +474,7 @@
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-src"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/stb_image-src"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/include"/>
-					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
@@ -486,22 +486,22 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 Project"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 Project"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project/fast">
-				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project/Project.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project"/>
+				<Option output="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/Project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add option="-DGLM_FORCE_SILENT_WARNINGS"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glfw-src/include"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src"/>
@@ -511,7 +511,7 @@
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/cgltf-src"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/stb_image-src"/>
 					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/include"/>
-					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/include"/>
+					<Add directory="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
 					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
@@ -523,10 +523,10 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 Project/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Project\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 Project/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\src\Kenoma\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -959,31 +959,31 @@
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-src/public/TracyClient.cpp">
 			<Option target="TracyClient"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/Application.cpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/Application.cpp">
 			<Option target="Project.Library"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Camera.hpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Camera.hpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/KenomaEngine.cpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/KenomaEngine.cpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Main.cpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Main.cpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Mesh.cpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Mesh.cpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Mesh.hpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Mesh.hpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Model.cpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Model.cpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Model.hpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Model.hpp">
 			<Option target="Project"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/Shader.hpp">
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Shader.hpp">
 			<Option target="Project"/>
 		</Unit>
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/CMakeLists.txt">
@@ -1037,14 +1037,14 @@
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/lib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\Project.Library\"/>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Kenoma.Engine\"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/lib/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\Project.Library\lib\"/>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Kenoma.Engine\lib\"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\Project\"/>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Kenoma\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

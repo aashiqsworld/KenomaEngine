@@ -427,22 +427,22 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 OPENGL_glu_LIBRARY:STRING=glu32
 
 //Value Computed by CMake
-Project.Library_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project.Library
+Project.Library_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine
 
 //Value Computed by CMake
 Project.Library_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-Project.Library_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library
+Project.Library_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine
 
 //Value Computed by CMake
-Project_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project
+Project_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma
 
 //Value Computed by CMake
 Project_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-Project_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project
+Project_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma
 
 //Build all artifacts
 SPDLOG_BUILD_ALL:BOOL=OFF
@@ -821,6 +821,8 @@ _Python_EXECUTABLE:INTERNAL=C:/Users/aashi/AppData/Local/Programs/Python/Python3
 //Python Properties
 _Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;11;5;64;;cp311-win_amd64;;C:\Users\aashi\AppData\Local\Programs\Python\Python311\Lib;C:\Users\aashi\AppData\Local\Programs\Python\Python311\Lib;C:\Users\aashi\AppData\Local\Programs\Python\Python311\Lib\site-packages;C:\Users\aashi\AppData\Local\Programs\Python\Python311\Lib\site-packages
 _Python_INTERPRETER_SIGNATURE:INTERNAL=2be7bde89331d9e8053930836630c6e3
+//Interpreter reason failure
+_Python_Interpreter_REASON_FAILURE:INTERNAL=
 //NumPy reason failure
 _Python_NumPy_REASON_FAILURE:INTERNAL=
 

@@ -5,7 +5,7 @@
 		<Option title="Tracy"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\lib\;CMake Files\src\;CMake Files\src\Project.Library\;CMake Files\src\Project.Library\lib\;CMake Files\src\Project\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\glad-src\;CMake Files\cmake-build-debug\_deps\glfw-src\;CMake Files\cmake-build-debug\_deps\glfw-src\src\;CMake Files\cmake-build-debug\_deps\spdlog-src\;CMake Files\cmake-build-debug\_deps\spdlog-src\cmake\;CMake Files\cmake-build-debug\_deps\tracy-src\;CMake Files\cmake-build-debug\_deps\glm-src\;CMake Files\cmake-build-debug\_deps\glm-src\cmake\;CMake Files\cmake-build-debug\_deps\glm-src\glm\;CMake Files\lib\;CMake Files\src\;CMake Files\src\Kenoma.Engine\;CMake Files\src\Kenoma.Engine\lib\;CMake Files\src\Kenoma\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/tracy-build"/>
@@ -126,14 +126,14 @@
 		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/lib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\Project.Library\"/>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Kenoma.Engine\"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project.Library/lib/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\Project.Library\lib\"/>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Kenoma.Engine\lib\"/>
 		</Unit>
-		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Project/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\Project\"/>
+		<Unit filename="C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\Kenoma\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

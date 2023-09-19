@@ -53,20 +53,20 @@ CMAKE_BINARY_DIR = C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-buil
 
 # The main recursive "all" target.
 all: lib\all
-all: src\Project.Library\all
-all: src\Project\all
+all: src\Kenoma.Engine\all
+all: src\Kenoma\all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: lib\preinstall
-preinstall: src\Project.Library\preinstall
-preinstall: src\Project\preinstall
+preinstall: src\Kenoma.Engine\preinstall
+preinstall: src\Kenoma\preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: lib\clean
-clean: src\Project.Library\clean
-clean: src\Project\clean
+clean: src\Kenoma.Engine\clean
+clean: src\Kenoma\clean
 .PHONY : clean
 
 #=============================================================================
@@ -205,56 +205,56 @@ lib\clean: _deps\glm-build\clean
 .PHONY : lib\clean
 
 #=============================================================================
-# Directory level rules for directory src\Project
+# Directory level rules for directory src\Kenoma
 
 # Recursive "all" directory target.
-src\Project\all: src\Project\CMakeFiles\copy_data.dir\all
-src\Project\all: src\Project\CMakeFiles\Project.dir\all
-.PHONY : src\Project\all
+src\Kenoma\all: src\Kenoma\CMakeFiles\copy_data.dir\all
+src\Kenoma\all: src\Kenoma\CMakeFiles\Project.dir\all
+.PHONY : src\Kenoma\all
 
 # Recursive "preinstall" directory target.
-src\Project\preinstall:
-.PHONY : src\Project\preinstall
+src\Kenoma\preinstall:
+.PHONY : src\Kenoma\preinstall
 
 # Recursive "clean" directory target.
-src\Project\clean: src\Project\CMakeFiles\copy_data.dir\clean
-src\Project\clean: src\Project\CMakeFiles\Project.dir\clean
-.PHONY : src\Project\clean
+src\Kenoma\clean: src\Kenoma\CMakeFiles\copy_data.dir\clean
+src\Kenoma\clean: src\Kenoma\CMakeFiles\Project.dir\clean
+.PHONY : src\Kenoma\clean
 
 #=============================================================================
-# Directory level rules for directory src\Project.Library
+# Directory level rules for directory src\Kenoma.Engine
 
 # Recursive "all" directory target.
-src\Project.Library\all: src\Project.Library\CMakeFiles\Project.Library.dir\all
-src\Project.Library\all: src\Project.Library\lib\all
-.PHONY : src\Project.Library\all
+src\Kenoma.Engine\all: src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all
+src\Kenoma.Engine\all: src\Kenoma.Engine\lib\all
+.PHONY : src\Kenoma.Engine\all
 
 # Recursive "preinstall" directory target.
-src\Project.Library\preinstall: src\Project.Library\lib\preinstall
-.PHONY : src\Project.Library\preinstall
+src\Kenoma.Engine\preinstall: src\Kenoma.Engine\lib\preinstall
+.PHONY : src\Kenoma.Engine\preinstall
 
 # Recursive "clean" directory target.
-src\Project.Library\clean: src\Project.Library\CMakeFiles\Project.Library.dir\clean
-src\Project.Library\clean: src\Project.Library\lib\clean
-.PHONY : src\Project.Library\clean
+src\Kenoma.Engine\clean: src\Kenoma.Engine\CMakeFiles\Project.Library.dir\clean
+src\Kenoma.Engine\clean: src\Kenoma.Engine\lib\clean
+.PHONY : src\Kenoma.Engine\clean
 
 #=============================================================================
-# Directory level rules for directory src\Project.Library\lib
+# Directory level rules for directory src\Kenoma.Engine\lib
 
 # Recursive "all" directory target.
-src\Project.Library\lib\all: _deps\glfw-build\all
-src\Project.Library\lib\all: _deps\glad-build\all
-.PHONY : src\Project.Library\lib\all
+src\Kenoma.Engine\lib\all: _deps\glfw-build\all
+src\Kenoma.Engine\lib\all: _deps\glad-build\all
+.PHONY : src\Kenoma.Engine\lib\all
 
 # Recursive "preinstall" directory target.
-src\Project.Library\lib\preinstall: _deps\glfw-build\preinstall
-src\Project.Library\lib\preinstall: _deps\glad-build\preinstall
-.PHONY : src\Project.Library\lib\preinstall
+src\Kenoma.Engine\lib\preinstall: _deps\glfw-build\preinstall
+src\Kenoma.Engine\lib\preinstall: _deps\glad-build\preinstall
+.PHONY : src\Kenoma.Engine\lib\preinstall
 
 # Recursive "clean" directory target.
-src\Project.Library\lib\clean: _deps\glfw-build\clean
-src\Project.Library\lib\clean: _deps\glad-build\clean
-.PHONY : src\Project.Library\lib\clean
+src\Kenoma.Engine\lib\clean: _deps\glfw-build\clean
+src\Kenoma.Engine\lib\clean: _deps\glad-build\clean
+.PHONY : src\Kenoma.Engine\lib\clean
 
 #=============================================================================
 # Target rules for target lib/CMakeFiles/imgui.dir
@@ -413,34 +413,34 @@ _deps\glm-build\CMakeFiles\uninstall.dir\clean:
 .PHONY : _deps\glm-build\CMakeFiles\uninstall.dir\clean
 
 #=============================================================================
-# Target rules for target src/Project.Library/CMakeFiles/Project.Library.dir
+# Target rules for target src/Kenoma.Engine/CMakeFiles/Project.Library.dir
 
 # All Build rule for target.
-src\Project.Library\CMakeFiles\Project.Library.dir\all: lib\CMakeFiles\imgui.dir\all
-src\Project.Library\CMakeFiles\Project.Library.dir\all: _deps\spdlog-build\CMakeFiles\spdlog.dir\all
-src\Project.Library\CMakeFiles\Project.Library.dir\all: _deps\tracy-build\CMakeFiles\TracyClient.dir\all
-src\Project.Library\CMakeFiles\Project.Library.dir\all: _deps\glfw-build\src\CMakeFiles\glfw.dir\all
-src\Project.Library\CMakeFiles\Project.Library.dir\all: _deps\glad-build\CMakeFiles\glad.dir\all
-	$(MAKE) $(MAKESILENT) -f src\Project.Library\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Project.Library\CMakeFiles\Project.Library.dir\depend
-	$(MAKE) $(MAKESILENT) -f src\Project.Library\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Project.Library\CMakeFiles\Project.Library.dir\build
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all: _deps\spdlog-build\CMakeFiles\spdlog.dir\all
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all: lib\CMakeFiles\imgui.dir\all
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all: _deps\tracy-build\CMakeFiles\TracyClient.dir\all
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all: _deps\glfw-build\src\CMakeFiles\glfw.dir\all
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all: _deps\glad-build\CMakeFiles\glad.dir\all
+	$(MAKE) $(MAKESILENT) -f src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Project.Library.dir\depend
+	$(MAKE) $(MAKESILENT) -f src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles --progress-num=6,7 "Built target Project.Library"
-.PHONY : src\Project.Library\CMakeFiles\Project.Library.dir\all
+.PHONY : src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all
 
 # Build rule for subdir invocation for target.
-src\Project.Library\CMakeFiles\Project.Library.dir\rule: cmake_check_build_system
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles 40
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) src\Project.Library\CMakeFiles\Project.Library.dir\all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles 0
-.PHONY : src\Project.Library\CMakeFiles\Project.Library.dir\rule
+.PHONY : src\Kenoma.Engine\CMakeFiles\Project.Library.dir\rule
 
 # Convenience name for target.
-Project.Library: src\Project.Library\CMakeFiles\Project.Library.dir\rule
+Project.Library: src\Kenoma.Engine\CMakeFiles\Project.Library.dir\rule
 .PHONY : Project.Library
 
 # clean rule for target.
-src\Project.Library\CMakeFiles\Project.Library.dir\clean:
-	$(MAKE) $(MAKESILENT) -f src\Project.Library\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Project.Library\CMakeFiles\Project.Library.dir\clean
-.PHONY : src\Project.Library\CMakeFiles\Project.Library.dir\clean
+src\Kenoma.Engine\CMakeFiles\Project.Library.dir\clean:
+	$(MAKE) $(MAKESILENT) -f src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Project.Library.dir\clean
+.PHONY : src\Kenoma.Engine\CMakeFiles\Project.Library.dir\clean
 
 #=============================================================================
 # Target rules for target _deps/glfw-build/src/CMakeFiles/update_mappings.dir
@@ -547,64 +547,64 @@ _deps\glad-build\CMakeFiles\glad.dir\clean:
 .PHONY : _deps\glad-build\CMakeFiles\glad.dir\clean
 
 #=============================================================================
-# Target rules for target src/Project/CMakeFiles/copy_data.dir
+# Target rules for target src/Kenoma/CMakeFiles/copy_data.dir
 
 # All Build rule for target.
-src\Project\CMakeFiles\copy_data.dir\all:
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\copy_data.dir\depend
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\copy_data.dir\build
+src\Kenoma\CMakeFiles\copy_data.dir\all:
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\copy_data.dir\depend
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\copy_data.dir\build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles --progress-num= "Built target copy_data"
-.PHONY : src\Project\CMakeFiles\copy_data.dir\all
+.PHONY : src\Kenoma\CMakeFiles\copy_data.dir\all
 
 # Build rule for subdir invocation for target.
-src\Project\CMakeFiles\copy_data.dir\rule: cmake_check_build_system
+src\Kenoma\CMakeFiles\copy_data.dir\rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\copy_data.dir\all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\copy_data.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles 0
-.PHONY : src\Project\CMakeFiles\copy_data.dir\rule
+.PHONY : src\Kenoma\CMakeFiles\copy_data.dir\rule
 
 # Convenience name for target.
-copy_data: src\Project\CMakeFiles\copy_data.dir\rule
+copy_data: src\Kenoma\CMakeFiles\copy_data.dir\rule
 .PHONY : copy_data
 
 # clean rule for target.
-src\Project\CMakeFiles\copy_data.dir\clean:
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\copy_data.dir\clean
-.PHONY : src\Project\CMakeFiles\copy_data.dir\clean
+src\Kenoma\CMakeFiles\copy_data.dir\clean:
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\copy_data.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\copy_data.dir\clean
+.PHONY : src\Kenoma\CMakeFiles\copy_data.dir\clean
 
 #=============================================================================
-# Target rules for target src/Project/CMakeFiles/Project.dir
+# Target rules for target src/Kenoma/CMakeFiles/Project.dir
 
 # All Build rule for target.
-src\Project\CMakeFiles\Project.dir\all: lib\CMakeFiles\imgui.dir\all
-src\Project\CMakeFiles\Project.dir\all: lib\CMakeFiles\cgltf.dir\all
-src\Project\CMakeFiles\Project.dir\all: lib\CMakeFiles\stb_image.dir\all
-src\Project\CMakeFiles\Project.dir\all: _deps\spdlog-build\CMakeFiles\spdlog.dir\all
-src\Project\CMakeFiles\Project.dir\all: src\Project.Library\CMakeFiles\Project.Library.dir\all
-src\Project\CMakeFiles\Project.dir\all: _deps\tracy-build\CMakeFiles\TracyClient.dir\all
-src\Project\CMakeFiles\Project.dir\all: _deps\glfw-build\src\CMakeFiles\glfw.dir\all
-src\Project\CMakeFiles\Project.dir\all: src\Project\CMakeFiles\copy_data.dir\all
-src\Project\CMakeFiles\Project.dir\all: _deps\glad-build\CMakeFiles\glad.dir\all
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\Project.dir\depend
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\Project.dir\build
+src\Kenoma\CMakeFiles\Project.dir\all: _deps\spdlog-build\CMakeFiles\spdlog.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: lib\CMakeFiles\imgui.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: lib\CMakeFiles\cgltf.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: lib\CMakeFiles\stb_image.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: src\Kenoma.Engine\CMakeFiles\Project.Library.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: _deps\tracy-build\CMakeFiles\TracyClient.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: _deps\glfw-build\src\CMakeFiles\glfw.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: _deps\glad-build\CMakeFiles\glad.dir\all
+src\Kenoma\CMakeFiles\Project.dir\all: src\Kenoma\CMakeFiles\copy_data.dir\all
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\Project.dir\depend
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\Project.dir\build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target Project"
-.PHONY : src\Project\CMakeFiles\Project.dir\all
+.PHONY : src\Kenoma\CMakeFiles\Project.dir\all
 
 # Build rule for subdir invocation for target.
-src\Project\CMakeFiles\Project.dir\rule: cmake_check_build_system
+src\Kenoma\CMakeFiles\Project.dir\rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles 45
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\Project.dir\all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\Project.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\cmake-build-debug\CMakeFiles 0
-.PHONY : src\Project\CMakeFiles\Project.dir\rule
+.PHONY : src\Kenoma\CMakeFiles\Project.dir\rule
 
 # Convenience name for target.
-Project: src\Project\CMakeFiles\Project.dir\rule
+Project: src\Kenoma\CMakeFiles\Project.dir\rule
 .PHONY : Project
 
 # clean rule for target.
-src\Project\CMakeFiles\Project.dir\clean:
-	$(MAKE) $(MAKESILENT) -f src\Project\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Project\CMakeFiles\Project.dir\clean
-.PHONY : src\Project\CMakeFiles\Project.dir\clean
+src\Kenoma\CMakeFiles\Project.dir\clean:
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\Project.dir\clean
+.PHONY : src\Kenoma\CMakeFiles\Project.dir\clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

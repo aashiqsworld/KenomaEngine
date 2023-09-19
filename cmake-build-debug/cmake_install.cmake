@@ -39,12 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project.Library/cmake_install.cmake")
+  include("C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Project/cmake_install.cmake")
+  include("C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

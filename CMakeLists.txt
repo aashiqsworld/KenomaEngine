@@ -14,5 +14,5 @@ if (${FORCE_COLORED_OUTPUT})
 endif ()
 
 add_subdirectory(lib)
-add_subdirectory(src/Project.Library)
-add_subdirectory(src/Project)
+add_subdirectory(src/Kenoma.Engine)
+add_subdirectory(src/Kenoma)
