@@ -340,6 +340,28 @@ C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-s
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-src/glm/detail/func_integer.inl
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Mesh.hpp
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/Model.hpp
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/Importer.hpp
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/types.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/defs.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-build/include/assimp/config.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector2.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector3.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/color4.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix3x3.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix4x4.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/quaternion.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/../contrib/utf8cpp/source/utf8.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/utf8cpp/source/utf8/checked.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/utf8cpp/source/utf8/core.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/contrib/utf8cpp/source/utf8/unchecked.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector2.inl
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/vector3.inl
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/color4.inl
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix3x3.inl
+C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/algorithm
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/matrix4x4.inl
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/MathFunctions.h
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/assimp-src/include/assimp/quaternion.inl
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma/include/Project/../../../Kenoma.Engine/include/Project.Library/Application.hpp
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src/imgui.h
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/imgui-src/imconfig.h
@@ -398,7 +420,6 @@ C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/assert.h
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/include/spdlog/version.h
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/spdlog-src/include/spdlog/details/synchronous_factory.h
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/filesystem
-C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/algorithm
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/queue
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/deque
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/set
