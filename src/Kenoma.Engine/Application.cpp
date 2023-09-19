@@ -87,7 +87,7 @@ bool Application::Initialize()
     const auto primaryMonitor = glfwGetPrimaryMonitor();
     const auto primaryMonitorVideoMode = glfwGetVideoMode(primaryMonitor);
 
-    _windowHandle = glfwCreateWindow(windowWidth, windowHeight, "Project Template", nullptr, nullptr);
+    _windowHandle = glfwCreateWindow(windowWidth, windowHeight, "Kenoma Engine", nullptr, nullptr);
     if (_windowHandle == nullptr)
     {
         spdlog::error("Glfw: Unable to create window");

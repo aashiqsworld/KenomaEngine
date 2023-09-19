@@ -1,3 +1,0 @@
-C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/CMakeFiles/cgltf-populate.dir
-C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/CMakeFiles/edit_cache.dir
-C:/Users/aashi/Documents/Dev/Graphics/CMake-Glfw-OpenGL-Template/cmake-build-debug-visual-studio/_deps/cgltf-subbuild/CMakeFiles/rebuild_cache.dir
