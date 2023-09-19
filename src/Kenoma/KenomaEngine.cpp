@@ -33,33 +33,6 @@ bool mouseVisible = false;
 void KeyboardInputCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 void ResetStream(std::stringstream *stream);
 
-
-static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* image)
-{
-    std::string texturePath;
-    if (!image->uri)
-    {
-        auto newPath = basePath / image->name;
-        if (!newPath.has_extension())
-        {
-            if (std::strcmp(image->mime_type, "image/png") == 0)
-            {
-                newPath.replace_extension("png");
-            }
-            else if (std::strcmp(image->mime_type, "image/jpg") == 0)
-            {
-                newPath.replace_extension("jpg");
-            }
-        }
-        texturePath = newPath.generic_string();
-    }
-    else
-    {
-        texturePath = (basePath / image->uri).generic_string();
-    }
-    return texturePath;
-}
-
 void KenomaEngine::AfterCreatedUiContext()
 {
 }
