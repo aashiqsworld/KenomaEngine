@@ -46,7 +46,6 @@ elseif(show_ref_output MATCHES "^[a-z0-9]+[ \\t]+refs/tags/")
   # Special case to preserve backward compatibility: if we are already at the
   # same commit as the tag we hold locally, don't do a fetch and assume the tag
   # hasn't moved on the remote.
-  # FIXME: We should provide an option to always fetch for this case
   get_hash_for_ref("3.3.8" tag_sha error_msg)
   if(tag_sha STREQUAL head_sha)
     message(VERBOSE "Already at requested tag: ${tag_sha}")
