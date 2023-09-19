@@ -124,7 +124,6 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     {
         model.Draw(litShader);
     }
-//    _model.Draw(litShader);
 }
 
 void KenomaEngine::RenderUI(float deltaTime)
@@ -168,10 +167,7 @@ void KenomaEngine::RenderUI(float deltaTime)
             ImGui::Unindent();
 
             ImGui::Unindent();
-
         }
-
-
         ImGui::End();
     }
 
