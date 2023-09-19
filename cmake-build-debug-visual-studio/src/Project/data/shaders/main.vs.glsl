@@ -9,8 +9,8 @@ layout (location = 0) out vec2 oUvs;
 layout (location = 1) out flat uint oBaseColorIndex;
 layout (location = 2) out flat uint oNormalIndex;
 
-layout (location = 3) out vec3 Normal;
-layout (location = 4) out vec3 FragPos;
+layout (location = 3) out vec3 oNormal;
+layout (location = 4) out vec3 oFragPos;
 
 
 
@@ -39,7 +39,7 @@ void main()
     oUvs = iUv;
     oBaseColorIndex = objectData[gl_DrawID].baseColorIndex;
     oNormalIndex = objectData[gl_DrawID].normalIndex;
-    Normal = mat3(transpose(inverse(transforms[objectData[gl_DrawID].transformIndex]))) * iNormal;
-    FragPos = vec3(transforms[objectData[gl_DrawID].transformIndex] * vec4(iPosition, 1.0));
+    oNormal = mat3(transpose(inverse(transforms[objectData[gl_DrawID].transformIndex]))) * iNormal;
+    oFragPos = vec3(transforms[objectData[gl_DrawID].transformIndex] * vec4(iPosition, 1.0));
     gl_Position = uProjection * uView * transforms[objectData[gl_DrawID].transformIndex] * vec4(iPosition, 1.0);
 }

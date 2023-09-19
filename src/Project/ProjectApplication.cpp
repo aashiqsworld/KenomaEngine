@@ -127,7 +127,7 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
     litShader.setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
-    litShader.setVec3("pointLight.position", 0.7f,  3.0f,  2.0f);
+    litShader.setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf((float)glfwGetTime())) * 4);
     litShader.setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
     litShader.setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
     litShader.setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);
@@ -135,11 +135,12 @@ void ProjectApplication::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setFloat("pointLight.linear", 0.09f);
     litShader.setFloat("pointLight.quadratic", 0.032f);
 
+    float brightness = 0.0f;
     litShader.setVec3("spotLight.position", camera.Position);
     litShader.setVec3("spotLight.direction", camera.Front);
     litShader.setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
-    litShader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
-    litShader.setVec3("spotLight.specular", 1.0f, 1.0f, 1.0f);
+    litShader.setVec3("spotLight.diffuse", brightness, brightness, brightness);
+    litShader.setVec3("spotLight.specular", brightness, brightness, brightness);
     litShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5)));
     litShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0)));
     litShader.setFloat("spotLight.constant", 1.0f);

@@ -47,8 +47,8 @@ layout (location = 0) out vec4 oPixel;
 layout (location = 0) in vec2 iUvs;
 layout (location = 1) in flat uint iBaseColorIndex;
 layout (location = 2) in flat uint iNormalIndex;
-layout (location = 3) in vec3 Normal;
-layout (location = 4) in vec3 FragPos;
+layout (location = 3) in vec3 iNormal;
+layout (location = 4) in vec3 iFragPos;
 
 layout (location = 2) uniform sampler2D[16] uTextures;
 
@@ -72,13 +72,13 @@ void main()
     testIndex = iBaseColorIndex;
 
     // properties
-    vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(viewPos - FragPos);
+    vec3 norm = normalize(iNormal);
+    vec3 viewDir = normalize(viewPos - iFragPos);
 
     vec3 result = vec3(0.0, 0.0, 0.0);
     result = CalcDirLight(dirLight, norm, viewDir);
-    result += CalcPointLight(pointLight, norm, FragPos, viewDir);
-    result += CalcSpotLight(spotLight, norm, FragPos, viewDir);
+    result += CalcPointLight(pointLight, norm, iFragPos, viewDir);
+    result += CalcSpotLight(spotLight, norm, iFragPos, viewDir);
 
     oPixel = vec4(result, 1.0);
 }
