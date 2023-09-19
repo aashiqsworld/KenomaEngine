@@ -67,7 +67,7 @@ Model::Model(std::string_view file)
         // Get the material's base color texture
         auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
         // Find its texture path
-        auto texturePath = FindTexturePath(basePath, image);
+        auto texturePath =  FindTexturePath(basePath, image);
         if (!textureIds.contains(texturePath)) // check if the texture is already loaded
         {
             // If we already loaded the texture, go onto the next material
