@@ -1,8 +1,8 @@
-#include <Project/ProjectApplication.hpp>
+#include <Project/KenomaEngine.hpp>
 
 int main(int argc, char* argv[])
 {
-    ProjectApplication application;
+    KenomaEngine application;
     application.Run();
     return 0;
 }
