@@ -174,8 +174,6 @@ void KenomaEngine::RenderUI(float deltaTime)
 
         ImGui::End();
     }
-
-    ImGui::ShowDemoWindow();
 }
 
 

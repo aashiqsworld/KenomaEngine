@@ -217,17 +217,17 @@ uninstall\fast:
 .PHONY : uninstall\fast
 
 #=============================================================================
-# Target rules for targets named Project.Library
+# Target rules for targets named Kenoma.Engine
 
 # Build rule for target.
-Project.Library: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) Project.Library
-.PHONY : Project.Library
+Kenoma.Engine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) Kenoma.Engine
+.PHONY : Kenoma.Engine
 
 # fast build rule for target.
-Project.Library\fast:
-	$(MAKE) $(MAKESILENT) -f src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Project.Library.dir\build
-.PHONY : Project.Library\fast
+Kenoma.Engine\fast:
+	$(MAKE) $(MAKESILENT) -f src\Kenoma.Engine\CMakeFiles\Kenoma.Engine.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma.Engine\CMakeFiles\Kenoma.Engine.dir\build
+.PHONY : Kenoma.Engine\fast
 
 #=============================================================================
 # Target rules for targets named update_mappings
@@ -295,17 +295,17 @@ copy_data\fast:
 .PHONY : copy_data\fast
 
 #=============================================================================
-# Target rules for targets named Project
+# Target rules for targets named KenomaEngine
 
 # Build rule for target.
-Project: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) Project
-.PHONY : Project
+KenomaEngine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) KenomaEngine
+.PHONY : KenomaEngine
 
 # fast build rule for target.
-Project\fast:
-	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\Project.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\Project.dir\build
-.PHONY : Project\fast
+KenomaEngine\fast:
+	$(MAKE) $(MAKESILENT) -f src\Kenoma\CMakeFiles\KenomaEngine.dir\build.make /nologo -$(MAKEFLAGS) src\Kenoma\CMakeFiles\KenomaEngine.dir\build
+.PHONY : KenomaEngine\fast
 
 # Help Target
 help:
@@ -322,8 +322,8 @@ help:
 	@echo ... glad-generate-files
 	@echo ... uninstall
 	@echo ... update_mappings
-	@echo ... Project
-	@echo ... Project.Library
+	@echo ... Kenoma.Engine
+	@echo ... KenomaEngine
 	@echo ... TracyClient
 	@echo ... cgltf
 	@echo ... glad

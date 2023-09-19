@@ -116,11 +116,11 @@ set(CMAKE_DEPEND_INFO_FILES
   "_deps/spdlog-build/CMakeFiles/spdlog.dir/DependInfo.cmake"
   "_deps/tracy-build/CMakeFiles/TracyClient.dir/DependInfo.cmake"
   "_deps/glm-build/CMakeFiles/uninstall.dir/DependInfo.cmake"
-  "src/Kenoma.Engine/CMakeFiles/Project.Library.dir/DependInfo.cmake"
+  "src/Kenoma.Engine/CMakeFiles/Kenoma.Engine.dir/DependInfo.cmake"
   "_deps/glfw-build/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
   "_deps/glfw-build/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "_deps/glad-build/CMakeFiles/glad-generate-files.dir/DependInfo.cmake"
   "_deps/glad-build/CMakeFiles/glad.dir/DependInfo.cmake"
   "src/Kenoma/CMakeFiles/copy_data.dir/DependInfo.cmake"
-  "src/Kenoma/CMakeFiles/Project.dir/DependInfo.cmake"
+  "src/Kenoma/CMakeFiles/KenomaEngine.dir/DependInfo.cmake"
   )

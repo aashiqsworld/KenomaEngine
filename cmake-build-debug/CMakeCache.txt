@@ -420,6 +420,24 @@ GLFW_USE_HYBRID_HPG:BOOL=OFF
 //Assume the Vulkan loader is linked with the application
 GLFW_VULKAN_STATIC:BOOL=OFF
 
+//Value Computed by CMake
+Kenoma.Engine_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine
+
+//Value Computed by CMake
+Kenoma.Engine_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Kenoma.Engine_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine
+
+//Value Computed by CMake
+KenomaEngine_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma
+
+//Value Computed by CMake
+KenomaEngine_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+KenomaEngine_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma
+
 //OpenGL library for win32
 OPENGL_gl_LIBRARY:STRING=opengl32
 
@@ -436,13 +454,13 @@ Project.Library_IS_TOP_LEVEL:STATIC=OFF
 Project.Library_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma.Engine
 
 //Value Computed by CMake
-Project_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma
+Project_BINARY_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug
 
 //Value Computed by CMake
-Project_IS_TOP_LEVEL:STATIC=OFF
+Project_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-Project_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/src/Kenoma
+Project_SOURCE_DIR:STATIC=C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine
 
 //Build all artifacts
 SPDLOG_BUILD_ALL:BOOL=OFF

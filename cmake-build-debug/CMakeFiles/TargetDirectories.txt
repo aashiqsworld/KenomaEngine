@@ -34,7 +34,7 @@ C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-b
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-build/glm/CMakeFiles/list_install_components.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-build/glm/CMakeFiles/install.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glm-build/glm/CMakeFiles/install/local.dir
-C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/CMakeFiles/Project.Library.dir
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/CMakeFiles/Kenoma.Engine.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/CMakeFiles/edit_cache.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/CMakeFiles/rebuild_cache.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma.Engine/CMakeFiles/list_install_components.dir
@@ -65,7 +65,7 @@ C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/CMakeFiles/install.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/_deps/glad-build/CMakeFiles/install/local.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/CMakeFiles/copy_data.dir
-C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/CMakeFiles/Project.dir
+C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/CMakeFiles/KenomaEngine.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/CMakeFiles/edit_cache.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/CMakeFiles/rebuild_cache.dir
 C:/Users/aashi/Documents/Dev/Graphics/KenomaEngine/cmake-build-debug/src/Kenoma/CMakeFiles/list_install_components.dir

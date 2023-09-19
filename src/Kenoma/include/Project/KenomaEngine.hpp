@@ -1,6 +1,5 @@
 #pragma once
 
-#include <Project.Library/Application.hpp>
 
 #include <glm/mat4x4.hpp>
 #include <glm/vec4.hpp>
@@ -14,7 +13,7 @@
 #include "Shader.hpp"
 #include "Mesh.hpp"
 #include "Model.hpp"
-
+#include "../../../Kenoma.Engine/include/Project.Library/Application.hpp"
 
 
 class KenomaEngine final : public Application

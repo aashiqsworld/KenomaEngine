@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(Project)
+project(KenomaEngine)
 
 if(MSVC)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
@@ -26,9 +26,9 @@ set(sourceFiles
         Model.cpp
 )
 
-add_executable(Project ${sourceFiles})
-add_dependencies(Project copy_data)
+add_executable(KenomaEngine ${sourceFiles})
+add_dependencies(KenomaEngine copy_data)
 
-target_include_directories(Project PRIVATE include)
+target_include_directories(KenomaEngine PRIVATE include)
 
-target_link_libraries(Project PRIVATE glad glfw imgui glm cgltf stb_image spdlog Project.Library)
+target_link_libraries(KenomaEngine PRIVATE glad glfw imgui glm cgltf stb_image spdlog Kenoma.Engine)
