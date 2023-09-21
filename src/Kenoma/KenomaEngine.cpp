@@ -54,9 +54,10 @@ bool KenomaEngine::Load()
 
     Model m = Model();
     m.LoadWithAssimp("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+    _scene.push_back(m);
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
-    _scene.emplace_back("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+//    _scene.emplace_back("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //    _scene.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
 //    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");

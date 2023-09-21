@@ -421,11 +421,86 @@ void Model::LoadWithAssimp(const std::string& path) {
     ProcessNode(scene->mRootNode, scene);
 
     const uint32_t maxBatches = textures.size() / 16 + 1;
-    for(auto mc : _meshCreates)
+
+    _cmds.resize(maxBatches);
+    _objectData.resize(maxBatches);
+
+    // Allocate GL buffers
+    // Vertex Array Object specifies how the vertex data should be read by the GPU
+    glCreateVertexArrays(1, &_vao);
+    // Vertex Buffer Object holds all the mesh vertex data in this model
+    glCreateBuffers(1, &_vbo);
+    // Element Buffer Object holds all the indices for all the meshes
+    glCreateBuffers(1, &_ebo);
+
+    // transform data buffer
+    glCreateBuffers(1, &_transformData);
+
+    // object data buffers
+    glCreateBuffers(_objectData.size(), _objectData.data());
+
+    // indirect data buffer holds all the info required for OpenGL to draw the mesh
+    // this is per batch
+    glGenBuffers(_cmds.size(), _cmds.data());
+
+    size_t vertexSize = 0;
+    size_t indexSize = 0;
+    for(const auto& info : _meshCreates)
     {
-        _meshes.emplace_back(mc);
+        vertexSize += info.vertices.size() * sizeof(Vertex);
+        indexSize += info.indices.size() * sizeof(uint32_t);
     }
-    return;
+
+    // Allocate the storage
+    glNamedBufferStorage(_vbo, vertexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
+    glNamedBufferStorage(_ebo, indexSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
+
+    // Associate the vertex array object with our vertex and index buffer
+    glVertexArrayVertexBuffer(_vao, 0, _vbo, 0, sizeof(Vertex));
+    glVertexArrayElementBuffer(_vao,_ebo);
+
+    // Tell OpenGL which vertex location index we want to use
+    // it maps to the layout #
+    glEnableVertexArrayAttrib(_vao, 0);
+    glEnableVertexArrayAttrib(_vao, 1);
+    glEnableVertexArrayAttrib(_vao, 2);
+    glEnableVertexArrayAttrib(_vao, 3);
+    glEnableVertexArrayAttrib(_vao, 4);
+
+    // Tell OpenGL how to interpret each vertex attribute
+    //                              location        components  type      transpose   offset
+    glVertexArrayAttribFormat(_vao, /*location = */0, /*vec*/3, GL_FLOAT, GL_FALSE, offsetof
+    (Vertex, position));
+    glVertexArrayAttribFormat(_vao, /*location = */1, /*vec*/3, GL_FLOAT, GL_FALSE, offsetof
+    (Vertex, normal));
+    glVertexArrayAttribFormat(_vao, /*location = */2, /*vec*/2, GL_FLOAT, GL_FALSE, offsetof
+    (Vertex, uv));
+    glVertexArrayAttribFormat(_vao, /*location = */3, /*vec*/3, GL_FLOAT, GL_FALSE, offsetof
+    (Vertex, tangent));
+    glVertexArrayAttribFormat(_vao, /*location = */4, /*vec*/3, GL_FLOAT, GL_FALSE, offsetof
+    (Vertex, bitangent));
+
+    // finally bind each vertex attribute to a vertex buffer, the 0th buffer
+    glVertexArrayAttribBinding(_vao, 0, 0);
+    glVertexArrayAttribBinding(_vao, 1, 0);
+    glVertexArrayAttribBinding(_vao, 2, 0);
+    glVertexArrayAttribBinding(_vao, 3, 0);
+    glVertexArrayAttribBinding(_vao, 4, 0);
+
+    for(auto& info : _meshCreates)
+    {
+        glNamedBufferSubData(
+                _vbo,
+                info.vertexOffset,
+                info.vertices.size() * sizeof(Vertex),
+                info.vertices.data());
+        glNamedBufferSubData(
+                _vbo,
+                info.indexOffset,
+                info.indices.size() * sizeof(uint32_t),
+                info.indices.data());
+        _meshes.emplace_back(info);
+    }
 }
 
 void Model::ProcessNode(aiNode *node, const aiScene *scene)
