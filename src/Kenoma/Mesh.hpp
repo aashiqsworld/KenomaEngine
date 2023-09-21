@@ -6,6 +6,7 @@
 #define MESH_HPP
 
 #include <vector>
+#include <string>
 #include "glm/glm.hpp"
 
 struct Vertex
@@ -13,7 +14,15 @@ struct Vertex
     glm::vec3 position;
     glm::vec3 normal;
     glm::vec2 uv;
-    glm::vec4 tangent;
+    glm::vec3 tangent;
+    glm::vec3 bitangent;
+};
+
+struct Texture
+{
+    unsigned int id;
+    std::string type;
+    std::string path;
 };
 
 struct MeshCreateInfo
@@ -27,6 +36,16 @@ struct MeshCreateInfo
     size_t indexOffset;
 };
 
+struct MeshCreateInfoAlt
+{
+    std::vector<Vertex> vertices;
+    std::vector<uint32_t> indices;
+    std::vector<Texture> textures;
+    uint32_t transformIndex;
+    size_t vertexOffset;
+    size_t indexOffset;
+};
+
 struct MeshIndirectInfo
 {
     uint32_t count;
@@ -36,10 +55,13 @@ struct MeshIndirectInfo
     uint32_t baseInstance;
 };
 
+
+
 class Mesh
 {
 public:
     Mesh(const MeshCreateInfo& info);
+    Mesh(const MeshCreateInfoAlt& info);
     ~Mesh();
 
     MeshIndirectInfo Info() const;

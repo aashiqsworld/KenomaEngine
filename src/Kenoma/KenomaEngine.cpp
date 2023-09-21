@@ -52,6 +52,8 @@ bool KenomaEngine::Load()
 
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
 
+    Model m = Model();
+    m.LoadWithAssimp("./data/models/AntiqueCamera/AntiqueCamera.gltf");
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
     _scene.emplace_back("./data/models/AntiqueCamera/AntiqueCamera.gltf");

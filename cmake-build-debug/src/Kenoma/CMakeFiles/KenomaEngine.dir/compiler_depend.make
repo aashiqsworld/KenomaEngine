@@ -366,6 +366,21 @@ src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: "C:\Program Files\M
 src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\matrix4x4.inl
 src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\MathFunctions.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\quaternion.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\scene.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\texture.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\pushpack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\poppack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\mesh.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\aabb.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\light.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\camera.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\material.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\pushpack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\poppack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\material.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\anim.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\metadata.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\assimp-src\include\assimp\postprocess.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\src\Kenoma\include\Project\..\..\..\Kenoma.Engine\include\Project.Library\Application.hpp
 src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\imgui-src\imgui.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\KenomaEngine.cpp.obj: _deps\imgui-src\imconfig.h
@@ -789,6 +804,21 @@ src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: "C:\Program Files\Microsoft
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\matrix4x4.inl
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\MathFunctions.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\quaternion.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\scene.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\texture.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\pushpack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\poppack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\mesh.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\aabb.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\light.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\camera.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\material.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\pushpack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\poppack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\material.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\anim.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\metadata.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: _deps\assimp-src\include\assimp\postprocess.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Main.cpp.obj: C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\src\Kenoma\include\Project\..\..\..\Kenoma.Engine\include\Project.Library\Application.hpp
 
 
@@ -868,6 +898,11 @@ src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files (x86)\Win
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\tuple"
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xpolymorphic_allocator.h"
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\__msvc_sanitizer_annotate_container.hpp"
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string"
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring"
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\iosfwd"
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\cctype"
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\ctype.h"
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: _deps\glm-src\glm\glm.hpp
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: _deps\glm-src\glm\detail\_fixes.hpp
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Mesh.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\cmath"
@@ -1190,27 +1225,6 @@ src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: "C:\Program Files\Microsof
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xtree"
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\cgltf-src\cgltf.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\src\Kenoma\Model.hpp
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\Importer.hpp
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\types.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\defs.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-build\include\assimp\config.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector2.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector3.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\color4.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix3x3.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix4x4.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\quaternion.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\..\contrib\utf8cpp\source\utf8.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\contrib\utf8cpp\source\utf8\checked.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\contrib\utf8cpp\source\utf8\core.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\contrib\utf8cpp\source\utf8\unchecked.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector2.inl
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector3.inl
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\color4.inl
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix3x3.inl
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix4x4.inl
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\MathFunctions.h
-src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\quaternion.inl
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\src\Kenoma\Shader.hpp
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\fstream"
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\__msvc_filebuf.hpp"
@@ -1432,6 +1446,42 @@ src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\glm-src\glm\gtc\..\e
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\glm-src\glm\gtc\..\ext\vector_uint1_sized.hpp
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\glm-src\glm\gtc\type_ptr.inl
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\src\Kenoma\Mesh.hpp
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\Importer.hpp
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\types.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\defs.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-build\include\assimp\config.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector2.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector3.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\color4.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix3x3.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix4x4.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\quaternion.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\..\contrib\utf8cpp\source\utf8.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\contrib\utf8cpp\source\utf8\checked.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\contrib\utf8cpp\source\utf8\core.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\contrib\utf8cpp\source\utf8\unchecked.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector2.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\vector3.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\color4.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix3x3.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\matrix4x4.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\MathFunctions.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\quaternion.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\scene.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\texture.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\pushpack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\poppack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\mesh.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\aabb.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\light.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\camera.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\material.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\pushpack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\.\Compiler\poppack1.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\material.inl
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\anim.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\metadata.h
+src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\assimp-src\include\assimp\postprocess.h
 src\Kenoma\CMakeFiles\KenomaEngine.dir\Model.cpp.obj: _deps\stb_image-src\stb_image.h
 
 
@@ -1802,6 +1852,8 @@ _deps\glm-src\glm\integer.hpp:
 
 _deps\glm-src\glm\.\ext\matrix_float2x2_precision.hpp:
 
+_deps\assimp-src\include\assimp\mesh.h:
+
 _deps\glm-src\glm\mat2x3.hpp:
 
 _deps\glm-src\glm\gtc\..\ext\quaternion_double_precision.hpp:
@@ -1835,6 +1887,8 @@ _deps\glm-src\glm\.\ext\matrix_float2x4_precision.hpp:
 _deps\glm-src\glm\ext\..\detail\type_mat4x2.hpp:
 
 _deps\glm-src\glm\mat3x2.hpp:
+
+_deps\assimp-src\include\assimp\postprocess.h:
 
 _deps\glm-src\glm\.\ext\matrix_double3x2.hpp:
 
@@ -1954,6 +2008,8 @@ _deps\glm-src\glm\ext\quaternion_geometric.inl:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\initializer_list":
 
+_deps\assimp-src\include\assimp\camera.h:
+
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\concepts":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\compare":
@@ -1996,6 +2052,8 @@ _deps\glm-src\glm\.\ext\matrix_float4x4_precision.hpp:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\vcruntime_exception.h":
 
+_deps\assimp-src\include\assimp\material.h:
+
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\eh.h":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\tuple":
@@ -2035,6 +2093,8 @@ _deps\glm-src\glm\gtc\..\gtc\quaternion.hpp:
 _deps\glm-src\glm\gtc\..\gtc\constants.hpp:
 
 _deps\glm-src\glm\gtc\..\gtc\matrix_transform.hpp:
+
+_deps\assimp-src\include\assimp\material.inl:
 
 _deps\glm-src\glm\gtc\..\ext\matrix_projection.hpp:
 
@@ -2164,6 +2224,8 @@ _deps\glm-src\glm\fwd.hpp:
 
 _deps\glm-src\glm\packing.hpp:
 
+_deps\assimp-src\include\assimp\scene.h:
+
 _deps\glm-src\glm\detail\func_packing.inl:
 
 _deps\glm-src\glm\detail\func_integer.inl:
@@ -2193,6 +2255,22 @@ _deps\assimp-src\include\assimp\color4.inl:
 _deps\assimp-src\include\assimp\matrix4x4.inl:
 
 _deps\assimp-src\include\assimp\MathFunctions.h:
+
+"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\vcruntime_startup.h":
+
+_deps\assimp-src\include\assimp\texture.h:
+
+_deps\assimp-src\include\assimp\.\Compiler\pushpack1.h:
+
+_deps\assimp-src\include\assimp\.\Compiler\poppack1.h:
+
+_deps\assimp-src\include\assimp\aabb.h:
+
+_deps\assimp-src\include\assimp\light.h:
+
+_deps\assimp-src\include\assimp\anim.h:
+
+_deps\assimp-src\include\assimp\metadata.h:
 
 C:\Users\aashi\Documents\Dev\Graphics\KenomaEngine\src\Kenoma\include\Project\..\..\..\Kenoma.Engine\include\Project.Library\Application.hpp:
 
@@ -2227,8 +2305,6 @@ _deps\spdlog-src\include\spdlog\tweakme.h:
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\thread":
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_startup.h":
-
-"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\vcruntime_startup.h":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\unordered_map":
 

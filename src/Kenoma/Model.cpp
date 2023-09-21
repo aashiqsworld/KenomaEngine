@@ -12,6 +12,17 @@
 
 namespace fs = std::filesystem;
 
+// method declarations
+unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma);
+
+// variable declarations
+std::string directory;
+std::vector<Texture> textures_loaded;
+size_t vertexOffset = 0;
+size_t indexOffset = 0;
+
+
+
 // helper function to find the actual texture path given a CGLTF image
 static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* image)
 {
@@ -357,13 +368,15 @@ Model::Model(std::string_view file)
     glEnableVertexArrayAttrib(_vao, 1);
     glEnableVertexArrayAttrib(_vao, 2);
     glEnableVertexArrayAttrib(_vao, 3);
+    glEnableVertexArrayAttrib(_vao, 4);
 
     // Tell OpenGL how to interpret each vertex attribute
     //                              location          components  type      transpose  offset
     glVertexArrayAttribFormat(_vao, /*location = */0, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, position));
     glVertexArrayAttribFormat(_vao, /*location = */1, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, normal));
     glVertexArrayAttribFormat(_vao, /*location = */2, /*vec*/2,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, uv));
-    glVertexArrayAttribFormat(_vao, /*location = */3, /*vec*/4,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, tangent));
+    glVertexArrayAttribFormat(_vao, /*location = */3, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, tangent));
+    glVertexArrayAttribFormat(_vao, /*location = */3, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, bitangent));
 
     // Finally, bind each vertex attribute to a vertex buffer,
     // the 0th buffer, which is the only one we bound
@@ -371,6 +384,7 @@ Model::Model(std::string_view file)
     glVertexArrayAttribBinding(_vao, 1, 0);
     glVertexArrayAttribBinding(_vao, 2, 0);
     glVertexArrayAttribBinding(_vao, 3, 0);
+    glVertexArrayAttribBinding(_vao, 4, 0);
 
     // For each mesh
     for (auto& info : meshCreateInfos)
@@ -388,6 +402,213 @@ Model::Model(std::string_view file)
                 info.indices.data());
         _meshes.emplace_back(info);
     }
+}
+
+void Model::LoadWithAssimp(const std::string& path) {
+
+    Assimp::Importer importer;
+    const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate |
+                                                                aiProcess_FlipUVs |
+                                                                aiProcess_GenNormals |
+                                                                aiProcess_CalcTangentSpace);
+
+    if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+    {
+        std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
+        return;
+    }
+    directory = path.substr(0, path.find_last_of('/'));
+    ProcessNode(scene->mRootNode, scene);
+
+    const uint32_t maxBatches = textures.size() / 16 + 1;
+    for(auto mc : _meshCreates)
+    {
+        _meshes.emplace_back(mc);
+    }
+    return;
+}
+
+void Model::ProcessNode(aiNode *node, const aiScene *scene)
+{
+    uint32_t transformIndex = 0;
+    // process all the node's meshes (if any)
+    for(unsigned int i = 0; i < node->mNumMeshes; i++, transformIndex++)
+    {
+        aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
+        MeshCreateInfoAlt mCreate = ProcessMesh(mesh, scene);
+        mCreate.transformIndex = transformIndex;
+
+        _meshCreates.push_back(mCreate);
+    }
+    // after processing all the meshes, we then recursively process each of the children nodes
+    for(unsigned int i = 0; i < node->mNumChildren; i++)
+    {
+        ProcessNode(node->mChildren[i], scene);
+    }
+}
+
+MeshCreateInfoAlt Model::ProcessMesh(aiMesh *mesh, const aiScene *scene)
+{
+    std::vector<Vertex> vertices;
+    std::vector<uint32_t> indices;
+    std::vector<Texture> meshTextures;
+
+    // process vertices
+    for(unsigned int i = 0; i < mesh->mNumVertices; i++)
+    {
+        Vertex vertex{};
+        // process vertex positions, normals and texture coordinates
+        glm::vec3 v;
+        v.x = mesh->mVertices[i].x;
+        v.y = mesh->mVertices[i].y;
+        v.z = mesh->mVertices[i].z;
+        vertex.position = v;
+
+        v.x = mesh->mNormals[i].x;
+        v.y = mesh->mNormals[i].y;
+        v.z = mesh->mNormals[i].z;
+        vertex.normal = v;
+
+        if(mesh->mTextureCoords[0]) // does the mesh contain vertex coordinates
+        {
+            glm::vec2 tc;
+            // UV coordinates
+            tc.x = mesh->mTextureCoords[0][i].x;
+            tc.y = mesh->mTextureCoords[0][i].y;
+            vertex.uv = tc;
+
+            // tangent
+
+            int k = mesh->mTangents->Length();
+            v.x = mesh->mTangents[i].x;
+            v.y = mesh->mTangents[i].y;
+            v.z = mesh->mTangents[i].z;
+            vertex.tangent = v;
+
+            // bitangent
+            v.x = mesh->mBitangents[i].x;
+            v.y = mesh->mBitangents[i].y;
+            v.z = mesh->mBitangents[i].z;
+            vertex.bitangent = v;
+        }
+        else
+            vertex.uv = glm::vec2(0.0f, 0.0f);
+
+        vertices.push_back(vertex);
+    }
+
+    // process indices
+    for(unsigned int i = 0; i < mesh->mNumFaces; i++)
+    {
+        aiFace face = mesh->mFaces[i];
+        for(unsigned int j = 0; j < face.mNumIndices; j++)
+            indices.push_back(face.mIndices[j]);
+    }
+
+    // process materials
+    if(mesh->mMaterialIndex >= 0)
+    {
+        aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
+
+        // 1. diffuse maps
+        std::vector<Texture> diffuseMaps = LoadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
+        meshTextures.insert(meshTextures.end(), diffuseMaps.begin(), diffuseMaps.end());
+        // 2. specular maps
+        std::vector<Texture> specularMaps = LoadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
+        meshTextures.insert(meshTextures.end(), specularMaps.begin(), specularMaps.end());
+        // 3. normal maps
+        std::vector<Texture> normalMaps = LoadMaterialTextures(material, aiTextureType_NORMALS,
+                                                               "texture_normal");
+        meshTextures.insert(meshTextures.end(), normalMaps.begin(), normalMaps.end());
+    }
+    textures.insert(textures.end(), meshTextures.begin(), meshTextures.end());
+    MeshCreateInfoAlt mCreate = {
+            vertices,
+            indices,
+            meshTextures,
+            0,
+            vertexOffset,
+            indexOffset
+    };
+
+    vertexOffset += mesh->mNumVertices * sizeof(Vertex);
+    indexOffset += indices.size() * sizeof(uint32_t);
+
+    return mCreate;
+}
+
+std::vector<Texture> Model::LoadMaterialTextures(aiMaterial *mat, aiTextureType aiType, std::string
+type)
+{
+    std::vector<Texture> tempTextures;
+
+    for(unsigned int i = 0; i < mat->GetTextureCount(aiType); i++)
+    {
+        aiString str;
+        mat->GetTexture(aiType, i, &str);
+
+        // check if the texture is already loaded
+        auto pred = [str](const Texture & tex) {
+            return tex.path == str.C_Str();
+        };
+        bool loaded = std::find_if(std::begin(textures), std::end(textures), pred) != std::end
+                (textures);
+        if(loaded)
+            continue;
+
+        // if texture hasn't been loaded already, load it
+        Texture texture;
+        texture.id = TextureFromFile(str.C_Str(), directory, true);
+        texture.type = type;
+        texture.path = str.C_Str();
+        tempTextures.push_back(texture);
+    }
+    return tempTextures;
+}
+
+unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma)
+{
+    std::string filename = std::string(path);
+    filename = directory + '/' + filename;
+
+    unsigned int textureID;
+    glCreateTextures(GL_TEXTURE_2D, 1, &textureID);
+
+    glTextureParameteri(textureID, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTextureParameteri(textureID, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTextureParameteri(textureID, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTextureParameteri(textureID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    int width, height, nrComponents;
+    const auto *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+    if (data)
+    {
+        GLenum format;
+        if (nrComponents == 1)
+            format = GL_RED;
+        else if (nrComponents == 3)
+            format = GL_RGB;
+        else if (nrComponents == 4)
+            format = GL_RGBA;
+
+        const auto levels = (uint32_t)std::floor(std::log2(std::max(width, height)));
+        // Actually allocate the texture
+        glTextureStorage2D(textureID, levels, GL_RGBA8, width, height);
+        // Copy our texture data to the GPU
+        glTextureSubImage2D(textureID, 0, 0, 0, width, height, format, GL_UNSIGNED_BYTE,
+                            data);
+        // Generate mipmaps
+        glGenerateTextureMipmap(textureID);
+        // Free texture memory on our end
+        stbi_image_free((void*)data);
+    }
+    else
+    {
+        std::cout << "Texture failed to load at path: " << path << std::endl;
+        stbi_image_free((void*)data);
+    }
+
+    return textureID;
 }
 
 void Model::Draw(const Shader& shader) const

@@ -10,6 +10,9 @@
 #include "Shader.hpp"
 #include "Mesh.hpp"
 
+#include "assimp/Importer.hpp"
+#include "assimp/scene.h"
+#include "assimp/postprocess.h"
 
 class Model
 {
@@ -19,6 +22,11 @@ public:
     ~Model();
 
     void Draw(const Shader& shader) const;
+    void LoadWithAssimp(const std::string& path);
+    void ProcessNode(aiNode *node, const aiScene *scene);
+    MeshCreateInfoAlt ProcessMesh(aiMesh *mesh, const aiScene *scene);
+    std::vector<Texture> LoadMaterialTextures(aiMaterial *mat, aiTextureType aiType, std::string
+    type);
     uint32_t GetNumMeshes();
     uint32_t GetNumVertices();
     uint32_t GetNumMaterials();
@@ -26,8 +34,12 @@ public:
 private:
     // holds all the meshes that compose the model
     std::vector<Mesh> _meshes;
+    std::vector<MeshCreateInfoAlt> _meshCreates;
     // holds opengl texture handles
     std::vector<uint32_t> _textures;
+    std::vector<Texture> textures;
+
+//    std::vector<Texture>
     // holds all the local transforms for each mesh
     std::vector<glm::mat4> _transforms;
     // OpenGL buffers
@@ -38,7 +50,7 @@ private:
     std::vector<uint32_t> _cmds;
     std::vector<uint32_t> _objectData;
     uint32_t _transformData;
-};
 
+};
 
 #endif

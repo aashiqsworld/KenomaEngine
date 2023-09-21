@@ -15,6 +15,26 @@ Mesh::Mesh(const MeshCreateInfo& info)
     _normalTexture = info.normalTexture;
 }
 
+Mesh::Mesh(const MeshCreateInfoAlt &info) {
+    _indexCount = info.indices.size();
+    _vertexOffset = info.vertexOffset / sizeof(Vertex);
+    _indexOffset = info.indexOffset / sizeof(uint32_t);
+    _transformIndex = info.transformIndex;
+
+    for(const auto& tex : info.textures)
+    {
+        if(tex.type == "texture_diffuse")
+        {
+            _baseColorTexture = tex.id;
+        }
+        else if (tex.type == "texture_normal")
+        {
+            _normalTexture = tex.id;
+        }
+    }
+}
+
+
 MeshIndirectInfo Mesh::Info() const
 {
     return {
@@ -48,3 +68,4 @@ Mesh::~Mesh() {
 uint32_t Mesh::NumVertices() const {
     return _indexCount;
 }
+
