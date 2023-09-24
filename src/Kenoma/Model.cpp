@@ -363,7 +363,8 @@ Model::Model(std::string_view file)
     glVertexArrayAttribFormat(_vao, /*location = */0, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, position));
     glVertexArrayAttribFormat(_vao, /*location = */1, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, normal));
     glVertexArrayAttribFormat(_vao, /*location = */2, /*vec*/2,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, uv));
-    glVertexArrayAttribFormat(_vao, /*location = */3, /*vec*/4,   GL_FLOAT, GL_FALSE,  offsetof(Vertex, tangent));
+    glVertexArrayAttribFormat(_vao, /*location = */3, /*vec*/3,   GL_FLOAT, GL_FALSE,  offsetof
+    (Vertex, tangent));
 
     // Finally, bind each vertex attribute to a vertex buffer,
     // the 0th buffer, which is the only one we bound

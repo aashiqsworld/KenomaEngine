@@ -54,11 +54,11 @@ bool KenomaEngine::Load()
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
-    _scene.emplace_back("./data/models/AntiqueCamera/AntiqueCamera.gltf");
+//    _scene.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf");
 //    _scene.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
 //    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
-//    _scene.emplace_back("./data/models/DamagedHelmet/DamagedHelmet.gltf");
+    _scene.emplace_back("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf");
 
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
@@ -101,6 +101,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
     litShader.setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf((float)glfwGetTime())) * 4);
+//    litShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
     litShader.setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
     litShader.setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
     litShader.setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);

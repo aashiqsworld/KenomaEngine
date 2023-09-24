@@ -13,7 +13,7 @@ struct Vertex
     glm::vec3 position;
     glm::vec3 normal;
     glm::vec2 uv;
-    glm::vec4 tangent;
+    glm::vec3 tangent;
 };
 
 struct MeshCreateInfo
@@ -41,12 +41,10 @@ class Mesh
 public:
     Mesh(const MeshCreateInfo& info);
     ~Mesh();
-
     MeshIndirectInfo Info() const;
     uint32_t TransformIndex() const;
     uint32_t BaseColorTexture() const;
     uint32_t NormalTexture() const;
-
     uint32_t NumVertices() const;
 
 

@@ -48,3 +48,4 @@ Mesh::~Mesh() {
 uint32_t Mesh::NumVertices() const {
     return _indexCount;
 }
+

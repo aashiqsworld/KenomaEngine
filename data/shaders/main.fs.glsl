@@ -49,6 +49,8 @@ layout (location = 1) in flat uint iBaseColorIndex;
 layout (location = 2) in flat uint iNormalIndex;
 layout (location = 3) in vec3 iNormal;
 layout (location = 4) in vec3 iFragPos;
+layout (location = 5) in vec3 iTangent;
+layout (location = 6) in vec3 iBitangent;
 
 layout (location = 2) uniform sampler2D[16] uTextures;
 
@@ -70,9 +72,13 @@ vec3 CalcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir);
 void main()
 {
     testIndex = iBaseColorIndex;
+    mat3 TBN = mat3(iTangent, iBitangent, iNormal);
 
     // properties
-    vec3 norm = normalize(iNormal);
+    vec3 norm = texture(uTextures[iNormalIndex], iUvs).rgb;
+//    normalize(iNormal);
+    norm = normalize(norm * 2.0 - 1.0);
+    norm = normalize(TBN * norm);
     vec3 viewDir = normalize(viewPos - iFragPos);
 
     vec3 result = vec3(0.0, 0.0, 0.0);
