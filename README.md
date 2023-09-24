@@ -11,5 +11,6 @@ Libraries used: glfw, glad, dear imgui, spdlog tracy, cgltf, stbi
 - gltf model loading and processing
 - texture loading and processing
 - Phong lighting (point, directional and spot lights)
-- Renderer with camera controls
+- Normal maps
+- Real-time renderer with camera controls
 - More features coming soon!
