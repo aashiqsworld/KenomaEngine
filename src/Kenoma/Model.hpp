@@ -9,8 +9,9 @@
 #include <vector>
 #include "Shader.hpp"
 #include "Mesh.hpp"
+#include "GameObject.hpp"
 
-class Model
+class Model : public GameObject
 {
 public:
     Model();

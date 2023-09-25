@@ -24,6 +24,10 @@ set(sourceFiles
         Mesh.cpp
         Model.hpp
         Model.cpp
+        Light.hpp
+        Light.hpp
+        GameObject.hpp
+        GameObject.cpp
 )
 
 add_executable(KenomaEngine ${sourceFiles})

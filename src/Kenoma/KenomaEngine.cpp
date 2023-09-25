@@ -51,6 +51,7 @@ bool KenomaEngine::Load()
     glfwSetKeyCallback(_windowHandle, KeyboardInputCallback);
 
     litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
+//    litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/depth.fs.glsl");
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
@@ -75,6 +76,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
     const auto view = camera.GetViewMatrix();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glDepthFunc(GL_LESS);
     litShader.Bind();
     glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
     glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
