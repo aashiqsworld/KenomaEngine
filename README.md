@@ -14,3 +14,5 @@ Libraries used: glfw, glad, dear imgui, spdlog tracy, cgltf, stbi
 - Normal maps
 - Real-time renderer with camera controls
 - More features coming soon!
+
+special thanks to learnopengl.com and deccer
