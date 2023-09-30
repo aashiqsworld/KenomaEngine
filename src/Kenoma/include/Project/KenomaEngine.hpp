@@ -13,6 +13,7 @@
 #include "Shader.hpp"
 #include "Mesh.hpp"
 #include "Model.hpp"
+#include "GameObject.hpp"
 #include "../../../Kenoma.Engine/include/Project.Library/Application.hpp"
 
 

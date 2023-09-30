@@ -44,7 +44,7 @@ class Light : public GameObject
 {
 public:
     Light();
-    Light(LightType type);
+    explicit Light(LightType type);
     Light(DirectionalLight directionalLight);
     Light(PointLight pointLight);
     Light(SpotLight spotLight);
