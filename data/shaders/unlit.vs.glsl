@@ -15,10 +15,18 @@ struct ObjectData
     uint normalIndex;
 };
 
-layout (binding = 0) buffer BTransforms
+
+layout (binding = 0) buffer BObjectData
+{
+    ObjectData[] objectData;
+};
+
+layout (binding = 1) buffer BTransforms
 {
     mat4[] transforms;
 };
+
+
 
 void main()
 {

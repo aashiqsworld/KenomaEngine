@@ -50,17 +50,18 @@ bool KenomaEngine::Load()
     }
     glfwSetKeyCallback(_windowHandle, KeyboardInputCallback);
 
-    litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/main.fs.glsl");
+    litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
+    unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl", false);
 //    litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/depth.fs.glsl");
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
-//    _scene.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf");
-//    _scene.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
+//    _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf");
+//    _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
 //    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
-    _scene.emplace_back("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf");
-
+    _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf"));
+//    _models.emplace_back(Model("./data/models/Cube/Cube.gltf"));
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
     return true;
@@ -95,7 +96,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
     litShader.setInt("material.diffuse", 0);
     litShader.setInt("material.specular", 1);
-    litShader.setFloat("material.shininess", 32.0f);
+    litShader.setFloat("material.shininess", 100.0f);
 
     litShader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
     litShader.setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
@@ -123,7 +124,15 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     litShader.setFloat("spotLight.linear", 0.09f);
     litShader.setFloat("spotLight.quadratic", 0.032f);
 
-    for(const auto& model : _scene)
+
+    // set the lighting
+    for(const auto& light : _lights)
+    {
+
+    }
+
+    // draw the models
+    for(const auto& model : _models)
     {
         model.Draw(litShader);
     }
@@ -151,7 +160,7 @@ void KenomaEngine::RenderUI(float deltaTime)
         stream << "Num Models: " << _scene.size();
         ImGui::Text("%s", stream.str().c_str());
 
-        for(auto modelIndex = 0; modelIndex < _scene.size(); modelIndex++)
+        for(auto modelIndex = 0; modelIndex < _models.size(); modelIndex++)
         {
             ResetStream(&stream);
             stream << "Model " << modelIndex << " info:";
@@ -159,11 +168,11 @@ void KenomaEngine::RenderUI(float deltaTime)
 
             ImGui::Indent();
             ResetStream(&stream);
-            stream << "Num Meshes:  " << _scene[modelIndex].GetNumMeshes();
+            stream << "Num Meshes:  " << _models[modelIndex].GetNumMeshes();
             ImGui::Text(stream.str().c_str());
 
             ImGui::Indent();
-            for(auto meshIndex = 0; meshIndex < _scene[modelIndex].GetNumMeshes(); meshIndex++)
+            for(auto meshIndex = 0; meshIndex < _models[modelIndex].GetNumMeshes(); meshIndex++)
             {
 
             }

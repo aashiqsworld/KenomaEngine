@@ -18,19 +18,22 @@ class Shader
 {
 public:
     unsigned int ID;
+    bool usesTextures = false;
 
     Shader()
     = default;
 
     Shader(const char* vertexPath, const char* fragmentPath)
     {
-        LoadShader(vertexPath, fragmentPath);
+//        LoadShader(vertexPath, fragmentPath);
     }
 
 
     // reads and builds the shader
-    bool LoadShader(const char* vertexPath, const char* fragmentPath)
+    bool LoadShader(const char* vertexPath, const char* fragmentPath, bool ut)
     {
+        usesTextures = ut;
+
         // 1. retrieve the vertex/fragment source code from filePath
         std::string vertexCode;
         std::string fragmentCode;

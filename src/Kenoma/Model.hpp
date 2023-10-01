@@ -38,6 +38,7 @@ private:
     std::vector<uint32_t> _cmds;
     std::vector<uint32_t> _objectData;
     uint32_t _transformData;
+    Shader* _shader;
 };
 
 

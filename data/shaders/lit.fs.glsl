@@ -53,9 +53,12 @@ layout (location = 5) in vec3 iTangent;
 layout (location = 6) in vec3 iBitangent;
 
 layout (location = 2) uniform sampler2D[16] uTextures;
+layout (location = 18) uniform PointLight[16] pointLights;
+#define MAX_POINT_LIGHTS;
 
 uniform DirLight dirLight;
 uniform PointLight pointLight;
+//uniform PointLight pointLights[MAX_POINT_LIGHTS];
 uniform SpotLight spotLight;
 
 uniform Material material;

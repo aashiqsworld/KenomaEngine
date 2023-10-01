@@ -42,7 +42,6 @@ static std::string FindTexturePath(const fs::path& basePath, const cgltf_image* 
 
 Model::Model(std::string_view file)
 {
-
     cgltf_options options = {};
     cgltf_data* model = nullptr;
     // Read GLTF, no additional options are required
@@ -65,6 +64,11 @@ Model::Model(std::string_view file)
     {
         const auto& material = model->materials[i];
         // Get the material's base color texture
+        if(material.pbr_metallic_roughness.base_color_texture.texture == NULL)
+        {
+            continue;
+        }
+
         auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
         // Find its texture path
         auto texturePath =  FindTexturePath(basePath, image);
@@ -103,6 +107,10 @@ Model::Model(std::string_view file)
         }
 
         // load normal texture
+        if(material.normal_texture.texture == NULL)
+        {
+            continue;
+        }
         image = material.normal_texture.texture->image;
         // Find its texture path
         texturePath = FindTexturePath(basePath, image);
@@ -459,14 +467,18 @@ void Model::Draw(const Shader& shader) const
                 batch.commands.data(),
                 GL_DYNAMIC_DRAW);
 
-        // Set all the active textures for this batch
-        for (uint32_t offset = 0; const auto texture : textureHandles[index])
+        // Set all the active textures for this batch if the shader uses textures
+        if(shader.usesTextures)
         {
-            shader.setInt(2 + offset, offset);
-            glActiveTexture(GL_TEXTURE0 + offset);
-            glBindTexture(GL_TEXTURE_2D, texture);
-            offset++;
+            for (uint32_t offset = 0; const auto texture : textureHandles[index])
+            {
+                shader.setInt(2 + offset, offset);
+                glActiveTexture(GL_TEXTURE0 + offset);
+                glBindTexture(GL_TEXTURE_2D, texture);
+                offset++;
+            }
         }
+
 
         // Finally, bind the VAO and issue the draw call
         glBindVertexArray(_vao);
