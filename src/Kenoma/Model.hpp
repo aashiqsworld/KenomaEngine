@@ -14,22 +14,14 @@
 class Model : public GameObject
 {
 public:
-    Model();
-    Model(std::string_view path);
-    ~Model();
-
-    void Draw(const Shader& shader) const;
-    uint32_t GetNumMeshes();
-    uint32_t GetNumVertices();
-    uint32_t GetNumMaterials();
-
-private:
+    std::string name;
     // holds all the meshes that compose the model
     std::vector<Mesh> _meshes;
     // holds opengl texture handles
     std::vector<uint32_t> _textures;
     // holds all the local transforms for each mesh
     std::vector<glm::mat4> _transforms;
+    std::vector<glm::mat4> _worldSpaceTransforms;
     // OpenGL buffers
     uint32_t _vao;
     uint32_t _vbo;
@@ -38,7 +30,19 @@ private:
     std::vector<uint32_t> _cmds;
     std::vector<uint32_t> _objectData;
     uint32_t _transformData;
-    Shader* _shader;
+    Model();
+    Model(std::string_view file);
+    Model(std::string_view file, std::string name);
+    ~Model();
+
+    void LoadModel(std::string_view file);
+    void Draw(const Shader& shader);
+    uint32_t GetNumMeshes();
+    uint32_t GetNumVertices();
+    uint32_t GetNumMaterials();
+
+private:
+
 };
 
 

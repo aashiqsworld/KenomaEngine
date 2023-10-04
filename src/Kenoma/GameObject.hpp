@@ -3,7 +3,6 @@
 #include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
 
-
 using glm::vec3;
 
 struct Transform {
@@ -22,4 +21,8 @@ public:
     glm::mat4 GetTransformationMatrix() const;
     void Rotate(float x, float y, float z);
     void Rotate(vec3 rotation);
+    void Translate(vec3 translation);
+    void Translate(float x, float y, float z);
+    void Scale(vec3 scale);
+    void Scale(float x, float y, float z);
 };

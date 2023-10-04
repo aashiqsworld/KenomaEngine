@@ -52,15 +52,17 @@ bool KenomaEngine::Load()
 
     litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
     unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl", false);
-//    litShader.LoadShader("./data/shaders/main.vs.glsl", "./data/shaders/depth.fs.glsl");
+
+    litMaterial.SetShader(litShader);
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
-//    _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf");
+    _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf", "AntiqueCamera");
 //    _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
 //    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
-    _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf"));
+    _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf",
+                               "DamagedHelmet"));
 //    _models.emplace_back(Model("./data/models/Cube/Cube.gltf"));
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
@@ -90,39 +92,78 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
             glm::vec3( 0.0f,  0.0f, -3.0f)
     };
 
+    Shader* activeShader = &litShader;
+
+    activeShader->Bind();
     // set lighting-related data
-    litShader.setVec3("viewPos", camera.Position);
+    activeShader->setVec3("viewPos", camera.Position);
 
-    litShader.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
-    litShader.setInt("material.diffuse", 0);
-    litShader.setInt("material.specular", 1);
-    litShader.setFloat("material.shininess", 100.0f);
+    activeShader->setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+    activeShader->setInt("material.diffuse", 0);
+    activeShader->setInt("material.specular", 1);
+    activeShader->setFloat("material.shininess", 100.0f);
+    activeShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+    activeShader->setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+    activeShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+    activeShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
-    litShader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
-    litShader.setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
-    litShader.setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
-    litShader.setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
-
-    litShader.setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf((float)glfwGetTime())) * 4);
-//    litShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
-    litShader.setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
-    litShader.setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
-    litShader.setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);
-    litShader.setFloat("pointLight.constant", 1.0f);
-    litShader.setFloat("pointLight.linear", 0.09f);
-    litShader.setFloat("pointLight.quadratic", 0.032f);
-
+    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf(
+            (float)glfwGetTime())) * 4);
+//    activeShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
+    activeShader->setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
+    activeShader->setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
+    activeShader->setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);
+    activeShader->setFloat("pointLight.constant", 1.0f);
+    activeShader->setFloat("pointLight.linear", 0.09f);
+    activeShader->setFloat("pointLight.quadratic", 0.032f);
     float brightness = 0.0f;
-    litShader.setVec3("spotLight.position", camera.Position);
-    litShader.setVec3("spotLight.direction", camera.Front);
-    litShader.setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
-    litShader.setVec3("spotLight.diffuse", brightness, brightness, brightness);
-    litShader.setVec3("spotLight.specular", brightness, brightness, brightness);
-    litShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5)));
-    litShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0)));
-    litShader.setFloat("spotLight.constant", 1.0f);
-    litShader.setFloat("spotLight.linear", 0.09f);
-    litShader.setFloat("spotLight.quadratic", 0.032f);
+    activeShader->setVec3("spotLight.position", camera.Position);
+    activeShader->setVec3("spotLight.direction", camera.Front);
+    activeShader->setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+    activeShader->setVec3("spotLight.diffuse", brightness, brightness, brightness);
+    activeShader->setVec3("spotLight.specular", brightness, brightness, brightness);
+    activeShader->setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5)));
+    activeShader->setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0)));
+    activeShader->setFloat("spotLight.constant", 1.0f);
+    activeShader->setFloat("spotLight.linear", 0.09f);
+    activeShader->setFloat("spotLight.quadratic", 0.032f);
+
+    activeShader = &unlitShader;
+
+    activeShader->Bind();
+    // set lighting-related data
+    activeShader->setVec3("viewPos", camera.Position);
+
+    activeShader->setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+    activeShader->setInt("material.diffuse", 0);
+    activeShader->setInt("material.specular", 1);
+    activeShader->setFloat("material.shininess", 100.0f);
+    activeShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+    activeShader->setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+    activeShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+    activeShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
+
+    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf(
+            (float)glfwGetTime())) * 4);
+//    activeShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
+    activeShader->setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
+    activeShader->setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
+    activeShader->setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);
+    activeShader->setFloat("pointLight.constant", 1.0f);
+    activeShader->setFloat("pointLight.linear", 0.09f);
+    activeShader->setFloat("pointLight.quadratic", 0.032f);
+    brightness = 0.0f;
+    activeShader->setVec3("spotLight.position", camera.Position);
+    activeShader->setVec3("spotLight.direction", camera.Front);
+    activeShader->setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+    activeShader->setVec3("spotLight.diffuse", brightness, brightness, brightness);
+    activeShader->setVec3("spotLight.specular", brightness, brightness, brightness);
+    activeShader->setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5)));
+    activeShader->setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0)));
+    activeShader->setFloat("spotLight.constant", 1.0f);
+    activeShader->setFloat("spotLight.linear", 0.09f);
+    activeShader->setFloat("spotLight.quadratic", 0.032f);
+
 
 
     // set the lighting
@@ -132,10 +173,16 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     }
 
     // draw the models
-    for(const auto& model : _models)
+    litShader.Bind();
+//    _models[0].Draw(unlitShader);
+//    unlitShader.Bind();
+//    _models[1].Draw(litShader);
+
+    for(auto& model : _models)
     {
-        model.Draw(litShader);
-    }
+//        model.Draw(litShader);
+        litMaterial.Draw(model);
+      }
 }
 
 void KenomaEngine::RenderUI(float deltaTime)
@@ -157,25 +204,45 @@ void KenomaEngine::RenderUI(float deltaTime)
         ImGui::Separator();
 
         ResetStream(&stream);
-        stream << "Num Models: " << _scene.size();
+        stream << "Num Models: " << _models.size();
         ImGui::Text("%s", stream.str().c_str());
 
-        for(auto modelIndex = 0; modelIndex < _models.size(); modelIndex++)
+        for(auto & _mod : _models)
         {
             ResetStream(&stream);
-            stream << "Model " << modelIndex << " info:";
-            ImGui::Text(stream.str().c_str());
+            stream << "Model " << _mod.name << " info:";
+            ImGui::Text("%s", stream.str().c_str());
 
             ImGui::Indent();
             ResetStream(&stream);
-            stream << "Num Meshes:  " << _models[modelIndex].GetNumMeshes();
-            ImGui::Text(stream.str().c_str());
+            stream << "Num Meshes:  " << _mod.GetNumMeshes();
+            ImGui::Text("%s", stream.str().c_str());
+
+            ResetStream(&stream);
+            stream << "Pos:  " << _mod.transform.position.x << ", " << _mod.transform.position.y
+            << ", " << _mod.transform.position.z;
+            ImGui::Text("%s", stream.str().c_str());
 
             ImGui::Indent();
-            for(auto meshIndex = 0; meshIndex < _models[modelIndex].GetNumMeshes(); meshIndex++)
-            {
 
-            }
+            if (ImGui::Button("+X"))
+                _mod.Translate(0.5, 0, 0);
+            ImGui::SameLine();
+            if (ImGui::Button("+Y"))
+                _mod.Translate(0, 0.5, 0);
+            ImGui::SameLine();
+            if (ImGui::Button("+Z"))
+                _mod.Translate(0, 0, 0.5);
+
+            if (ImGui::Button("-X"))
+                _mod.Translate(-0.5, 0, 0);
+            ImGui::SameLine();
+            if (ImGui::Button("-Y"))
+                _mod.Translate(0, -0.5, 0);
+            ImGui::SameLine();
+            if (ImGui::Button("-Z"))
+                _mod.Translate(0, 0, -0.5);
+
             ImGui::Unindent();
 
             ImGui::Unindent();
@@ -183,7 +250,7 @@ void KenomaEngine::RenderUI(float deltaTime)
         ImGui::End();
     }
 
-//    ImGui::ShowDemoWindow();
+    ImGui::ShowDemoWindow();
 }
 
 

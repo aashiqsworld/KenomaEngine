@@ -19,6 +19,7 @@ class Shader
 public:
     unsigned int ID;
     bool usesTextures = false;
+    bool bound = false;
 
     Shader()
     = default;

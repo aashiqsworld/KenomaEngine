@@ -27,6 +27,34 @@ void GameObject::Rotate(vec3 rotation) {
     transform.rotation.z += rotation.z;
 }
 
+void GameObject::Translate(vec3 translation) {
+    transform.position.x += translation.x;
+    transform.position.y += translation.y;
+    transform.position.z += translation.z;
+}
+
+void GameObject::Translate(float x, float y, float z) {
+    transform.position.x += x;
+    transform.position.y += y;
+    transform.position.z += z;
+}
+
+void GameObject::Scale(vec3 scale) {
+    transform.scale.x = scale.x;
+    transform.scale.y = scale.y;
+    transform.scale.z = scale.z;
+}
+
+void GameObject::Scale(float x, float y, float z) {
+    transform.scale.x = x;
+    transform.scale.y = y;
+    transform.scale.z = z;
+}
+
+
+
+
+
 
 
 

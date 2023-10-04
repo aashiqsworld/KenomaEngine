@@ -10,9 +10,11 @@ public:
     Shader* _shader;
 
     Material();
-    Material(Shader s);
+    explicit Material(Shader s);
+    Material(const char* vertexPath, const char* fragmentPath);
 
-    void Draw(Model* _model);
+    void SetShader(Shader &s);
+    void Draw(Model& model) const;
 };
 
 #endif
