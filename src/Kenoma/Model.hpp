@@ -37,6 +37,7 @@ public:
 
     void LoadModel(std::string_view file);
     void Draw(const Shader& shader);
+    void UpdateTransforms();
     uint32_t GetNumMeshes();
     uint32_t GetNumVertices();
     uint32_t GetNumMaterials();

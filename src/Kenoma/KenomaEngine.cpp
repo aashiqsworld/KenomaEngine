@@ -181,6 +181,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     for(auto& model : _models)
     {
 //        model.Draw(litShader);
+        model.UpdateTransforms();
         litMaterial.Draw(model);
       }
 }
@@ -207,6 +208,7 @@ void KenomaEngine::RenderUI(float deltaTime)
         stream << "Num Models: " << _models.size();
         ImGui::Text("%s", stream.str().c_str());
 
+        int c = 0;
         for(auto & _mod : _models)
         {
             ResetStream(&stream);
@@ -225,27 +227,50 @@ void KenomaEngine::RenderUI(float deltaTime)
 
             ImGui::Indent();
 
+            ImGui::PushID(c);
             if (ImGui::Button("+X"))
                 _mod.Translate(0.5, 0, 0);
+            ImGui::PopID();
+
             ImGui::SameLine();
+
+            ImGui::PushID(c);
             if (ImGui::Button("+Y"))
                 _mod.Translate(0, 0.5, 0);
+            ImGui::PopID();
+
             ImGui::SameLine();
+
+            ImGui::PushID(c);
             if (ImGui::Button("+Z"))
                 _mod.Translate(0, 0, 0.5);
+            ImGui::PopID();
 
+
+            ImGui::PushID(c);
             if (ImGui::Button("-X"))
                 _mod.Translate(-0.5, 0, 0);
+            ImGui::PopID();
+
             ImGui::SameLine();
+
+            ImGui::PushID(c);
             if (ImGui::Button("-Y"))
                 _mod.Translate(0, -0.5, 0);
+            ImGui::PopID();
+
             ImGui::SameLine();
+
+            ImGui::PushID(c);
             if (ImGui::Button("-Z"))
                 _mod.Translate(0, 0, -0.5);
+            ImGui::PopID();
 
             ImGui::Unindent();
 
             ImGui::Unindent();
+
+            c++;
         }
         ImGui::End();
     }

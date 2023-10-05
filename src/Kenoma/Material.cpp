@@ -46,8 +46,8 @@ void Material::Draw(Model &model) const {
     // Copy the transform data we just created to the GPU
     glNamedBufferData(
             model._transformData,
-            model._transforms.size() * sizeof(glm::mat4),
-            model._transforms.data(),
+            model._worldSpaceTransforms.size() * sizeof(glm::mat4),
+            model._worldSpaceTransforms.data(),
             GL_DYNAMIC_DRAW);
     // Bind the buffer to the storage buffer, location = 1
     glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, model._transformData);

@@ -53,12 +53,7 @@ Model::Model(std::string_view file, std::string _name) {
 
 void Model::Draw(const Shader& shader)
 {
-    // multiply the mesh transforms with the base GameObject transform
-    _worldSpaceTransforms.clear();
-    for(auto& trans : _transforms)
-    {
-        _worldSpaceTransforms.push_back(trans * GetTransformationMatrix());
-    }
+    UpdateTransforms();
 
 //    shader.Bind();
     // Define an object data structure (this should match with the one in the shader)
@@ -529,6 +524,16 @@ void Model::LoadModel(std::string_view file) {
                 info.indices.size() * sizeof(uint32_t),
                 info.indices.data());
         _meshes.emplace_back(info);
+    }
+}
+
+void Model::UpdateTransforms()
+{
+    // multiply the mesh transforms with the base GameObject transform
+    _worldSpaceTransforms.clear();
+    for(auto& trans : _transforms)
+    {
+        _worldSpaceTransforms.push_back(trans * GetTransformationMatrix());
     }
 }
 
