@@ -160,7 +160,7 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material.001",
+            "name" : "LitMaterial.001",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.800000011920929,

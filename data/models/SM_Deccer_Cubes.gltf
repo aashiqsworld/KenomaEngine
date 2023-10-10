@@ -84,7 +84,7 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material.001",
+            "name" : "LitMaterial.001",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.008596941828727722,
@@ -98,7 +98,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.002",
+            "name" : "LitMaterial.002",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.020129190757870674,
@@ -112,7 +112,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.003",
+            "name" : "LitMaterial.003",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.8000000715255737,
@@ -126,7 +126,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.004",
+            "name" : "LitMaterial.004",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.8000000715255737,
@@ -140,7 +140,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material",
+            "name" : "LitMaterial",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.8000000715255737,

@@ -83,7 +83,7 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material.Blue",
+            "name" : "LitMaterial.Blue",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 0
@@ -94,7 +94,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.Orange",
+            "name" : "LitMaterial.Orange",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 1
@@ -105,7 +105,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.Purple",
+            "name" : "LitMaterial.Purple",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 2
@@ -116,7 +116,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.Red",
+            "name" : "LitMaterial.Red",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 3
@@ -127,7 +127,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.LightGreen",
+            "name" : "LitMaterial.LightGreen",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 4

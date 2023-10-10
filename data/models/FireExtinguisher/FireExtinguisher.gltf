@@ -81,7 +81,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Material",
+			"name":"LitMaterial",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.800000011920929,

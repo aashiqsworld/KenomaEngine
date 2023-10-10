@@ -30,8 +30,10 @@ set(sourceFiles
         GameObject.cpp
         Light.cpp
         Light.cpp
-        Material.hpp
+        LitMaterial.hpp
+        LitMaterial.cpp
         Material.cpp
+        Material.hpp
 )
 
 add_executable(KenomaEngine ${sourceFiles})

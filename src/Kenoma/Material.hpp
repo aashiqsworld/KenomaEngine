@@ -1,20 +1,18 @@
-#ifndef MATERIAL_H
-#define MATERIAL_H
+//
+// Created by aashi on 10/9/2023.
+//
+
+#ifndef KENOMAENGINE_MATERIAL_HPP
+#define KENOMAENGINE_MATERIAL_HPP
+
 
 #include "Shader.hpp"
-#include "Model.hpp"
 
-class Material
-{
+class Material {
 public:
     Shader* _shader;
 
-    Material();
-    explicit Material(Shader s);
-    Material(const char* vertexPath, const char* fragmentPath);
-
-    void SetShader(Shader &s);
-    void Draw(Model& model) const;
 };
 
-#endif
+
+#endif //KENOMAENGINE_MATERIAL_HPP
