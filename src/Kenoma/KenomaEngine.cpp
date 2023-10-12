@@ -92,7 +92,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
             glm::vec3( 0.0f,  0.0f, -3.0f)
     };
 
-    Shader* activeShader = &litShader;
+    Shader* activeShader = litMaterial._shader;
 
     activeShader->Bind();
     // set lighting-related data
@@ -173,7 +173,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     }
 
     // draw the models
-    litShader.Bind();
+//    litShader.Bind();
 //    _models[0].Draw(unlitShader);
 //    unlitShader.Bind();
 //    _models[1].Draw(litShader);

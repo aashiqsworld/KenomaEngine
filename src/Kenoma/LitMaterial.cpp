@@ -8,6 +8,7 @@ LitMaterial::LitMaterial(Shader s) {
 }
 
 void LitMaterial::Draw(Model &model) const {
+    _shader->Bind();
     struct ObjectData
     {
         uint32_t transformIndex;
@@ -104,6 +105,8 @@ void LitMaterial::SetShader(Shader &s) {
 }
 
 LitMaterial::LitMaterial() {
+//    litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
+    _shader = &litShader;
 
 }
 
