@@ -34,6 +34,8 @@ set(sourceFiles
         LitMaterial.cpp
         Material.cpp
         Material.hpp
+        UnlitMaterial.cpp
+        UnlitMaterial.hpp
 )
 
 add_executable(KenomaEngine ${sourceFiles})

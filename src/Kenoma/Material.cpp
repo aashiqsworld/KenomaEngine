@@ -3,3 +3,8 @@
 //
 
 #include "Material.hpp"
+
+void Material::SetShader(Shader &s) {
+    _shader = &s;
+}
+

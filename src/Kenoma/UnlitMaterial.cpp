@@ -1,13 +1,15 @@
+//
+// Created by aashi on 10/11/2023.
+//
+
 #include <set>
-#include "LitMaterial.hpp"
+#include "UnlitMaterial.hpp"
 
+UnlitMaterial::UnlitMaterial() {
 
-
-LitMaterial::LitMaterial(Shader s) {
-    _shader = &s;
 }
 
-void LitMaterial::Draw(Model &model) const {
+void UnlitMaterial::Draw(Model &model) const {
     _shader->Bind();
     struct ObjectData
     {
@@ -98,25 +100,4 @@ void LitMaterial::Draw(Model &model) const {
         // Increment the index to go to the next batch
         index++;
     }
-}
-
-
-
-LitMaterial::LitMaterial() {
-
-}
-
-
-
-LitMaterial::LitMaterial(const char *vertexPath, const char *fragmentPath) {
-
-}
-
-void LitMaterial::SetShader() {
-    litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
-    _shader = &litShader;
-}
-
-void LitMaterial::SetShader(Shader &s) {
-    Material::SetShader(s);
 }

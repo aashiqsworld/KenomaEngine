@@ -119,9 +119,12 @@ public:
     }
 
     // use/activate shader
-    void Bind() const
+    void Bind()
     {
+        if(bound)
+            return;
         glUseProgram(ID);
+        bound = true;
     }
 
     // utility uniform functions

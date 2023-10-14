@@ -51,7 +51,7 @@ Model::Model(std::string_view file, std::string _name) {
 }
 
 
-void Model::Draw(const Shader& shader)
+void Model::Draw(Shader& shader)
 {
     UpdateTransforms();
 

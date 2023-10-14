@@ -11,6 +11,10 @@
 class Material {
 public:
     Shader* _shader;
+    Shader _tempShader;
+    void SetShader(Shader &s);
+
+
 
 };
 

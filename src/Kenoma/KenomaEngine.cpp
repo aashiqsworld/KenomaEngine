@@ -50,10 +50,13 @@ bool KenomaEngine::Load()
     }
     glfwSetKeyCallback(_windowHandle, KeyboardInputCallback);
 
+
+
     litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
     unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl", false);
 
-    litMaterial.SetShader(litShader);
+        litMaterial.SetShader();
+//    litMaterial.SetShader(litShader);
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
@@ -67,7 +70,7 @@ bool KenomaEngine::Load()
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
     return true;
-}
+ }
 
 void KenomaEngine::Update(float deltaTime)
 {
@@ -128,7 +131,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     activeShader->setFloat("spotLight.linear", 0.09f);
     activeShader->setFloat("spotLight.quadratic", 0.032f);
 
-    activeShader = &unlitShader;
+    activeShader = &litShader;
 
     activeShader->Bind();
     // set lighting-related data
@@ -180,7 +183,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
 
     for(auto& model : _models)
     {
-//        model.Draw(litShader);
+//        model.Draw(*litMaterial._shader);
         model.UpdateTransforms();
         litMaterial.Draw(model);
       }
