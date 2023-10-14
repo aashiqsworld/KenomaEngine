@@ -62,7 +62,7 @@ bool KenomaEngine::Load()
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
     _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf", "AntiqueCamera");
-//    _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
+    _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
 //    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
     _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf",
@@ -84,9 +84,6 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     const auto view = camera.GetViewMatrix();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glDepthFunc(GL_LESS);
-    litShader.Bind();
-    glUniformMatrix4fv(0, 1, false, glm::value_ptr(projection));
-    glUniformMatrix4fv(1, 1, false, glm::value_ptr(view));
 
     // local data
     glm::vec3 pointLightPositions[] = {
@@ -97,8 +94,12 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     };
 
     Shader* activeShader = litMaterial._shader;
-
     activeShader->Bind();
+
+    // set proj and view matrices
+    activeShader->setMat4("uProjection", projection);
+    activeShader->setMat4("uView", view);
+
     // set lighting-related data
     activeShader->setVec3("viewPos", camera.Position);
 
@@ -132,42 +133,12 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     activeShader->setFloat("spotLight.linear", 0.09f);
     activeShader->setFloat("spotLight.quadratic", 0.032f);
 
-    activeShader = &litShader;
-
+    activeShader = unlitMaterial._shader;
     activeShader->Bind();
-    // set lighting-related data
-    activeShader->setVec3("viewPos", camera.Position);
 
-    activeShader->setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
-    activeShader->setInt("material.diffuse", 0);
-    activeShader->setInt("material.specular", 1);
-    activeShader->setFloat("material.shininess", 100.0f);
-    activeShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
-    activeShader->setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
-    activeShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
-    activeShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
-
-    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf(
-            (float)glfwGetTime())) * 4);
-//    activeShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
-    activeShader->setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
-    activeShader->setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
-    activeShader->setVec3("pointLight.specular", 1.0f, 1.0f, 1.0f);
-    activeShader->setFloat("pointLight.constant", 1.0f);
-    activeShader->setFloat("pointLight.linear", 0.09f);
-    activeShader->setFloat("pointLight.quadratic", 0.032f);
-    brightness = 0.0f;
-    activeShader->setVec3("spotLight.position", camera.Position);
-    activeShader->setVec3("spotLight.direction", camera.Front);
-    activeShader->setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
-    activeShader->setVec3("spotLight.diffuse", brightness, brightness, brightness);
-    activeShader->setVec3("spotLight.specular", brightness, brightness, brightness);
-    activeShader->setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5)));
-    activeShader->setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0)));
-    activeShader->setFloat("spotLight.constant", 1.0f);
-    activeShader->setFloat("spotLight.linear", 0.09f);
-    activeShader->setFloat("spotLight.quadratic", 0.032f);
-
+    // set proj and view matrices
+    activeShader->setMat4("uProjection", projection);
+    activeShader->setMat4("uView", view);
 
 
     // set the lighting

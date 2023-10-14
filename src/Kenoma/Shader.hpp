@@ -120,8 +120,6 @@ public:
     // use/activate shader
     void Bind()
     {
-        if(bound)
-            return;
         glUseProgram(ID);
         bound = true;
     }
@@ -179,6 +177,7 @@ public:
     {
         glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
     }
+    // ------------------------------------------------------------------------
 };
 
 #endif
