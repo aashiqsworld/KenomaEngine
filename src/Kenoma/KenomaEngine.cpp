@@ -55,7 +55,8 @@ bool KenomaEngine::Load()
     litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
     unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl", false);
 
-        litMaterial.SetShader();
+    litMaterial.SetShader();
+    unlitMaterial.SetShader();
 //    litMaterial.SetShader(litShader);
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");

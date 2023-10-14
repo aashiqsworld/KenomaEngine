@@ -6,8 +6,10 @@
 #include "UnlitMaterial.hpp"
 
 UnlitMaterial::UnlitMaterial() {
-
+    color = glm::vec3(1.0, 1.0, 1.0);
 }
+
+UnlitMaterial::UnlitMaterial(const vec3 &color) : color(color) {}
 
 void UnlitMaterial::Draw(Model &model) const {
     _shader->Bind();
@@ -100,4 +102,9 @@ void UnlitMaterial::Draw(Model &model) const {
         // Increment the index to go to the next batch
         index++;
     }
+}
+
+void UnlitMaterial::SetShader() {
+    unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl", false);
+    _shader = &unlitShader;
 }

@@ -48,7 +48,5 @@ void main()
     oTangent = vec3(normalMatrix * vec4(iTangent, 1.0));
     oBitangent = cross(oNormal, oTangent);
 
-
-
     gl_Position = uProjection * uView * modelMatrix * vec4(iPosition, 1.0);
 }

@@ -15,8 +15,9 @@
 #include "Model.hpp"
 #include "GameObject.hpp"
 #include "../../../Kenoma.Engine/include/Project.Library/Application.hpp"
-#include "../../Light.hpp"
-#include "../../LitMaterial.hpp"
+#include "Light.hpp"
+#include "LitMaterial.hpp"
+#include "UnlitMaterial.hpp"
 
 
 class KenomaEngine final : public Application
@@ -41,6 +42,8 @@ private:
     std::vector<Light> _lights;
     Shader litShader, unlitShader;
     LitMaterial litMaterial;
+    UnlitMaterial unlitMaterial;
+
 
     float _elapsedTime = 0.0f;
 

@@ -9,11 +9,16 @@
 #include "Material.hpp"
 #include "Model.hpp"
 
+
 class UnlitMaterial : public Material{
 public:
     UnlitMaterial();
-    void Draw(Model& model) const;
 
+    explicit UnlitMaterial(const vec3 &color);
+
+    void Draw(Model& model) const;
+    void SetShader();
+    glm::vec3 color{};
 private:
     Shader unlitShader;
 
