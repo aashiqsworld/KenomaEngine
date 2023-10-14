@@ -63,10 +63,12 @@ bool KenomaEngine::Load()
 //    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
     _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf", "AntiqueCamera");
     _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
+    _models[1].Scale(0.05, 0.05, 0.05);
 //    _scene.emplace_back("./data/models/Avocado/Avocado.gltf");
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
     _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf",
                                "DamagedHelmet"));
+//    _models[2].Translate()
 //    _models.emplace_back(Model("./data/models/Cube/Cube.gltf"));
 
     camera = Camera(glm::vec3(0.0f, 0.0f, 7.0f));
@@ -112,8 +114,10 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     activeShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
     activeShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
-    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()) * 4,  3.0f,  (cosf(
-            (float)glfwGetTime())) * 4);
+    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()) * 1.5,  0.5f,  (cosf(
+            (float)glfwGetTime())) * 1.5);
+    _models[1].transform.position = glm::vec3(sinf((float)glfwGetTime()) * 1.5,  0.5f,  (cosf(
+            (float)glfwGetTime())) * 1.5);
 //    activeShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
     activeShader->setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
     activeShader->setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
@@ -157,8 +161,12 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     {
 //        model.Draw(*litMaterial._shader);
         model.UpdateTransforms();
-        litMaterial.Draw(model);
       }
+
+//    litMaterial.Draw(_models[0]);
+    unlitMaterial.Draw(_models[1]);
+    litMaterial.Draw(_models[2]);
+
 }
 
 void KenomaEngine::RenderUI(float deltaTime)
