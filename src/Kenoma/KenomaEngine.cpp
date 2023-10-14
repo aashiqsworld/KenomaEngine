@@ -114,10 +114,10 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     activeShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
     activeShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
-    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()) * 1.5,  0.5f,  (cosf(
-            (float)glfwGetTime())) * 1.5);
-    _models[1].transform.position = glm::vec3(sinf((float)glfwGetTime()) * 1.5,  0.5f,  (cosf(
-            (float)glfwGetTime())) * 1.5);
+    activeShader->setVec3("pointLight.position", sinf((float)glfwGetTime()*3) * 1.5,  0.5f,  (cosf(
+            (float)glfwGetTime()*3)) * 1.5);
+    _models[1].transform.position = glm::vec3(sinf((float)glfwGetTime()*3) * 1.5,  0.5f,  (cosf(
+            (float)glfwGetTime()*3)) * 1.5);
 //    activeShader.setVec3("pointLight.position", 1.0f,  4.0f,  1.0f);
     activeShader->setVec3("pointLight.ambient", 0.05f, 0.05f, 0.05f);
     activeShader->setVec3("pointLight.diffuse", 0.8f, 0.8f, 0.8f);

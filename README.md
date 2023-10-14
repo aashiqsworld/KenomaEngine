@@ -3,7 +3,7 @@
 ## A real-time graphics engine built with C++ and OpenGL.
 
 
-![](screenshots/kenoma-preview.png)
+![](screenshots/kenoma-gif.gif)
 
 Libraries used: glfw, glad, dear imgui, spdlog tracy, cgltf, stbi
 
