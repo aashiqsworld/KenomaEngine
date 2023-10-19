@@ -152,6 +152,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     // set proj and view matrices
     activeShader->setMat4("uProjection", projection);
     activeShader->setMat4("uView", view);
+    activeShader->setVec4("uColor", glm::vec4(1.0, 1.0, 1.0, 1.0));
 
 
     // set the lighting

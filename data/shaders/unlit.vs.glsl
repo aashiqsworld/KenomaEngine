@@ -5,11 +5,6 @@ layout (location = 1) in vec3 iNormal;
 layout (location = 2) in vec2 iUv;
 layout (location = 3) in vec3 iTangent;
 
-layout (location = 0) out vec2 oUvs;
-
-
-
-
 layout (location = 0) uniform mat4 uProjection;
 layout (location = 1) uniform mat4 uView;
 
@@ -32,8 +27,6 @@ void main()
 {
     mat4 modelMatrix = transforms[objectData[gl_DrawID].transformIndex];
     mat4 normalMatrix = transpose(inverse(modelMatrix));
-
-    oUvs = iUv;
 
 
 
