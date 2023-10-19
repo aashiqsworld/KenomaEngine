@@ -21,8 +21,6 @@ layout (location = 1) uniform mat4 uView;
 struct ObjectData
 {
     uint transformIndex;
-    uint baseColorIndex;
-    uint normalIndex;
 };
 
 layout (binding = 0) buffer BObjectData
@@ -41,8 +39,6 @@ void main()
     mat4 normalMatrix = transpose(inverse(modelMatrix));
 
     oUvs = iUv;
-    oBaseColorIndex = objectData[gl_DrawID].baseColorIndex;
-    oNormalIndex = objectData[gl_DrawID].normalIndex;
     oFragPos = vec3(modelMatrix * vec4(iPosition, 1.0));
     oNormal = vec3(normalMatrix * vec4(iNormal, 1.0));
     oTangent = vec3(normalMatrix * vec4(iTangent, 1.0));

@@ -533,7 +533,7 @@ void Model::UpdateTransforms()
     _worldSpaceTransforms.clear();
     for(auto& trans : _transforms)
     {
-        _worldSpaceTransforms.push_back(trans * GetTransformationMatrix());
+        _worldSpaceTransforms.push_back(GetTransformationMatrix() * trans);
     }
 }
 

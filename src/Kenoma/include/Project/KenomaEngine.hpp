@@ -40,7 +40,7 @@ private:
     std::vector<GameObject> _scene;
     std::vector<Model> _models;
     std::vector<Light> _lights;
-    Shader litShader, unlitShader;
+    Shader litShader, unlitShader, outlineShader;
     LitMaterial litMaterial;
     UnlitMaterial unlitMaterial;
 

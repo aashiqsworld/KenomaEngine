@@ -16,8 +16,6 @@ void UnlitMaterial::Draw(Model &model) const {
     struct ObjectData
     {
         uint32_t transformIndex;
-        uint32_t baseColorIndex;
-        uint32_t normalIndex;
     };
     struct BatchData {
         std::vector<ObjectData> objects;
@@ -35,12 +33,7 @@ void UnlitMaterial::Draw(Model &model) const {
         // Get the mesh general information
         objectBatches[index].objects.emplace_back(ObjectData
                                                           {
-                                                                  // Restrict the texture range to [0, 15], because by batching texture
-                                                                  // indices must not be "global", but local to the batch group
-                                                                  mesh.TransformIndex(),
-                                                                  mesh.BaseColorTexture() % 16,
-                                                                  // Exercise: Can you do the same for normal textures?
-                                                                  mesh.NormalTexture()
+                                                                mesh.TransformIndex(),
                                                           });
         // Insert the texture index for this batch in a set, this is useful
         // when binding the textures because we will need unique handles

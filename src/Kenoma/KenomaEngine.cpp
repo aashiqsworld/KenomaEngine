@@ -52,15 +52,16 @@ bool KenomaEngine::Load()
 
 
 
-    litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
-    unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl", false);
+//    litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
+//    unlitShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/unlit.fs.glsl",
+//    false);
+
+//    outlineShader.LoadShader("./data/shaders/unlit.vs.glsl", "./data/shaders/singleColor.fs.glsl", false);
 
     litMaterial.SetShader();
     unlitMaterial.SetShader();
-//    litMaterial.SetShader(litShader);
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
-//    _scene.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
     _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf", "AntiqueCamera");
     _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
     _models[1].Scale(0.05, 0.05, 0.05);
@@ -68,6 +69,10 @@ bool KenomaEngine::Load()
 //    _scene.emplace_back("./data/models/ScifiHelmet/SciFiHelmet.gltf");
     _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf",
                                "DamagedHelmet"));
+//    _models.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
+//    _models.emplace_back("./data/models/Capsule/Capsule.gltf");
+//    _models.emplace_back("./data/models/Quad/quad.gltf");
+
 //    _models[2].Translate()
 //    _models.emplace_back(Model("./data/models/Cube/Cube.gltf"));
 
@@ -84,8 +89,12 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
 {
     const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
     const auto view = camera.GetViewMatrix();
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     glDepthFunc(GL_LESS);
+
+    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+    glStencilFunc(GL_ALWAYS, 1, 0xFF); // all fragments should pass the stencil test
+    glStencilMask(0xFF); // enable writing to the stencil buffer
 
     // local data
     glm::vec3 pointLightPositions[] = {
@@ -151,21 +160,27 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
 
     }
 
-    // draw the models
-//    litShader.Bind();
-//    _models[0].Draw(unlitShader);
-//    unlitShader.Bind();
-//    _models[1].Draw(litShader);
-
     for(auto& model : _models)
     {
 //        model.Draw(*litMaterial._shader);
         model.UpdateTransforms();
-      }
+    }
 
 //    litMaterial.Draw(_models[0]);
     unlitMaterial.Draw(_models[1]);
     litMaterial.Draw(_models[2]);
+//    litMaterial.Draw(_models[3]);
+
+    glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+    glStencilMask(0x00); // disable writing to the stencil buffer
+    glDisable(GL_DEPTH_TEST);
+//    outlineShader.Bind();
+
+    // draw scaled up objects here
+
+    glStencilMask(0xFF);
+    glStencilFunc(GL_ALWAYS, 1, 0xFF);
+    glEnable(GL_DEPTH_TEST);
 
 }
 
