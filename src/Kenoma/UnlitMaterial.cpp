@@ -22,7 +22,6 @@ void UnlitMaterial::Draw(Model &model) const {
         std::vector<MeshIndirectInfo> commands;
     };
     std::vector<BatchData> objectBatches(model._cmds.size());
-    std::vector<std::set<uint32_t>> textureHandles(model._cmds.size());
     // For each mesh
     for (const auto& mesh : model._meshes)
     {
@@ -35,10 +34,6 @@ void UnlitMaterial::Draw(Model &model) const {
                                                           {
                                                                 mesh.TransformIndex(),
                                                           });
-        // Insert the texture index for this batch in a set, this is useful
-        // when binding the textures because we will need unique handles
-        textureHandles[index].insert(model._textures[mesh.BaseColorTexture()]);
-        textureHandles[index].insert(model._textures[mesh.NormalTexture()]);
     }
 
     // Copy the transform data we just created to the GPU
@@ -70,19 +65,6 @@ void UnlitMaterial::Draw(Model &model) const {
                 batch.commands.size() * sizeof(MeshIndirectInfo),
                 batch.commands.data(),
                 GL_DYNAMIC_DRAW);
-
-        // Set all the active textures for this batch if the shader uses textures
-        if(_shader->usesTextures)
-        {
-            for (uint32_t offset = 0; const auto texture : textureHandles[index])
-            {
-                _shader->setInt(2 + offset, offset);
-                glActiveTexture(GL_TEXTURE0 + offset);
-                glBindTexture(GL_TEXTURE_2D, texture);
-                offset++;
-            }
-        }
-
 
         // Finally, bind the VAO and issue the draw call
         glBindVertexArray(model._vao);

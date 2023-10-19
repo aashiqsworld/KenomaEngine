@@ -6,13 +6,8 @@ layout (location = 2) in vec2 iUv;
 layout (location = 3) in vec3 iTangent;
 
 layout (location = 0) out vec2 oUvs;
-layout (location = 1) out flat uint oBaseColorIndex;
-layout (location = 2) out flat uint oNormalIndex;
 
-layout (location = 3) out vec3 oNormal;
-layout (location = 4) out vec3 oFragPos;
-layout (location = 5) out vec3 oTangent;
-layout (location = 6) out vec3 oBitangent;
+
 
 
 layout (location = 0) uniform mat4 uProjection;
@@ -39,10 +34,6 @@ void main()
     mat4 normalMatrix = transpose(inverse(modelMatrix));
 
     oUvs = iUv;
-    oFragPos = vec3(modelMatrix * vec4(iPosition, 1.0));
-    oNormal = vec3(normalMatrix * vec4(iNormal, 1.0));
-    oTangent = vec3(normalMatrix * vec4(iTangent, 1.0));
-    oBitangent = cross(oNormal, oTangent);
 
 
 
