@@ -1,5 +1,10 @@
 #version 460 core
 
+// needs to have these input properties because they
+// are defined in the model's load function and stored
+// in a buffer before the program starts. So currently
+// you cannot access only the position, it has to take
+// all the defined values below. (fix later?)
 layout (location = 0) in vec3 iPosition;
 layout (location = 1) in vec3 iNormal;
 layout (location = 2) in vec2 iUv;
@@ -27,8 +32,5 @@ void main()
 {
     mat4 modelMatrix = transforms[objectData[gl_DrawID].transformIndex];
     mat4 normalMatrix = transpose(inverse(modelMatrix));
-
-
-
     gl_Position = uProjection * uView * modelMatrix * vec4(iPosition, 1.0);
 }
