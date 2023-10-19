@@ -60,6 +60,8 @@ bool KenomaEngine::Load()
 
     litMaterial.SetShader();
     unlitMaterial.SetShader();
+    outlineMaterial.SetShader();
+    outlineMaterial.outline = true;
 
 //     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
     _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf", "AntiqueCamera");
@@ -92,9 +94,7 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     glDepthFunc(GL_LESS);
 
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
-    glStencilFunc(GL_ALWAYS, 1, 0xFF); // all fragments should pass the stencil test
-    glStencilMask(0xFF); // enable writing to the stencil buffer
+
 
     // local data
     glm::vec3 pointLightPositions[] = {
@@ -152,8 +152,12 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     // set proj and view matrices
     activeShader->setMat4("uProjection", projection);
     activeShader->setMat4("uView", view);
-    activeShader->setVec4("uColor", glm::vec4(1.0, 1.0, 1.0, 1.0));
+    activeShader->setVec4("uColor", glm::vec4(0.7, 1.0, 1.0, 1.0));
 
+    outlineMaterial._shader->Bind();
+    outlineMaterial._shader->setMat4("uProjection", projection);
+    outlineMaterial._shader->setMat4("uView", view);
+    outlineMaterial._shader->setVec4("uColor", glm::vec4(1.0, 0.5, 0, 1.0));
 
     // set the lighting
     for(const auto& light : _lights)
@@ -163,20 +167,22 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
 
     for(auto& model : _models)
     {
-//        model.Draw(*litMaterial._shader);
         model.UpdateTransforms();
     }
 
-//    litMaterial.Draw(_models[0]);
+
+//    glStencilMask(0x00);
     unlitMaterial.Draw(_models[1]);
+
+    glStencilFunc(GL_ALWAYS, 1, 0xFF); // all fragments should pass the stencil test
+    glStencilMask(0xFF); // enable writing to the stencil buffer
     litMaterial.Draw(_models[2]);
-//    litMaterial.Draw(_models[3]);
 
     glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
     glStencilMask(0x00); // disable writing to the stencil buffer
     glDisable(GL_DEPTH_TEST);
-//    outlineShader.Bind();
-
+    outlineMaterial._shader->Bind();
+    outlineMaterial.Draw(_models[2]);
     // draw scaled up objects here
 
     glStencilMask(0xFF);

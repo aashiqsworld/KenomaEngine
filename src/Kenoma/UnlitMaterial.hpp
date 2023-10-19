@@ -16,11 +16,17 @@ public:
 
     explicit UnlitMaterial(const vec3 &color);
 
-    void Draw(Model& model) const;
+    void Draw(Model& model);
     void SetShader();
     glm::vec3 color{};
+
+    bool outline;
+    float outlineScale;
+
+
 private:
     Shader unlitShader;
+    std::vector<glm::mat4> outlineTransforms;
 
 };
 

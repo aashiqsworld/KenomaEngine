@@ -7,11 +7,33 @@
 
 UnlitMaterial::UnlitMaterial() {
     color = glm::vec3(1.0, 1.0, 1.0);
+    outline = false;
+    outlineScale = 1.04;
 }
 
 UnlitMaterial::UnlitMaterial(const vec3 &color) : color(color) {}
 
-void UnlitMaterial::Draw(Model &model) const {
+void UnlitMaterial::Draw(Model &model) {
+
+    std::vector<glm::mat4>* transforms;
+
+
+    if(!outline)
+    {
+        transforms = &model._worldSpaceTransforms;
+    }
+    else
+    {
+        outlineTransforms.clear();
+        for(auto& trans : model._worldSpaceTransforms)
+        {
+
+            outlineTransforms.push_back(glm::scale(trans, glm::vec3(outlineScale, outlineScale,
+                                                                    outlineScale)));
+        }
+        transforms = &outlineTransforms;
+    }
+
     _shader->Bind();
     struct ObjectData
     {
@@ -39,8 +61,8 @@ void UnlitMaterial::Draw(Model &model) const {
     // Copy the transform data we just created to the GPU
     glNamedBufferData(
             model._transformData,
-            model._worldSpaceTransforms.size() * sizeof(glm::mat4),
-            model._worldSpaceTransforms.data(),
+            transforms->size() * sizeof(glm::mat4),
+            transforms->data(),
             GL_DYNAMIC_DRAW);
     // Bind the buffer to the storage buffer, location = 1
     glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, model._transformData);

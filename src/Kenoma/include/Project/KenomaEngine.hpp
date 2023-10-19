@@ -40,9 +40,9 @@ private:
     std::vector<GameObject> _scene;
     std::vector<Model> _models;
     std::vector<Light> _lights;
-    Shader litShader, unlitShader, outlineShader;
+    Shader litShader, unlitShader;
     LitMaterial litMaterial;
-    UnlitMaterial unlitMaterial;
+    UnlitMaterial unlitMaterial, outlineMaterial;
 
 
     float _elapsedTime = 0.0f;
