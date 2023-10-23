@@ -117,6 +117,7 @@ bool Application::Load()
     glEnable(GL_DEBUG_OUTPUT);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_STENCIL_TEST);
+    glEnable(GL_CULL_FACE);
     glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
     glDebugMessageCallback([](GLenum source,
@@ -134,8 +135,35 @@ bool Application::Load()
     }, nullptr);
     glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
 
-    glfwSwapInterval(1);
+    // --- Framebuffer initialization ---
+    glGenFramebuffers(1, &framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    // generate texture
+    glGenTextures(1, &textureColorBuffer);
+    glBindTexture(GL_TEXTURE_2D, textureColorBuffer);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 800, 600, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    // attach to currently bound framebuffer object
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
+                           textureColorBuffer, 0);
+    // create the render buffer object
+    glGenRenderbuffers(1, &rbo);
+    glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, 800, 600);
+    glBindRenderbuffer(GL_RENDERBUFFER, 0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
 
+    // check if framebuffer is complete
+    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+        std::cout << "ERROR::FRAMEBUFFER:: Framebuffer is not complete!" << std::endl;
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+
+
+    glfwSwapInterval(1);
     return true;
 }
 
@@ -151,7 +179,6 @@ void Application::Unload()
 
 void Application::Render(float dt)
 {
-    frameNumber++;
     ZoneScopedC(tracy::Color::Red2);
 
     RenderScene(dt);
@@ -166,6 +193,7 @@ void Application::Render(float dt)
     }
 
     glfwSwapBuffers(_windowHandle);
+    frameNumber++;
 }
 
 void Application::RenderScene([[maybe_unused]] float dt)

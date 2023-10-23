@@ -6,6 +6,8 @@
 #include <unordered_map>
 #include <queue>
 #include <set>
+#include <string>
+#include <utility>
 #include "cgltf.h"
 #include "Model.hpp"
 #include "stb_image.h"
@@ -47,7 +49,7 @@ Model::Model(std::string_view file)
 
 Model::Model(std::string_view file, std::string _name) {
     LoadModel(file);
-    name = _name;
+    name = std::move(_name);
 }
 
 
@@ -305,6 +307,8 @@ void Model::LoadModel(std::string_view file) {
                 }
                 continue;
             }
+
+
             // For each primitive in the node
             for (uint32_t j = 0; j < node->mesh->primitives_count; ++j)
             {
@@ -350,6 +354,7 @@ void Model::LoadModel(std::string_view file) {
                         default: break;
                     }
                 }
+
                 // Reserve space for the vertices in our own vertex format
                 std::vector<Vertex> vertices;
                 vertices.resize(vertexCount);
@@ -357,6 +362,8 @@ void Model::LoadModel(std::string_view file) {
                     // Get the pointer to the base of the vector
                     auto* ptr = vertices.data();
                     // For each vertex
+
+
                     for (uint32_t v = 0; v < vertexCount; ++v, ++ptr)
                     {
                         // Copy the attribute (if available) to the current pointer (will increment every iteration)
@@ -374,10 +381,11 @@ void Model::LoadModel(std::string_view file) {
                         }
                         if (tangentPtr)
                         {
-                            std::memcpy(&ptr->tangent, tangentPtr + v, sizeof(glm::vec4));
+                            std::memcpy(&ptr->tangent, tangentPtr + v, sizeof(glm::vec3));
                         }
                     }
                 }
+
 
                 std::vector<uint32_t> indices;
                 {
@@ -418,15 +426,40 @@ void Model::LoadModel(std::string_view file) {
                         default: break;
                     }
                 }
+
                 // Get the primitive's material base color texture path
-                const auto baseColorURI = FindTexturePath(basePath, primitive.material->pbr_metallic_roughness.base_color_texture.texture->image);
-                const auto normalMapURI = FindTexturePath(basePath, primitive.material->normal_texture.texture->image);
+                std::string baseColorURI;
+                if(primitive.material != nullptr)
+                {
+                    baseColorURI= FindTexturePath(basePath, primitive
+                    .material->pbr_metallic_roughness.base_color_texture.texture->image);
+                }
+                else
+                {
+                    // load default white texture
+                    baseColorURI = "./data/textures/DefaultWhite.png";
+                }
+
+                std::string normalMapURI;
+                if(primitive.material != nullptr)
+                {
+                     normalMapURI = FindTexturePath(basePath, primitive.material->normal_texture
+                     .texture->image);
+                }
+                else
+                {
+                    // load default normal map texture
+                    normalMapURI = "./data/textures/DefaultNormal.png";
+                }
+
+
                 const auto indexCount = indices.size();
+
                 // Emplace a `MeshCreateInfo` (we will use this later)
                 meshCreateInfos.emplace_back(MeshCreateInfo
                                                      {
-                                                             std::move(vertices),
-                                                             std::move(indices),
+                                                             vertices,
+                                                             indices,
                                                              transformIndex++,
                                                              // Exercise: this doesn't handle missing textures, it's possible that a mesh may not have any color
                                                              // texture, can you change this behavior and display a default texture of your choice when this happens?
@@ -437,6 +470,7 @@ void Model::LoadModel(std::string_view file) {
                                                              vertexOffset,
                                                              indexOffset,
                                                      });
+
                 // Apply the node transformation and emplace it to the vector
                 cgltf_node_transform_world(node, glm::value_ptr(_transforms.emplace_back()));
                 // Increment the vertex and index byte offset
@@ -448,6 +482,8 @@ void Model::LoadModel(std::string_view file) {
             {
                 nodes.push(node->children[j]);
             }
+
+
         }
     }
 
@@ -493,6 +529,7 @@ void Model::LoadModel(std::string_view file) {
     glEnableVertexArrayAttrib(_vao, 1);
     glEnableVertexArrayAttrib(_vao, 2);
     glEnableVertexArrayAttrib(_vao, 3);
+
 
     // Tell OpenGL how to interpret each vertex attribute
     //                              location          components  type      transpose  offset

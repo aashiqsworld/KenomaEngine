@@ -50,6 +50,9 @@ bool KenomaEngine::Load()
     }
     glfwSetKeyCallback(_windowHandle, KeyboardInputCallback);
 
+    // --- framebuffer initialization --------
+
+
 
 
 //    litShader.LoadShader("./data/shaders/lit.vs.glsl", "./data/shaders/lit.fs.glsl", true);
@@ -62,8 +65,8 @@ bool KenomaEngine::Load()
     unlitMaterial.SetShader();
     outlineMaterial.SetShader();
     outlineMaterial.outline = true;
+    outlineMaterial.outlineScale = 1.01;
 
-//     _scene.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
     _models.emplace_back("./data/models/AntiqueCameraTangents/AntiqueCamera.gltf", "AntiqueCamera");
     _models.emplace_back("./data/models/gltfCube/BoxWithSpaces.gltf");
     _models[1].Scale(0.05, 0.05, 0.05);
@@ -72,8 +75,13 @@ bool KenomaEngine::Load()
     _models.emplace_back(Model("./data/models/DamagedHelmetTangents/DamagedHelmet.gltf",
                                "DamagedHelmet"));
 //    _models.emplace_back("./data/models/FireExtinguisher/FireExtinguisher.gltf");
+//    _models.emplace_back("./data/models/SM_Deccer_Cubes_Textured_Complex.gltf");
+
 //    _models.emplace_back("./data/models/Capsule/Capsule.gltf");
-//    _models.emplace_back("./data/models/Quad/quad.gltf");
+//    _models.emplace_back("./data/models/Plane/plane.gltf", "Plane");
+    _models.emplace_back("./data/models/TwoSidedPlane/TwoSidedPlane.gltf", "Plane");
+    _models[3].Scale(10, 10, 10);
+    _models[3].Translate(0, -1, 0);
 
 //    _models[2].Translate()
 //    _models.emplace_back(Model("./data/models/Cube/Cube.gltf"));
@@ -89,12 +97,14 @@ void KenomaEngine::Update(float deltaTime)
 
 void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
 {
-    const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
-    const auto view = camera.GetViewMatrix();
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     glDepthFunc(GL_LESS);
 
 
+
+    const auto projection = glm::perspective(glm::radians(camera.Zoom), 1920.0f / 1080.0f, 0.1f, 256.0f);
+    const auto view = camera.GetViewMatrix();
 
     // local data
     glm::vec3 pointLightPositions[] = {
@@ -177,12 +187,15 @@ void KenomaEngine::RenderScene([[maybe_unused]] float deltaTime)
     glStencilFunc(GL_ALWAYS, 1, 0xFF); // all fragments should pass the stencil test
     glStencilMask(0xFF); // enable writing to the stencil buffer
     litMaterial.Draw(_models[2]);
+    litMaterial.Draw(_models[3]);
+
 
     glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
     glStencilMask(0x00); // disable writing to the stencil buffer
     glDisable(GL_DEPTH_TEST);
     outlineMaterial._shader->Bind();
     outlineMaterial.Draw(_models[2]);
+
     // draw scaled up objects here
 
     glStencilMask(0xFF);
@@ -292,10 +305,7 @@ void KenomaEngine::ProcessKeyboardInput(GLFWwindow *window, float deltaTime)
         Close();
     }
 
-//    if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && mouseVisible)
-//    {
 
-//    }
 
     float cameraSpeed = 2.5f * deltaTime;
     if(IsKeyPressed(GLFW_KEY_LEFT_SHIFT) || IsKeyPressed(GLFW_KEY_RIGHT_SHIFT))

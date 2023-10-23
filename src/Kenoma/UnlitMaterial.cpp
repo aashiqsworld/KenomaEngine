@@ -17,7 +17,6 @@ void UnlitMaterial::Draw(Model &model) {
 
     std::vector<glm::mat4>* transforms;
 
-
     if(!outline)
     {
         transforms = &model._worldSpaceTransforms;
