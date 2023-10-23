@@ -44,6 +44,7 @@ private:
     LitMaterial litMaterial;
     UnlitMaterial unlitMaterial, outlineMaterial;
 
+    unsigned int cubemapID;
 
     float _elapsedTime = 0.0f;
 

@@ -193,15 +193,23 @@ void Model::LoadModel(std::string_view file) {
     for (uint32_t i = 0; i < model->materials_count; ++i) // For each material
     {
         const auto& material = model->materials[i];
+
+        cgltf_image* image;
+        std::string texturePath;
         // Get the material's base color texture
-        if(material.pbr_metallic_roughness.base_color_texture.texture == NULL)
+        if(material.pbr_metallic_roughness.base_color_texture.texture != nullptr)
         {
-            continue;
+            image = material.pbr_metallic_roughness.base_color_texture.texture->image;
+            // Find its texture path
+            texturePath =  FindTexturePath(basePath, image);
+        }
+        else
+        {
+            // Find its texture path
+            texturePath = "./data/textures/DefaultWhite.png";
         }
 
-        auto* image = material.pbr_metallic_roughness.base_color_texture.texture->image;
-        // Find its texture path
-        auto texturePath =  FindTexturePath(basePath, image);
+
         if (!textureIds.contains(texturePath)) // check if the texture is already loaded
         {
             // If we already loaded the texture, go onto the next material
@@ -237,13 +245,17 @@ void Model::LoadModel(std::string_view file) {
         }
 
         // load normal texture
-        if(material.normal_texture.texture == NULL)
+        if(material.normal_texture.texture != NULL)
         {
-            continue;
+            image = material.normal_texture.texture->image;
+            // Find its texture path
+            texturePath = FindTexturePath(basePath, image);
         }
-        image = material.normal_texture.texture->image;
-        // Find its texture path
-        texturePath = FindTexturePath(basePath, image);
+        else
+        {
+            texturePath = "./data/textures/DefaultNormal.png";
+        }
+
         if (!textureIds.contains(texturePath)) // check if the texture is already loaded
         {
             uint32_t texture;
@@ -278,6 +290,10 @@ void Model::LoadModel(std::string_view file) {
         }
     }
 
+    if(model->materials_count == 0)
+    {
+        // load default material
+    }
 
     uint32_t transformIndex = 0;
     size_t vertexOffset = 0;
@@ -316,7 +332,7 @@ void Model::LoadModel(std::string_view file) {
                 const glm::vec3* positionPtr = nullptr;
                 const glm::vec3* normalPtr = nullptr;
                 const glm::vec2* uvPtr = nullptr;
-                const glm::vec4* tangentPtr = nullptr;
+                const glm::vec3* tangentPtr = nullptr;
                 uint64_t vertexCount = 0;
                 // Get its vertex data
                 for (uint32_t k = 0; k < primitive.attributes_count; ++k)
@@ -348,7 +364,8 @@ void Model::LoadModel(std::string_view file) {
 
                         case cgltf_attribute_type_tangent:
                             // Set the `tangentPtr`
-                            tangentPtr = (const glm::vec4*)(dataPtr + view->offset + accessor->offset);
+                            tangentPtr = (const glm::vec3*)(dataPtr + view->offset +
+                                    accessor->offset);
                             break;
 
                         default: break;
@@ -427,6 +444,7 @@ void Model::LoadModel(std::string_view file) {
                     }
                 }
 
+
                 // Get the primitive's material base color texture path
                 std::string baseColorURI;
                 if(primitive.material != nullptr)
@@ -482,6 +500,7 @@ void Model::LoadModel(std::string_view file) {
             {
                 nodes.push(node->children[j]);
             }
+
 
 
         }
@@ -561,6 +580,8 @@ void Model::LoadModel(std::string_view file) {
                 info.indices.size() * sizeof(uint32_t),
                 info.indices.data());
         _meshes.emplace_back(info);
+
+
     }
 }
 
