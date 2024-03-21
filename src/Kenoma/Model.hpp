@@ -5,6 +5,7 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
+
 #include <string>
 #include <vector>
 #include "Shader.hpp"
@@ -36,7 +37,7 @@ public:
     ~Model();
 
     void LoadModel(std::string_view file);
-    void Draw(Shader& shader);
+    bool LoadTexture(const std::string& texturePath);
     void UpdateTransforms();
     uint32_t GetNumMeshes();
     uint32_t GetNumVertices();

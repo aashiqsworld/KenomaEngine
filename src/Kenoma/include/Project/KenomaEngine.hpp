@@ -14,11 +14,12 @@
 #include "Mesh.hpp"
 #include "Model.hpp"
 #include "GameObject.hpp"
+#include "Cubemap.hpp"
 #include "../../../Kenoma.Engine/include/Project.Library/Application.hpp"
 #include "Light.hpp"
 #include "LitMaterial.hpp"
 #include "UnlitMaterial.hpp"
-
+#include "EngineTools.hpp"
 
 class KenomaEngine final : public Application
 {
@@ -44,7 +45,7 @@ private:
     LitMaterial litMaterial;
     UnlitMaterial unlitMaterial, outlineMaterial;
 
-    unsigned int cubemapID;
+    Cubemap cubemap;
 
     float _elapsedTime = 0.0f;
 

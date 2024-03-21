@@ -1,3 +1,8 @@
+/**
+ * KenomaEngine.cpp
+ * The main class for the engine. Controls the GameObject loop and calls all the render functions.
+ */
+
 #define CGLTF_IMPLEMENTATION
 #include <cgltf.h>
 #define STB_IMAGE_IMPLEMENTATION
@@ -25,6 +30,8 @@
 
 namespace fs = std::filesystem;
 
+
+
 // global var declarations
 bool exitApplication = false;
 bool mouseVisible = false;
@@ -49,39 +56,6 @@ bool KenomaEngine::Load()
         return false;
     }
     glfwSetKeyCallback(_windowHandle, KeyboardInputCallback);
-
-    // --- cubemap init ---
-    glGenTextures(1, &cubemapID);
-    glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapID);
-
-    int width, height, nChannels;
-    unsigned char *data;
-    std::vector<std::string> cubemapFaces
-    {
-        "./data/textures/cubemap/right.jpg",
-        "./data/textures/cubemap/left.jpg",
-        "./data/textures/cubemap/top.jpg",
-        "./data/textures/cubemap/bottom.jpg",
-        "./data/textures/cubemap/front.jpg",
-        "./data/textures/cubemap/back.jpg"
-    };
-
-    for(unsigned int i = 0; i < cubemapFaces.size(); i++)
-    {
-        data = stbi_load(cubemapFaces[i].c_str(), &width, &height, &nChannels, 0);
-        glTexImage2D(
-            GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
-            0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data
-            );
-    }
-
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-    // --- ---
-
 
     litMaterial.SetShader();
     unlitMaterial.SetShader();

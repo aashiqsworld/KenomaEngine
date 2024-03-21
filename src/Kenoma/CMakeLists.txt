@@ -36,6 +36,15 @@ set(sourceFiles
         Material.hpp
         UnlitMaterial.cpp
         UnlitMaterial.hpp
+        EngineTools.cpp
+        EngineTools.hpp
+        EngineTools.hpp
+        EngineTools.cpp
+        Asset.hpp
+        Asset.hpp
+        Asset.hpp
+        Cubemap.hpp
+        Cubemap.cpp
 )
 
 add_executable(KenomaEngine ${sourceFiles})

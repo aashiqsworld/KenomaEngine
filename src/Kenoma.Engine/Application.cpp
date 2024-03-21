@@ -1,3 +1,9 @@
+/**
+ * Application.cpp
+ * The base class that the engine is built on. Contains low-level functions for maintaining the
+ * application window and input events and such.
+ */
+
 #include <Project.Library/Application.hpp>
 
 #include <spdlog/spdlog.h>
