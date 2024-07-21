@@ -15,7 +15,6 @@ Libraries used: glfw, glad, dear imgui, spdlog tracy, cgltf, stbi
 - Back-face culling
 - Real-time renderer with camera controls
 - Depth and stencil tests
-- 
 - More features coming soon!
 
 special thanks to learnopengl.com and deccer
